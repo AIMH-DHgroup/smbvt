@@ -1,0 +1,32 @@
+#model-div {
+    width: 75%;
+    text-align: center;
+}
+
+#models-available {
+    width: fit-content;
+    margin: 2px;
+}
+
+.centered {
+    display: inline-block;
+    width: 15%;
+    margin: 0 auto;
+}
+
+#upload-model {
+    width: fit-content;
+    margin: 2px;
+}
+
+#model-input {
+    display: none;
+}
+
+#form-model {
+    margin: auto;
+    padding: 10px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}

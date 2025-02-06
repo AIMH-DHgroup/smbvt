@@ -1,0 +1,19 @@
+.sectionSlide {height: 100vh !important; overflow-y:auto !important}
+
+body{overflow: hidden !important}
+
+.zoomIn {color: black !important;
+    border: 3px solid black;
+    background-color: rgba(255, 255, 255, 0.4);
+    /* opacity: 0.6; */
+    border-radius: 25px;}
+	
+	
+	.storymap-scroll-top{cursor: pointer;
+    z-index: 1001;
+    font-size: 4vw !important;
+    
+    text-shadow: 0 1px 1px rgba(197, 197, 197, 0.95);}
+	
+
+.zoomIn:hover{background-color: rgba(0, 0, 0, 0.4);}

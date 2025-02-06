@@ -1,0 +1,431 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">	
+    <title id="page-title"></title>
+	<link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="lib/timeline.css" />
+    <link rel="stylesheet" type="text/css" href="lib/narra.css" />
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <script>UPLOADCARE_PUBLIC_KEY = "3f6e14a63f98b48f1e3d";</script>
+    <script src="https://ucarecdn.com/libs/widget/2.10.3/uploadcare.full.min.js" charset="utf-8"></script>
+    <script src="lib/es6-shim.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="lib/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="lib/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="lib/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="lib/bib-parser.js" type="text/javascript" charset="utf-8"></script>
+    <script src="lib/typeahead.bundle.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="lib/image-tools.js" type="text/javascript" charset="utf-8"></script>
+    <script src="lib/timeline-min.js" type="text/javascript" charset="utf-8"></script>
+ 
+
+
+
+	<link rel="stylesheet" href="https://cdn.knightlab.com/libs/storymapjs/latest/css/storymap.css">
+	<script type="text/javascript" src="lib/storymap.js"></script>
+
+
+
+	
+	<script src="lib/demo-narraMaps3Nuovo.js" type="text/javascript" charset="utf-8"></script>
+
+	<style>
+	#mapdiv{
+		width: 100%;
+		height: 84%;
+		margin-top: .5%;
+		display: none;
+	}
+	
+	#digobjTitle{text-align: left;}
+	
+	/*button delete Narrative (in menu dropdown)*/
+	.narra-list-item .deleteButton:hover{transform: scale(1.05); background-color:rgba(255, 0, 0, 1);}
+	.narra-list-item{position:relative;}
+	.narra-list-item .deleteButton{ top: 21%; text-align: center; right: 2% !important; cursor:pointer; background-color:rgba(255, 0, 0, 0.4); width: 2.3vh !important; left:auto !important}
+	.narra-list-item .data:hover {position: static !important}
+	
+	
+	/*Only for tool.html (menu dropdown under MY NARRATIVES tab) for correcting min-height topTitle*/
+	.dropdown {
+		top: -5% ;
+	}
+	
+	#eventImageInput{border:0px !important; margin-top:0px !important;}
+	
+	
+	/*for top button menu*/
+	.dropdown{top: 0px !important}
+	.top-btn{position: absolute !important}
+	.dropdown-menu-right{max-height: 65vh; overflow: auto;}
+	
+	
+	/*hide scrollbar */
+ body::-webkit-scrollbar { 
+    display: none; 
+}
+	
+	</style>
+	
+	<!--FONT AWESOME-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+	
+
+
+</head>
+<body onscroll="$('.popover').hide()">
+	<div class="spinner" style="position: fixed; top: 50%; left: 50%; margin-left: -40px; margin-top: -20px;">
+	  <div class="bounce1"></div>
+	  <div class="bounce2"></div>
+	  <div class="bounce3"></div>
+	</div>
+	
+	<!--
+	<div class="dropdown">
+    	<div id="home" class="btn btn-primary nav top-btn">HOME</div>
+		<div id="userName" class="btn btn-primary nav top-btn"></div>
+
+		<div id="userMenu" class="btn btn-primary dropdown-toggle nav top-btn" type="button" data-toggle="dropdown">MY NARRATIVES</div>
+		<ul class="dropdown-menu dropdown-menu-right">
+			<div id="narratives-menu">
+				<li id="my-narratives" class="dropdown-header">My Narratives</li>
+			</div>
+			<div id="account-menu">
+				<li class="dropdown-header">My Account</li>
+				<li class="narra-list-item"><a class="data" onclick="confirmLogout();">Logout</a></li>-->
+				<!--<li class="narra-list-item"><a class="data">Account Settings</a></li>-->
+			<!--</div>
+		</ul>
+	</div>
+	-->
+	<div id="header">
+		<div id="logo-container">
+			<img id="logo" src="img/aimh-lab.png" alt="AIMH-Lab logo" width="100" height="100"/>
+			<span id="SMBVT" class="not-selectable">SMBVT</span>
+		</div>
+		<div id="event-title" onscroll="$('.popover').hide()">
+			<h2 class="subjectName" id="bigName"></h2><button id="buttonSaveTitle" onclick="confirmUpdateTitle();"><i class="fa-solid fa-pen"></i></button>  <!-- <i class="fa fa-edit"></i> -->
+		</div>
+		<div id="central-nav">
+			<div class="nav not-selectable" id="addButton" onclick="switchContainerEventType();"><span>New Event</span></div>
+			<div class="nav not-selectable" id="saveButton" onclick="var evid = saveEvent(); if (evid !== undefined) { displayEvent(undefined, evid);}"><span>Save Event</span></div> <!--resetWorkspace();-->
+			<div class="nav not-selectable" id="cancelButton" onclick="confirmReset();"><span>Clear Form</span></div>
+			<!--<div class="nav"><label id="loadBibButton">LOAD BIB<input type="file" id="file-input" onchange="loadBibFile(event)"/></label></div>-->
+
+			<!--<div class="nav" id="relButton" onclick="openRelations()"><span>RELATIONS</span></div> -->
+			<div class="nav not-selectable" id="visMapButton" onclick="confirmVisualizeMap();"><span>Map Preview</span></div>
+			<div class="nav not-selectable" id="visTimeButton" onclick="confirmVisualizeTimeline();"><span>Timeline Preview</span></div>
+			<div class="nav not-selectable" id="exportOWLButton" onclick="downloadOwl();"><span>Download OWL</span></div>
+			<div class="nav not-selectable" id="exportButton"><span>Download JSON</span></div>
+
+			<!-- <div class="nav buttonPublishMap" id="tripButton" onclick="publishNarration()">
+				<div id="floatingCirclesG" style="display: none">
+					<div class="f_circleG" id="frotateG_01"></div>
+					<div class="f_circleG" id="frotateG_02"></div>
+					<div class="f_circleG" id="frotateG_03"></div>
+					<div class="f_circleG" id="frotateG_04"></div>
+					<div class="f_circleG" id="frotateG_05"></div>
+					<div class="f_circleG" id="frotateG_06"></div>
+					<div class="f_circleG" id="frotateG_07"></div>
+					<div class="f_circleG" id="frotateG_08"></div>
+				</div>
+			</div> -->
+			<div class="nav buttonPublishMap not-selectable" id="publish-story-container" onclick="publishNarration()">
+				<div id="loading"><img src="img/spinner.gif" alt="Loading icon" height="28px" width="28px"></div>
+				<span>Publish Story</span>
+			</div>
+			<a class="not-selectable" id="helpStorymap_aTag" href="Short_Guide/Short Guide to use SMBVT.pdf" target="_blank"><div class="nav" id="helpStorymap"><span>Help</span></div></a>
+			<div id="account-list" class="dropdown">
+				<button id="account-btn" class="dropdown-toggle not-selectable" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Control Panel</button>
+				<div class="dropdown-menu not-selectable" aria-labelledby="account-btn" id="dropdown-menu-header">
+					<p id="welcome">Welcome, <span id="userName"></span></p>  <!-- class="btn btn-primary header-nav-btn" -->
+					<div id="home" class="btn btn-primary header-nav-btn">Return to Home</div>
+					<!--<button id="userMenu" class="btn btn-primary dropdown-toggle nav header-nav-btn" data-toggle="dropdown">MY NARRATIVES</button>-->
+					<div id="narratives-menu">
+						<ul class="dropdown-menu-right" id="my-narratives-list">
+							<li id="my-narratives" class="dropdown-header">My Narratives</li>
+						</ul>
+					</div>
+					<div id="account-menu">
+						<ul id="my-account-list">
+							<li class="dropdown-header">My Account</li>
+							<li class="narra-list-item"><a class="data" onclick="confirmLogout();">Logout</a></li>
+							<!--<li class="narra-list-item"><a class="data">Account Settings</a></li>-->
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="alert alert-success" role="alert" id="saved-form">
+		<span id="success-text" class="not-selectable">Event saved successfully!</span>
+    </div>
+	<div class="alert alert-warning" role="alert" id="failed-form">
+		<span id="failed-text" class="not-selectable">Error, event not saved correctly!</span>
+    </div>
+
+	<div class="alert alert-success" role="alert" id="clear-form">
+		<span id="clear-success-text" class="not-selectable">Workspace cleared!</span>
+    </div>
+	<div class="alert alert-warning" role="alert" id="failed-clear">
+		<span id="clear-failed-text" class="not-selectable">Error, unable to clear form correctly!</span>
+    </div>
+
+	<div class="alert alert-success" role="alert" id="load-event">
+		<span id="load-text" class="not-selectable">Event loaded successfully!</span>
+    </div>
+
+	<div class="alert alert-success" role="alert" id="delete-event">
+		<span id="delete-text" class="not-selectable">Event deleted successfully!</span>
+    </div>
+
+	<div class="alert alert-warning" role="alert" id="failed-owl">
+		<span id="owl-text" class="not-selectable">Error! Please, publish the story before downloading the OWL file.</span>
+    </div>
+	
+	<div id="auth-div" style="display: none">
+		<form id="auth-form" class="form-signin">
+			<h2 class="form-signin-heading">Please sign in</h2>
+			<label for="inputName" class="sr-only">Username</label>
+			<input type="text" id="inputName" class="form-control" placeholder="Username" required="" autofocus="">
+			<label for="inputPassword" class="sr-only">Password</label>
+			<input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+			<button id="authButton" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+			<div class="help-inline"></div>
+		</form>
+		<div id="user-pass">You can request username/password at this email address: <a href="mailto:daniele.metilli@isti.cnr.it?subject=NBVT%20login%20credentials">daniele.metilli@isti.cnr.it</a></div>
+	</div>
+  	
+    <!--<div id="topTitle" onclick="$('.popover').hide()" >-->
+		<!--contenteditable="true"-->
+        <!--<h2 class="subjectName" id="bigName"></h2><button id="buttonSaveTitle" onclick="confirmUpdateTitle();"><i class="fa fa-edit"></i></button>
+		
+    </div>
+	-->
+
+
+	
+    
+
+	
+	<div id='timeline-embed'></div>
+	<div id="mapdiv"></div>
+
+	<div id="container" onclick="$('.popover').hide();">
+        <div id="leftNav">
+			<h4 id="entities-title">Entity Classes</h4>
+            <div class="nav toggle-btn-entities" id="allButton" data-class="" onclick="$('#controls .data').show();"><span>All</span></div> <!-- hideSearch(); -->
+            <!-- <div class="nav toggle-btn-entities" id="searchButton" data-class="" onclick="showSearch();"><span>Search</span></div> -->
+            <div class="nav toggle-btn-entities" id="peopleButton" data-class="person" onclick="$('#controls .data').hide(); $('.person').show()"><span>People</span></div>
+            <div class="nav toggle-btn-entities" id="organizationButton" data-class="organization" onclick="$('#controls .data').hide(); $('.organization').show()"><span>Orgs</span></div>
+            <div class="nav toggle-btn-entities" id="objectButton" data-class="object" onclick="$('#controls .data').hide(); $('.object').show()"><span>Objects</span></div>
+            <div class="nav toggle-btn-entities" id="conceptButton" data-class="concept" onclick="$('#controls .data').hide(); $('.concept').show()"><span>Concepts</span></div>
+            <div class="nav toggle-btn-entities" id="placeButton" data-class="place" onclick="$('#controls .data').hide(); $('.place').show()"><span>Places</span></div>
+            <div class="nav toggle-btn-entities" id="workButton" data-class="work" onclick="$('#controls .data').hide(); $('.work').show()"><span>Works</span></div>
+            <div class="nav toggle-btn-entities" id="otherButton" data-class="other" onclick="$('#controls .data').hide(); $('.other').show()"><span>Other</span></div>
+            <h4 id="new-entity-title">New Entity</h4>
+			<div class="nav" id="plusButton" onclick="event.cancelBubble = true; if (event.stopPropagation) event.stopPropagation(); $('#plusButton').popover('show'); $('#secondChoice').show()"><span>New</span></div>
+        </div>
+        <div id="controls" class="back" onscroll="$('.popover').hide()">
+			<h4 id="entities">Entities</h4>
+            <input id="searchInput" placeholder="Search entities..." class="input-append" onkeyup="searchEntity()">
+			<span id="entities-not-selected">No selected classes</span>
+            <div class="spinner-loader"></div>
+        </div>
+		<div id="event-type">
+			<div id="type-choice" class="back">
+				<span id="type-choice-title" class="not-selectable">Choose the type of the event:</span>
+				<div id="event-type-buttons">
+					<button id="map-event" class="nav not-selectable" onclick="loadEventType('map');"><i id="map-icon" class="fa-solid fa-map"></i>Map</button>
+					<button id="sketch-event" class="nav not-selectable" onclick="loadEventType('sketchfab');"><img id="sketch-icon" src="img/sketchfab.png" alt="Sketchfab icon" width="20px" height="20px"/>Sketchfab</button>
+					<button id="slide-event" class="nav not-selectable" onclick="loadEventType('slide');"><i id="slide-icon" class="fa-solid fa-file-powerpoint"></i>Slide</button>
+				</div>
+				<div id="exit-type">
+					<button id="exit-button" class="nav not-selectable" onclick="returnToInterface();">Return back</button>
+				</div>
+			</div>
+		</div>
+        <div id="workspace" class="back" onscroll="$('.popover').hide()">
+			<h4 id="form-title">Event informations</h4>
+            <form class="center workspaceForm" role="form" id="event-form">
+				<div class="form-group" id="title-group">
+					<label for="inputDiv" class="entitiesLabel">Title</label>
+                	<input autocomplete="off" id="eventTitle" class="input-append form-control" required>
+				</div>
+
+				<div class="form-group form-table" id="date-group">
+	                <div id="datePickerStart" class="dateDiv input-group">
+	                	<label for="dateInputStart" class="entitiesLabel dateLabel form-inline">Start date <span style="font-size: 13px">(dd-mm-yy or yyyy)</span></label>
+						<div>
+	                    	<input autocomplete="off" data-format="yyyy-MM-dd" type="text" class="input-append dateInput form-control" id="dateInputStart" onfocus="$(this).css('color', '#333')" ><!-- placeholder="DD-MM-YYYY">-->
+						</div>
+	                </div>
+	                <div id="datePickerEnd" class="dateDiv input-group">
+	                	<label for="dateInputEnd" class="entitiesLabel dateLabel">End date <span style="font-size: 13px">(dd-mm-yy or yyyy)</span></label>
+						<div>
+	                    	<input autocomplete="off" data-format="yyyy-MM-dd" type="text" class="input-append dateInput form-control" id="dateInputEnd" onfocus="$(this).css('color', '#333')"><!-- placeholder="DD-MM-YYYY">-->
+						</div>
+	                </div>
+				</div>
+
+				<div class="form-group form-table" id="coors-map">
+	                <div id="latit" class="dateDiv input-group">
+	                	<label for="dateInputStart" class="entitiesLabel dateLabel form-inline">Latitude point <span style="font-size: 13px">(e.g. 43.9930)</span></label>
+						<div>
+	                    	<input autocomplete="off"  type="text" class="input-append dateInput form-control" id="latitud" onfocus="$(this).css('color', '#333')"><!-- placeholder="DD-MM-YYYY">-->
+						</div>
+	                </div>
+	                <div id="longit" class="dateDiv input-group">
+	                	<label for="dateInputEnd" class="entitiesLabel dateLabel">Longitude point <span style="font-size: 13px">(e.g. 10.31055)</span></label>
+						<div>
+	                    	<input autocomplete="off"  type="text" class="input-append dateInput form-control" id="longitud" onfocus="$(this).css('color', '#333')"><!-- placeholder="DD-MM-YYYY">-->
+						</div>
+	                </div>
+					<button id="openPopupSearchCoordinates" onclick="openPopupMap()" class="btn btn-default" type="button">Find from map</button>
+				</div>
+
+                <div class="form-group form-table" id="poligon">
+
+					<div id="poligon-label-group" class="input-group">
+						<label for="poligonArea" class="entitiesLabel">Polygon (WKT)</label>
+						<textarea id="poligonArea" class="form-control"></textarea>
+					</div>
+
+					<button id="openPopupDrawPolygon" onclick="window.open('HTML/drawPolygons.html', 'Draw_Polygons', 'width=900,height=700')" class="btn btn-default" type="button">Draw polygons on map</button> <!-- style="width: 100%; -->
+                </div>
+
+<!-- 				<div class="form-group">
+					<label for="inputDiv" class="entitiesLabel">EVENT TYPOLOGY</label>
+					<select id="markerMapColor" class="input-append form-control">
+						<option id="mapmarker#a5a5a5" value="#a5a5a5" selected></option>
+						<option id="mapmarker#ffff33" value="#e6e600">Historical</option>
+						<option id="mapmarker#00e600" value="#2eb82e">Natural</option>
+						<option id="mapmarker#ff9900" value="#ff9900">Productive/Valorisation</option>
+					</select>
+				</div> -->
+
+				<div class="form-group" id="place-group">
+					<label for="inputDiv" class="entitiesLabel">Place label</label>
+                	<input autocomplete="off" id="placeLabel" class="input-append form-control"  style="font-size:14px; text-align: left !important;">
+				</div>
+
+                <div id="typeDiv" class="typeDiv ui-front form-group">
+                	<label for="typeInput" class="entitiesLabel">Event type</label>
+                    <input autocomplete="off"  type="text" class="input-append form-control" id="typeInput" autocomplete="off" required>
+                </div>
+
+                <label for="inputDiv" id="entitiesLabel" class="entitiesLabel">Entities</label>
+                <div class="form-control form-table" id="entitiesDiv">
+                    <div id="inputDiv">
+                        <div autocomplete="off" id="inputHelp">Drop entities here!</div>
+                    </div>
+                </div>
+
+                <div class="form-group form-table" id="descDiv">
+                	<label for="descArea" class="entitiesLabel">Description</label>
+                    <textarea id="descArea" class="form-control"></textarea>
+                </div>
+
+                <div class="form-group form-table" id="even-source-div">
+                	<label for="event-source" class="entitiesLabel">Source</label>
+                    <textarea id="event-source" class="form-control"></textarea>
+                </div>
+
+				<div class="form-group" id="image-group">
+					<div id="image-label-group" class="form-group">
+						<label for="inputDiv" class="entitiesLabel">Add media URL or upload image from disk (max 2 MB)</label>
+                		<input autocomplete="off" id="eventMedia" class="input-append form-control" placeholder="Insert URL of media (e.g. wikipedia image or youtube video)" style="font-size:14px; text-align: left !important;">
+					</div>
+
+					<div id="button-image-div" class="form-group">
+						<button id="selectEventLocalImage" onclick="document.getElementById('eventImageInput').click()" class="btn btn-default" type="button" style="overflow:hidden">Select Image</button>
+					</div>
+					<input  style="display:none;" type="file" id="eventImageInput"  name="eventImage">
+
+				</div>
+
+				<div class="form-group" id="caption-group">
+					<label for="inputDiv" class="entitiesLabel">Media URL caption</label>
+                	<input autocomplete="off" id="eventMediaCaption" class="input-append form-control"  style="font-size:14px; text-align: left !important;">
+				</div>
+
+                <div class="input-group" id="digobjDiv">
+                	<label for="digobjInput" class="entitiesLabel">Digital objects</label>
+                    <input autocomplete="off" type="url" class="form-control" id="digobjInput" placeholder="Insert URL of digital object">
+					<input autocomplete="off" type="url" class="form-control" id="digobjTitle" placeholder="Insert Title of digital object">
+					<span class="input-group-btn">
+					   <button id="digObjButton" class="btn btn-default" type="button">Add</button>
+					</span>
+                </div>
+				<div id="digobjTable"></div>
+
+				<div class="form-group" id="position-group">
+					<label for="inputDiv" class="entitiesLabel">Position</label>
+					<input type="radio" name="positionRadio" class="radioPositionButton" value="before" id="positionBefore">
+					<label class="radioButtonText" for="positionBefore">Before</label>
+					<input type="radio" name="positionRadio" class="radioPositionButton" value="after" id="positionAfter">
+					<label class="radioButtonText" for="positionAfter">After</label>
+					<select id="positionEvent" class="input-append form-control"></select>
+				</div>
+				<div class="form-group" id="id-group">
+					<label for="inputDiv" class="entitiesLabel">Model ID</label>
+                	<input autocomplete="off" id="id-text" class="input-append form-control">
+				</div>
+				<div class="form-group" id="number-group">
+					<label for="inputDiv" class="entitiesLabel">Number of the interested position</label>
+                	<input autocomplete="off" id="number-text" class="input-append form-control">
+				</div>
+
+            </form>
+        </div>
+        <!--<div id="rightNav">
+            <div class="nav" id="saveButton" onclick="var evid = saveEvent(); if (evid !== undefined) { displayEvent(undefined, evid); resetWorkspace();}"><span>SAVE FORM</span></div>
+            <div class="nav" id="cancelButton" onclick="confirmReset();"><span>CLEAR FORM</span></div>
+            --><!--<div class="nav"><label id="loadBibButton">LOAD BIB<input type="file" id="file-input" onchange="loadBibFile(event)"/></label></div>-->
+         
+			<!--<div class="nav" id="relButton" onclick="openRelations()"><span>RELATIONS</span></div> -->
+			 <!--<div class="nav" id="visMapButton" onclick="confirmVisualizeMap()"><span>VISUALIZE MAP</span></div>
+ 		   	<div class="nav" id="visTimeButton" onclick="confirmVisualizeTimeline()"><span>VISUALIZE TIMELINE</span></div>
+			<div class="nav" id="exportButton"><span>EXPORT TO JSON</span></div>
+
+			
+ 		   	<div class="nav buttonPublishMap" id="tripButton" onclick="publishNarration()">
+				<div id="floatingCirclesG" style="display: none">
+					<div class="f_circleG" id="frotateG_01"></div>
+					<div class="f_circleG" id="frotateG_02"></div>
+					<div class="f_circleG" id="frotateG_03"></div>
+					<div class="f_circleG" id="frotateG_04"></div>
+					<div class="f_circleG" id="frotateG_05"></div>
+					<div class="f_circleG" id="frotateG_06"></div>
+					<div class="f_circleG" id="frotateG_07"></div>
+					<div class="f_circleG" id="frotateG_08"></div>
+				</div>
+				<span>PUBLISH STORY</span>
+			</div>
+				<a id="helpStorymap_aTag" href="Short_Guide/Short Guide to use SMBVT.pdf" target="_blank"><div class="nav" id="helpStorymap"><span>HELP</span></div></a>
+        </div>-->
+		<div id="sidebar" onscroll="$('.popover').hide()">
+			<h4 id="sidebar-title">Events</h4>
+			<div id="eventSearchDiv" style="margin-top: 1.5%;text-align: center;">
+				<input placeholder="Filter events" id="eventSearch" type="text" style="width:50%; border-radius:25px">
+			</div>
+
+			<div id="event-counter" class="not-selectable">
+				<span id="counter-text">Number of created events: </span><span id="events-counter"></span>
+				<span id="no-events">No created events</span>
+			</div>
+
+			<div id="timeline" onclick="$('.popover').hide();"></div>
+			<div id="overlay" onclick="$('.popover').hide();"></div>
+			<div id="relHelpContainer" class="centered" onclick="$('.popover').hide();">
+				<h2 class="relHelp"><span class="arrow">⬆</span> Drag events into the boxes above <span class="arrow">⬆</span></h2>
+			</div>
+			<div id="bottomTimeline" onclick="$('.popover').hide();"></div>
+		</div>
+    </div>
+	
+</body>
+</html>

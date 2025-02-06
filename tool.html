@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">	
+    <title id="page-title">SMBVT Tool</title>
+	<link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap.min.css" >
+    <link rel="stylesheet" type="text/css" href="lib/timeline.css" >
+    <link rel="stylesheet" type="text/css" href="lib/narra.css" >
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <script>UPLOADCARE_PUBLIC_KEY = "3f6e14a63f98b48f1e3d";</script>
+    <script src="https://ucarecdn.com/libs/widget/2.10.3/uploadcare.full.min.js"></script>
+    <script src="lib/es6-shim.min.js"></script>
+    <script src="lib/jquery-3.2.1.min.js"></script>
+    <script src="lib/jquery-ui.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <script src="lib/bib-parser.js"></script>
+    <script src="lib/typeahead.bundle.min.js"></script>
+	<script src="lib/image-tools.js"></script>
+    <script src="lib/timeline-min.js"></script>
+
+	<link rel="stylesheet" href="https://cdn.knightlab.com/libs/storymapjs/latest/css/storymap.css">
+	<script src="lib/storymap.js"></script>
+
+	<script src="lib/demo-narraMaps3Nuovo.js"></script>
+	
+	<!--FONT AWESOME-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+<body onscroll="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); resetEntityPopover(); hideEntityPopover();"
+onclick="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); resetEntityPopover(); hideEntityPopover();">
+	<div class="spinner" style="position: fixed; top: 50%; left: 50%; margin-left: -40px; margin-top: -20px;">
+	  <div class="bounce1"></div>
+	  <div class="bounce2"></div>
+	  <div class="bounce3"></div>
+	</div>
+
+	<div id="header">
+		<div id="logo-container">
+			<img id="logo" src="img/aimh-lab.png" alt="AIMH-Lab logo" width="100" height="100">
+			<span id="SMBVT" class="not-selectable">SMBVT</span>
+		</div>
+		<div id="central-div-header">
+			<div id="event-title" onscroll="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); resetEntityPopover(); hideEntityPopover();">
+				<h2 class="subjectName" id="bigName">Narration Title</h2>
+				<div id="title-cover-page-div">
+					<button id="buttonSaveTitle" onclick="confirmUpdateTitle();"><i class="fa-solid fa-pen"></i></button>
+					<button type="button" id="cover-page" onclick="confirmCoverPage();" data-toggle='tooltip' data-original-title="Change the narrative cover image"><i class="fa-regular fa-image"></i></button>
+				</div>
+			</div>
+			<div id="central-nav">
+				<div class="nav not-selectable" id="addButton" onclick="switchContainerEventType(false, true);"><span>New Event</span></div>
+				<div class="nav not-selectable" id="saveButton" onclick="const evid = saveEvent(undefined); if (evid !== undefined) {displayEvent(undefined, evid);}"><span>Save Event</span></div>
+				<div class="nav not-selectable" id="cancelButton" onclick="confirmReset();"><span>Clear Form</span></div>
+
+				<div class="nav not-selectable" id="visMapButton" onclick="publishNarration(1);"><span>Map Preview</span></div>
+				<div class="nav not-selectable" id="visTimeButton" onclick="confirmVisualizeTimeline();"><span>Timeline Preview</span></div>
+				<div class="nav not-selectable" id="exportOWLButton" onclick="downloadOwl();"><span>Download OWL</span></div>
+				<div class="nav not-selectable" id="exportButton"><span>Download JSON</span></div>
+
+				<div class="nav buttonPublishMap not-selectable" id="publish-story-container" onclick="publishNarration();">
+					<div id="loading"><img src="img/spinner.gif" alt="Loading icon" height="28" width="28"></div>
+					<span>Publish Story</span>
+				</div>
+				<a class="not-selectable" id="helpStorymap_aTag" href="Short_Guide/Short%20Guide%20to%20use%20SMBVT.pdf" target="_blank"><div class="nav" id="helpStorymap"><span>Help</span></div></a>
+			</div>
+		</div>
+		<div id="right-header">
+			<div id="account-list" class="dropdown">
+				<button id="account-btn" class="dropdown-toggle not-selectable nav" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="toggleArrow($('#arrow-panel'));">Control Panel <i class='fa-solid fa-caret-right toggle-arrow' id="arrow-panel"></i></button>
+				<div class="dropdown-menu not-selectable" aria-labelledby="account-btn" id="dropdown-menu-header">
+					<p id="welcome">Welcome, <span id="userName"></span></p>
+					<div id="home" class="btn btn-primary header-nav-btn">Return to Home</div>
+					<div id="narratives-menu">
+						<ul class="dropdown-menu-right" id="my-narratives-list">
+							<li id="my-narratives" class="dropdown-header">My Narratives</li>
+						</ul>
+					</div>
+					<div id="account-menu">
+						<ul id="my-account-list">
+							<li class="dropdown-header">My Account</li>
+							<li class="narra-list-item"><a class="data" onclick="confirmLogout();">Logout</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="alertPlaceholder"></div>
+	
+	<div id="auth-div" style="display: none;">
+		<form id="auth-form" class="form-signin">
+			<h2 class="form-signin-heading">Please sign in</h2>
+			<label for="inputName" class="sr-only">Username</label>
+			<input type="text" id="inputName" class="form-control" placeholder="Username" required="" autofocus="">
+			<label for="inputPassword" class="sr-only">Password</label>
+			<input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+			<button id="authButton" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+			<div class="help-inline"></div>
+		</form>
+		<div id="user-pass">You can request username/password at this email address: <a href="mailto:daniele.metilli@isti.cnr.it?subject=NBVT%20login%20credentials">daniele.metilli@isti.cnr.it</a></div>
+	</div>
+    
+
+	
+	<div id='timeline-embed'></div>
+	<div id="mapdiv"></div>
+
+	<div id="container" onclick="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); resetEntityPopover(); hideEntityPopover();">
+        <div id="leftNav">
+			<h4 id="entities-title">Entity Classes</h4>
+            <div class="nav toggle-btn-entities" id="allButton" data-class="all"><span>All</span></div>
+            <div class="nav toggle-btn-entities" id="peopleButton" data-class="person"><span>People</span></div>
+            <div class="nav toggle-btn-entities" id="organizationButton" data-class="organization"><span>Orgs</span></div>
+            <div class="nav toggle-btn-entities" id="objectButton" data-class="object"><span>Objects</span></div>
+            <div class="nav toggle-btn-entities" id="conceptButton" data-class="concept"><span>Concepts</span></div>
+            <div class="nav toggle-btn-entities" id="placeButton" data-class="place"><span>Places</span></div>
+            <div class="nav toggle-btn-entities" id="workButton" data-class="work"><span>Works</span></div>
+            <div class="nav toggle-btn-entities" id="otherButton" data-class="other"><span>Other</span></div>
+            <h4 id="new-entity-title">New Entity</h4>
+			<div class="nav" id="plusButton"><span>New</span></div>
+        </div>
+        <div id="controls" class="back" onscroll="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); resetEntityPopover(); hideEntityPopover();">
+			<h4 id="entities">Entities</h4>
+			<label for="searchInput" style="display: none;"></label>
+			<input id="searchInput" placeholder="Search entities..." class="input-append" onkeyup="searchEntity();">
+			<span id="entities-not-selected">No selected class</span>
+			<span id="no-entities">No entities</span>
+            <div class="spinner-loader"></div>
+        </div>
+		<div id="event-type">
+			<div id="event-type-container" class="back">
+				<h4 id="event-type-title">Create a new event</h4>
+				<div id="type-choice">
+					<div id="event-type-buttons">
+						<button id="map-event" class="nav not-selectable" onclick="loadEventType('map', false, false); $('#workspace').attr('data-evid', nextEvid());"><i id="map-icon" class="fa-solid fa-map"></i>Map</button>
+						<button id="sketch-event" class="nav not-selectable" onclick="loadEventType('sketchfab', false, false); $('#workspace').attr('data-evid', nextEvid());"><img id="sketch-icon" src="img/sketchfab.png" alt="Sketchfab icon" width="20" height="20">Sketchfab</button>
+						<button id="slide-event" class="nav not-selectable" onclick="loadEventType('slide', false, false); $('#workspace').attr('data-evid', nextEvid());"><i id="slide-icon" class="fa-solid fa-file-powerpoint"></i>Slide</button>
+					</div>
+				</div>
+			</div>
+		</div>
+        <div id="workspace" class="back" onscroll="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); resetEntityPopover(); hideEntityPopover();">
+			<div id="event-type-form-container"><span id="event-type-icon"></span><span id="event-type-text"></span></div>
+			<h4 id="form-title">Event Information</h4>
+			<p id="mandatory-fields-text">(*) are mandatory</p>
+            <form class="center workspaceForm" id="event-form">
+				<div class="form-group" id="title-group">
+					<label for="eventTitle" class="entitiesLabel">Title (*)</label>
+                	<input autocomplete="off" id="eventTitle" class="input-append form-control" required>
+				</div>
+
+				<div class="form-group form-table" id="date-group">
+	                <div id="datePickerStart" class="dateDiv input-group">
+						<div class="tooltip-div">
+	                		<label for="dateInputStart" class="entitiesLabel dateLabel form-inline label-tooltip">Start date</label>
+							<a class="tooltips" data-toggle="tooltip" data-original-title="Supported formats are (dd-mm-yyyy), (mm-dd-yyyy), (yyyy-dd-mm), (yyyy-mm-dd), (yyyy), (-yyyy). Please note that negative years indicate BC."><i class="fa-solid fa-circle-info"></i></a>
+						</div>
+						<div>
+	                    	<input autocomplete="off" data-format="yyyy-MM-dd" type="text" class="input-append dateInput form-control" id="dateInputStart" onfocus="$(this).css('color', '#333');" >
+						</div>
+	                </div>
+	                <div id="datePickerEnd" class="dateDiv input-group">
+						<div class="tooltip-div">
+	                		<label for="dateInputEnd" class="entitiesLabel dateLabel label-tooltip">End date</label>
+							<a class="tooltips" data-toggle="tooltip" data-original-title="If this value is blank, it will be equal to Start date. Additionally, this date cannot be earlier than the first one."><i class="fa-solid fa-circle-info"></i></a>
+						</div>
+						<div>
+	                    	<input autocomplete="off" data-format="yyyy-MM-dd" type="text" class="input-append dateInput form-control" id="dateInputEnd" onfocus="$(this).css('color', '#333');">
+						</div>
+	                </div>
+				</div>
+
+                <div id="typeDiv" class="typeDiv ui-front form-group">
+                	<label for="typeInput" class="entitiesLabel">Event type</label>
+                    <input type="text" class="input-append form-control" id="typeInput" autocomplete="off" required>
+                </div>
+
+                <h5 id="entitiesLabel" class="entitiesLabel">Entities (*)</h5>
+                <div class="form-control form-table" id="entitiesDiv">
+                    <div id="inputDiv">
+                        <div id="inputHelp">Drop entities here!</div>
+                    </div>
+                </div>
+
+				<div class="form-group" id="id-group">
+					<div class="tooltip-div">
+						<label for="id-text" class="entitiesLabel label-tooltip">Model ID (*)</label>
+						<a class="tooltips" href="./img/modelIDExample.png" target="_blank"><i class="fa-solid fa-circle-info"></i></a>
+                		<input autocomplete="off" id="id-text" class="input-append form-control">
+					</div>
+				</div>
+
+				<div class="form-group" id="number-group">
+					<div class="tooltip-div">
+						<label for="number-text" class="entitiesLabel label-tooltip">Sketchfab annotation</label>
+						<a class="tooltips" data-toggle="tooltip" data-original-title="It is the number of the sketchfab annotation."><i class="fa-solid fa-circle-info"></i></a>
+					</div>
+					<input autocomplete="off" id="number-text" class="input-append form-control">
+				</div>
+
+                <div class="form-group form-table" id="descDiv">
+                	<label for="descArea" class="entitiesLabel">Description</label>
+                    <textarea id="descArea" class="form-control"></textarea>
+                </div>
+
+				<div class="form-group form-table" id="backImgDiv">
+					<div class="form-group background-image-group" id="background-image-group">
+						<div id="background-image-label-group" class="form-group background-image-label-group">
+							<div class="tooltip-div">
+								<label for="backImgArea" class="entitiesLabel label-tooltip">Background image</label>
+								<a class="tooltips" data-toggle="tooltip" data-original-title="Default value is black."><i class="fa-solid fa-circle-info"></i></a>
+							</div>
+							<input autocomplete="off" id="backImgArea" type="text" class="input-append form-control" placeholder="Insert URL of an image" style="font-size:14px; text-align: left !important;">
+						</div>
+
+						<div id="button-image-backImg-div" class="form-group button-background-image-div">
+							<button id="selectEventLocalBackgroundImage" onclick="document.getElementById('backImgInput').click();" class="btn btn-default selectEventLocalBackgroundImage" type="button" style="overflow:hidden;">Upload image</button>
+						</div>
+						<input  style="display:none;" type="file" id="backImgInput" class="backImgInput">
+
+					</div>
+                </div>
+
+                <div class="form-group form-table" id="even-source-div">
+                	<label for="event-source" class="entitiesLabel">Source</label>
+                    <textarea id="event-source" class="form-control"></textarea>
+                </div>
+
+                <div class="input-group" id="digobjDiv">
+					<div class="tooltip-div">
+						<label for="digobjInput" class="entitiesLabel label-tooltip">Digital objects</label>
+						<a class="tooltips" data-toggle="tooltip" data-original-title="Insert a link for an in-depth analysis of additional resources to support the event."><i class="fa-solid fa-circle-info"></i></a>
+					</div>
+                    <input autocomplete="off" type="url" class="form-control" id="digobjInput" placeholder="Insert URL of digital object">
+					<label for="digobjTitle" style="display: none;"></label>
+					<input autocomplete="off" type="url" class="form-control" id="digobjTitle" placeholder="Insert title of digital object">
+					<span class="input-group-btn" id="span-add-button-digobj">
+					   <button id="digObjButton" class="btn btn-default" type="button">Add</button>
+					</span>
+                </div>
+				<div id="digobjTable"></div>
+
+				<h5 id="image-title">Images and Video</h5>
+				<div class="form-group choose-media">
+					<input type="radio" id="image-radio" class="radioButtons radioVideoBtn" name="media_type" value="image">
+					<label for="image-radio" class="radioButtonText">Image(s)</label><br>
+					<input type="radio" id="video-radio" class="radioButtons radioVideoBtn" name="media_type" value="video">
+					<label for="video-radio" class="radioButtonText">Video</label><br>
+				</div>
+				<div class="form-group video-caption-group" id="video-caption-group">
+					<div class="form-group video-container" id="video-container">
+						<div class="form-group video-group" id="video-group">
+							<div id="video-label-group" class="form-group video-label-group">
+								<label for="eventVideo" class="entitiesLabel">Add video URL from YouTube (no tiny URL)</label>
+								<input autocomplete="off" id="eventVideo" type="url" class="input-append form-control eventVideo" placeholder="Insert URL of video (e.g. https://www.youtube.com/watch?v=Ev-wcchdDVM)" style="font-size:14px; text-align: left !important;">
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group caption-group" id="caption-group-video">
+						<label for="eventVideoCaption" class="entitiesLabel">Video caption</label>
+						<input autocomplete="off" id="eventVideoCaption" type="text" class="input-append form-control eventMediaCaption"  style="font-size:14px; text-align: left !important;">
+					</div>
+				</div>
+				<div class="form-group image-caption-group" id="image-caption-group">
+					<div class="form-group image-container" id="image-container">
+						<div class="form-group image-group" id="image-group">
+							<div id="image-label-group" class="form-group image-label-group">
+								<label for="eventMedia" class="entitiesLabel">Add image URL or upload one from disk (max 2 MB)</label>
+								<input autocomplete="off" id="eventMedia" type="text" class="input-append form-control eventMedia" placeholder="Insert URL of media (e.g. wikipedia image)" style="font-size:14px; text-align: left !important;">
+							</div>
+
+							<div id="button-image-div" class="form-group button-image-div">
+								<button id="selectEventLocalImage" onclick="document.getElementById('eventImageInput').click();" class="btn btn-default selectEventLocalImage" type="button" style="overflow:hidden;">Upload image</button>
+							</div>
+							<input  style="display:none;" type="file" id="eventImageInput" class="eventImageInput">
+
+						</div>
+					</div>
+
+					<div class="form-group caption-group" id="caption-group">
+						<label for="eventMediaCaption" class="entitiesLabel">Image caption</label>
+						<input autocomplete="off" id="eventMediaCaption" type="text" class="input-append form-control eventMediaCaption"  style="font-size:14px; text-align: left !important;">
+					</div>
+				</div>
+				<div id="add-image">
+					<button id="add-image-icon" type="button" onclick="addImageGroup(false);"><i class="fa-solid fa-plus"></i></button><label for="add-image-icon" id="add-image-text">Add image</label>
+				</div>
+
+				<h4 id="location-title">Event Location</h4>
+				<div class="form-group choose-coors" id="choose-coors">
+					<span id="choose-coors-title">Choose how to express coordinates (*)</span>
+					<input type="radio" id="point-radio" class="radioButtons radioCoorsBtn" name="coors-type" value="point">
+					<label for="point-radio" class="radioButtonText radioCoorsLabel">Point</label><br>
+					<input type="radio" id="polygon-radio" class="radioButtons radioCoorsBtn" name="coors-type" value="pol">
+					<label for="polygon-radio" class="radioButtonText radioCoorsLabel">Polygon</label><br>
+				</div>
+
+				<div class="form-group form-table" id="coors-map">
+	                <div id="latit" class="dateDiv input-group">
+	                	<label for="latitud" class="entitiesLabel dateLabel form-inline">Latitude point <span style="font-size: 13px;">(e.g. 43.9930)</span></label>
+						<div>
+	                    	<input autocomplete="off"  type="text" class="input-append dateInput form-control" id="latitud" onfocus="$(this).css('color', '#333');">
+						</div>
+	                </div>
+	                <div id="longit" class="dateDiv input-group">
+	                	<label for="longitud" class="entitiesLabel dateLabel">Longitude point <span style="font-size: 13px;">(e.g. 10.31055)</span></label>
+						<div>
+	                    	<input autocomplete="off"  type="text" class="input-append dateInput form-control" id="longitud" onfocus="$(this).css('color', '#333');">
+						</div>
+	                </div>
+					<button id="openPopupSearchCoordinates" onclick="openPopupMap();" class="btn btn-default" type="button">Find from map</button>
+				</div>
+
+                <div class="form-group form-table" id="polygon">
+
+					<div id="polygon-label-group" class="input-group">
+						<label for="polygonArea" class="entitiesLabel">Polygon (WKT)</label>
+						<textarea id="polygonArea" class="form-control"></textarea>
+					</div>
+
+					<button id="openPopupDrawPolygon" onclick="window.open('HTML/drawPolygons.html', 'Draw_Polygons', 'width=900,height=700')" class="btn btn-default" type="button">Draw polygons on map</button>
+                </div>
+
+				<div class="form-group" id="place-group">
+					<label for="placeLabel" class="entitiesLabel">Place label</label>
+                	<input autocomplete="off" id="placeLabel" class="input-append form-control"  style="font-size:14px; text-align: left !important;">
+				</div>
+
+				<div class="form-group" id="position-group">
+					<h4 id="position-title">Event Position</h4>
+					<input type="radio" name="positionRadio" class="radioButtons" value="before" id="positionBefore">
+					<label class="radioButtonText" for="positionBefore">Before</label>
+					<input type="radio" name="positionRadio" class="radioButtons" value="after" id="positionAfter">
+					<label class="radioButtonText" for="positionAfter">After</label>
+					<label for="positionEvent" style="display: none;"></label>
+					<select id="positionEvent" class="input-append form-control"></select>
+				</div>
+
+            </form>
+        </div>
+
+		<div id="sidebar" onscroll="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); resetEntityPopover(); hideEntityPopover();">
+			<h4 id="sidebar-title">Events</h4>
+			<div id="eventSearchDiv" style="margin-top: 1.5%;text-align: center;">
+				<label for="eventSearch" style="display: none;"></label>
+				<input placeholder="Filter events" id="eventSearch" type="text" style="width:50%; border-radius:25px;">
+			</div>
+
+			<div id="event-counter" class="not-selectable">
+				<span id="counter-text">Number of created events: </span><span id="events-counter"></span>
+			</div>
+
+			<div id="timeline" onclick="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); resetEntityPopover(); hideEntityPopover();"></div>
+			<div id="overlay" onclick="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); resetEntityPopover(); hideEntityPopover();"></div>
+			<div id="relHelpContainer" class="centered" onclick="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); resetEntityPopover(); hideEntityPopover();">
+				<h2 class="relHelp"><span class="arrow">⬆</span> Drag events into the boxes above <span class="arrow">⬆</span></h2>
+			</div>
+			<div id="bottomTimeline" onclick="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); resetEntityPopover(); hideEntityPopover();"></div>
+		</div>
+    </div>
+	
+</body>
+</html>

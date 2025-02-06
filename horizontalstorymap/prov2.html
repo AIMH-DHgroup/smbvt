@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Hello World</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--add required stylesheets-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!--leaflet css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!--add favicon for the web page-->
+    <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+
+    <!--Font-->
+    <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="storymap.2.5.css">
+
+    <!--add required libraries-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.js"></script>
+    <!--jquery and Popper-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+    <!--boostrap-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!--leaflet.ajax for asynchronously adding geojson data-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
+
+    <!--story map plugin-->
+    <script src="storymap.2.5.js"></script>
+	
+	<style>
+	.sectionTitle{margin-bottom:8%;text-align:center}
+	.sectionImage{width:100%; margin-bottom:8%}
+	
+	
+	.storymap-legend{background: rgba(255, 255, 255, 1);}
+	.viewing{opacity:1}
+	</style>
+	
+</head>
+<body>
+<div id="storymap" class="container-fluid" >
+    <div class="row">
+        <div class="col-sm-6 col-md-8 storymap-map"></div>
+        <div class="col-sm-6 col-md-4 storymap-story">
+		
+
+            <section data-scene="overview" data-background="ALPI_APUANE.jpg">
+                <div class="fullscreen text-center">
+
+                    <h1 class="display-4 d-flex justify-content-center">SKIING (BOROVETS)</h1>
+
+
+                    <small class="d-flex justify-content-center" style="color: rgba(255,255,255,0.95)">Value chain of the reference region: Bulgaria
+                    </small>
+                </div>
+            </section>
+		
+			<section data-scene="scene1">
+			<h2 class="sectionTitle">SKIING (BOROVETS)</h2>
+			
+			<p class="sectionDescription">The MOVING reference member state of this VC (Value Chain) is BULGARIA. The reference MOVING Card ID of this VC is VC 11 BG. Borovets is the oldest Bulgarian winter resort with a history that dates back to 1896. It gradually developed into a modern ski resort with hotels, restaurants, bars and a network of ski runs and lifts along the slopes of the Rila Mountains providing for a whole range of winter sports. Duinrg the previous communist regime, the resort twice hosted World Cup Alpine Skiing rounds in 1981 and 1984. There are a total 58 km of marked pistes on north facing slopes up to an altitude of 2,560 metres. The longest run is a gentle 12 km return to the resort along the maintenance road. There is a well developed lift infrastructure with drag lifts, baby tows, seat chain lifts, plus a gondola lift. 1 six-seat Gondola lift, 2 High Speed Quad Chair lifts, 1 Fixed Grip Quad Chair lift, 10 Surface ski lifts and 9 tow lifts. The resort also offers biathlon facilities for training and competitions with 35 km of cross country trails designed according to the requirements of the Federation Internationale de Ski (FIS). <h5>Entities</h5> <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='country in Southeast Europe' target='_blank' href='http://www.wikidata.org/entity/Q219'>bulgaria</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='mountain resort in Sofia Province, Bulgaria' target='_blank' href='http://www.wikidata.org/entity/Q894120'> borovets</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='one of the Earth's four temperate seasons, occurring between autumn and spring' target='_blank' href='http://www.wikidata.org/entity/Q1311'> winter</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='self-contained commercial establishment which attempts to provide for most of a vacationer's wants' target='_blank' href='http://www.wikidata.org/entity/Q875157'> resort</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='mountainside developed for skiing, snowboarding, and other winter sports' target='_blank' href='http://www.wikidata.org/entity/Q130003'> ski resort</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='narrow strip of semi-rigid material used (usually in a pair) for gliding over snow ie skiing' target='_blank' href='http://www.wikidata.org/entity/Q172226'> ski</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='sport of skiing downhill' target='_blank' href='http://www.wikidata.org/entity/Q186222'> alpine skiing</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='aerial transport by means of cable cabins attached onto a circulating haul rope that moves continuously around a looped track' target='_blank' href='http://www.wikidata.org/entity/Q1576693'> gondola lift</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='winter sport that combines cross-country skiing and rifle sports shooting' target='_blank' href='http://www.wikidata.org/entity/Q166788'> biathlon</a></span></p>
+			
+			</section>
+			
+			<section data-scene="scene2">
+			<h2 class="sectionTitle">Mountain landscape and reference chains</h2>
+			
+			<p class="sectionDescription">The reference mountain chain of this VC is Rila Mountains. The reference mountain landscape of this VC is Samokov Municipality in Sofia Province (BG412). Sofia Province (BG412) is the second-largest province in Bulgaria with 22 municipalities. The overall relief of the province is highly diverse and it has an altitude range from 350 - 2,925 metres. Within its territory, the province encompasses parts of three mountain ranges: the Western Stara Planina in the north, Sredna Gora in the east and Rila mountains in the south-west. It also fully encompasses the individual Plana and Vitosha mountains. All mountains are separated by fertile valleys. The local economy is heavily industrialised with a long history of mining and manufacturing. Tourism is also very important, whilst agriculture is a relatively minor sector of the economy. Samokov municipality (SFO39) is in the south-west of the province in the Rila mountains which reach an altitude of 2,925 metres and are the highest mountains in Bulgaria and the Balkan Peninsula. <h5>Entities</h5> <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='oblast of Bulgaria' target='_blank' href='http://www.wikidata.org/entity/Q202904'>sofia province</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='country in Southeast Europe' target='_blank' href='http://www.wikidata.org/entity/Q219'> bulgaria</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='mountain range in Bulgaria' target='_blank' href='http://www.wikidata.org/entity/Q191795'> rila</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='mountain massif in Bulgaria' target='_blank' href='http://www.wikidata.org/entity/Q378943'> vitosha</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='large natural elevation of the Earth's surface' target='_blank' href='http://www.wikidata.org/entity/Q8502'> mountain</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='town in Bulgaria' target='_blank' href='http://www.wikidata.org/entity/Q388070'> samokov</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='capital city of Bulgaria' target='_blank' href='http://www.wikidata.org/entity/Q472'> sofia</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='administrative division in several countries' target='_blank' href='http://www.wikidata.org/entity/Q34876'> province</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='height in relation to a certain reference point; (general) distance measurement, usually in the vertical or "up" direction, between a reference datum and a point or object. The reference datum also often varies according to the context' target='_blank' href='http://www.wikidata.org/entity/Q190200'> altitude</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='mountain range' target='_blank' href='http://www.wikidata.org/entity/Q525263'> sredna gora</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='administrative division having corporate status and usually powers of self-government or jurisdiction' target='_blank' href='http://www.wikidata.org/entity/Q15284'> municipality</a></span></p>
+			</section>
+			
+			<section data-scene="scene3">
+			<h2 class="sectionTitle">Geography and population</h2>
+			
+			<p class="sectionDescription">The size of the area (km2) is 1209.9. The minimum altimetry of the LAU (Local Administrative Unit) is unspecified. The maximum altimetry of the LAU is unspecified. The total population (in thousand) is 35.063. The population density (Inhabitants/km2) in the LAU is 28.98. The population change rate of the LAU in the last 10 years (%) is unspecified. The overall regional population density (Inhabitants/km2) is 103.70. The regional population change rate in the last 10 years (%) has been -0.01%. <h5>Entities</h5> <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='measurement of population per unit area or unit volume' target='_blank' href='https://www.wikidata.org/entity/Q22856'>population density</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='determination and measurement of altitude' target='_blank' href='https://www.wikidata.org/entity/Q1309100'> altimetry</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='ensemble of individuals of a species in an area, or their number' target='_blank' href='https://www.wikidata.org/entity/Q2625603'> population</a></span>"</p>
+			</section>
+			
+			<section data-scene="scene4">
+			<h2 class="sectionTitle">Income and gross value added</h2>
+			
+			<p class="sectionDescription">The average per capita income (EUR/year) [Province] is 8000. The total Gross Value Added (GVA) (EUR million/year) [Province] is 1598. The primary sector share of total GVA/year [Province] is 4.60%. The secondary sector share of total GVA/year [Province] is 55.40%. The tertiary sector share of total GVA/year [Province] is 40.00%. The per capita income (EUR/year) [Region] is 12900. The total Gross Value Added (GVA) (EUR million/year) [Region] is 23579. The primary sector share of total GVA/year [Region] is 1.20%. The secondary sector share of total GVA/year [Region] is 16.10%. The tertiary sector share of total GVA/year [Region] is 82.60%. <h5>Entities</h5> <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='GVA adjusts gross domestic product (GDP) by the impact of subsidies and taxes (tariffs) on products.' target='_blank' href='https://www.wikidata.org/entity/Q994873'>gross value added</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='service sector' target='_blank' href='https://www.wikidata.org/entity/Q55638'> tertiary sector of the economy</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='industries that produce a finished, usable product or are involved in construction' target='_blank' href='https://www.wikidata.org/entity/Q55639'> secondary sector of the economy</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='includes farming, fishing & mining' target='_blank' href='https://www.wikidata.org/entity/Q55640'> primary sector of the economy</a></span></p>
+			</section>
+			
+			<section data-scene="scene5">
+			<h2 class="sectionTitle">Employment</h2>
+			
+			<p class="sectionDescription">"The primary sector share of total employment/year [Province] is 20.20%. The secondary sector share of total employment/year [Province] is 35.70%. The tertiary sector share of total employment/year [Province] is 44.10%. The primary sector share of total employment/year [Region] is 6.40%. The secondary sector share of total employment/year [Region] is 21.10%. The tertiary sector share of total employment/year [Region] is 72.50%. <h5>Entities</h5> <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='relationship between the employee and the employer' target='_blank' href='https://www.wikidata.org/entity/Q656365'>employment</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='service sector' target='_blank' href='https://www.wikidata.org/entity/Q55638'> tertiary sector of the economy</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='industries that produce a finished, usable product or are involved in construction' target='_blank' href='https://www.wikidata.org/entity/Q55639'> secondary sector of the economy</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='includes farming, fishing & mining' target='_blank' href='https://www.wikidata.org/entity/Q55640'> primary sector of the economy</a></span>"</p>
+			</section>
+			
+			<section data-scene="scene6">
+			<h2 class="sectionTitle">Interest on this VC</h2>
+			
+			<p class="sectionDescription">Borovets in the Samokov Municipality (SFO39) in Sofia Province (BG412) is the oldest and largest ski resort in Bulgaria. It has World Cup class slopes for downhill skiing, plus many cross-country and biathalon tracks too, and is an important part of the Balkan Holidays (tour operator) portfolio. <h5>Entities</h5> <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='oblast of Bulgaria' target='_blank' href='http://www.wikidata.org/entity/Q202904'>sofia province</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='country in Southeast Europe' target='_blank' href='http://www.wikidata.org/entity/Q219'> bulgaria</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='mountain resort in Sofia Province, Bulgaria' target='_blank' href='http://www.wikidata.org/entity/Q894120'> borovets</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='town in Bulgaria' target='_blank' href='http://www.wikidata.org/entity/Q388070'> samokov</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='mountainside developed for skiing, snowboarding, and other winter sports' target='_blank' href='http://www.wikidata.org/entity/Q130003'> ski resort</a></span>"</p>
+			</section>
+			
+			<section data-scene="scene7">
+			<h2 class="sectionTitle">Key local assets</h2>
+			
+			<p class="sectionDescription">Located on the northern slopes on the northern slopes of the Rila mountains at an altitude of 1,350 metres.  <h5>Entities</h5> <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='mountain range in Bulgaria' target='_blank' href='http://www.wikidata.org/entity/Q191795'>rila</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='height in relation to a certain reference point; (general) distance measurement, usually in the vertical or "up" direction, between a reference datum and a point or object. The reference datum also often varies according to the context' target='_blank' href='http://www.wikidata.org/entity/Q190200'> altitude</a></span>"</p>
+			</section>
+			
+			<section data-scene="scene8">
+			<h2 class="sectionTitle">Challenges</h2>
+			
+			<p class="sectionDescription">Favourable winter weather conditions and especially snow availability and depth are clearly crucial for the satisfaction of visitors to ski resorts and a key factor for the maintained viability of winter tourism in mountain regions. In common with many other ski resorts (especially low-medium altitude) it is anticipated that Borovets will be negatively affected by the future impact of climate change and the increasing frequency of snow-deficient winters in the next 20-25 years. It is anticipated that the likelihood of reduced visitor numbers will pose the most immediate threat to the small accommodation establishments that offer limited services, such as bed and breakfast only. Larger hotels with qualified staff, flexible marketing abilities and the capacity to offer diverse tourist products (such as meetings, spas and non-snow sports) are currently assessed to be more resilient. Overall the type of challenge faced by this VC is Current and Predicted. This VC is classified as Traditional. <h5>Entities</h5> <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='one of the Earth's four temperate seasons, occurring between autumn and spring' target='_blank' href='http://www.wikidata.org/entity/Q1311'>winter</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='state of the atmosphere' target='_blank' href='http://www.wikidata.org/entity/Q11663'> weather</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='precipitation in the form of ice crystal flakes' target='_blank' href='http://www.wikidata.org/entity/Q7561'> snow</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='term in reliability engineering' target='_blank' href='http://www.wikidata.org/entity/Q384871'> availability</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='narrow strip of semi-rigid material used (usually in a pair) for gliding over snow ie skiing' target='_blank' href='http://www.wikidata.org/entity/Q172226'> ski</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='travel for pleasure or business' target='_blank' href='http://www.wikidata.org/entity/Q49389'> tourism</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='large natural elevation of the Earth's surface' target='_blank' href='http://www.wikidata.org/entity/Q8502'> mountain</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='height in relation to a certain reference point; (general) distance measurement, usually in the vertical or "up" direction, between a reference datum and a point or object. The reference datum also often varies according to the context' target='_blank' href='http://www.wikidata.org/entity/Q190200'> altitude</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='mountain resort in Sofia Province, Bulgaria' target='_blank' href='http://www.wikidata.org/entity/Q894120'> borovets</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='person who visits a place that they do not normally inhabit or overseer of an autonomous institution' target='_blank' href='http://www.wikidata.org/entity/Q12644761'> visitor</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='one person's statement that they intend to harm another, or another's property' target='_blank' href='http://www.wikidata.org/entity/Q707125'> threat</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='small lodging establishment' target='_blank' href='http://www.wikidata.org/entity/Q367914'> bed and breakfast</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='study and process of exploring, creating, and delivering value to customers' target='_blank' href='http://www.wikidata.org/entity/Q39809'> marketing</a></span></p>
+			</section>
+			
+			<section data-scene="scene9">
+			<h2 class="sectionTitle">Innovation</h2>
+			
+			<p class="sectionDescription">The type of innovation of this VC (Value Chain) is unspecified. The innovation is related to the whole VC. The land use systems involved are Grassland and Forestry. The local assets include Natural. <h5>Entities</h5> <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='application of better solutions that meet new requirements, inarticulated needs, or existing market needs' target='_blank' href='http://www.wikidata.org/entity/Q174165'>innovation</a></span> • <span class='tl-entities'><a onmouseover='$(this).tooltip(); $(this).tooltip("show")' data-toggle='tooltip' title='area with vegetation dominated by grasses' target='_blank' href='http://www.wikidata.org/entity/Q1006733'> grassland</a></span>"</p>
+			</section>
+			
+		</div>
+    </div>
+</div>
+
+
+<script>
+
+
+var bulgaria = L.marker([42.75, 25.5]).bindPopup('Bulgaria')
+var   vitosha = L.marker([42.56666666666667, 23.283333333333335]).bindPopup('Vitosha')
+var   sofiaProvince = L.marker([42.666666666666664, 23.666666666666668]).bindPopup('Sofia Province')
+var   l = L.marker([42.18333333333333, 23.583333333333332]).bindPopup('Rila')
+var ul=  L.marker([42.26444444444444 , 23.606944444444444]).bindPopup('Borovets')
+	
+//var cities = L.layerGroup([bulgaria, vitosha, sofiaProvince, golden]);
+
+
+
+//https://leafletjs.com/examples/geojson/
+<!-- var myLines = [{ -->
+    <!-- "type": "LineString", -->
+    <!-- "coordinates": [[-100, 40], [-105, 45], [-110, 55]] -->
+<!-- }, { -->
+    <!-- "type": "LineString", -->
+    <!-- "coordinates": [[-105, 40], [-110, 45], [-115, 55]] -->
+<!-- }]; -->
+
+
+var a= []
+var lau= "POLYGON ((23.66236 42.421728, 23.664771 42.42183, 23.673332 42.419355, 23.665535 42.405961, 23.667725 42.397813, 23.66319 42.394329, 23.662519 42.38616, 23.670286 42.379881, 23.683713 42.381769, 23.696582 42.37812, 23.726004 42.357277, 23.724322 42.350272, 23.736247 42.335998, 23.730392 42.333704, 23.727571 42.326783, 23.729257 42.320239, 23.736263 42.318843, 23.737205 42.315339, 23.726684 42.30896, 23.728957 42.305225, 23.727602 42.292466, 23.731539 42.285975, 23.729526 42.279509, 23.731248 42.268538, 23.710405 42.230701, 23.717783 42.216189, 23.715279 42.185647, 23.711246 42.174963, 23.716225 42.168956, 23.730544 42.165892, 23.735202 42.152733, 23.715807 42.157173, 23.702425 42.155631, 23.683496 42.168816, 23.657216 42.173898, 23.646883 42.156708, 23.611054 42.161344, 23.598009 42.155862, 23.59477 42.153064, 23.590876 42.13476, 23.579209 42.119055, 23.580005 42.110913, 23.572997 42.100026, 23.572429 42.086244, 23.538819 42.084419, 23.505923 42.091354, 23.495563 42.097557, 23.498242 42.10598, 23.505423 42.112119, 23.518512 42.112437, 23.524972 42.1163, 23.52847 42.127105, 23.515356 42.141087, 23.503141 42.146337, 23.488727 42.145188, 23.457388 42.151544, 23.451108 42.174883, 23.444498 42.185543, 23.436524 42.186925, 23.367824 42.168623, 23.359029 42.170487, 23.336135 42.166937, 23.320195 42.175141, 23.317833 42.177366, 23.315383 42.178733, 23.313824 42.182073, 23.314596 42.18551, 23.316728 42.18937, 23.316791 42.191659, 23.331289 42.213811, 23.350424 42.226294, 23.354137 42.24324, 23.374226 42.248494, 23.383388 42.242652, 23.392815 42.244245, 23.383023 42.270819, 23.385347 42.2818, 23.347999 42.296669, 23.335557 42.309933, 23.316162 42.319782, 23.313543 42.325827, 23.320215 42.333715, 23.319418 42.341449, 23.314785 42.344912, 23.311364 42.357622, 23.2937 42.372492, 23.287769 42.373017, 23.277759 42.365008, 23.261687 42.360278, 23.257643 42.361224, 23.2532 42.367377, 23.253647 42.376764, 23.244025 42.379227, 23.224096 42.377021, 23.22912 42.391696, 23.240861 42.4049, 23.237756 42.412258, 23.221101 42.423881, 23.224786 42.426378, 23.220317 42.431288, 23.220713 42.466033, 23.221564 42.472324, 23.230909 42.480045, 23.235446 42.492206, 23.254629 42.497636, 23.259349 42.513556, 23.267496 42.524425, 23.279959 42.532608, 23.290187 42.532709, 23.301743 42.525438, 23.311229 42.527362, 23.328091 42.50996, 23.363663 42.495354, 23.376328 42.493442, 23.385699 42.484447, 23.405955 42.473334, 23.413609 42.464663, 23.424244 42.472689, 23.446727 42.480351, 23.440661 42.494477, 23.441229 42.500793, 23.430937 42.505475, 23.426505 42.511145, 23.446082 42.523965, 23.453443 42.524716, 23.465806 42.517774, 23.479854 42.517077, 23.491462 42.512705, 23.508508 42.512081, 23.510792 42.49791, 23.538201 42.480635, 23.537704 42.460825, 23.530137 42.445109, 23.534671 42.436649, 23.533983 42.427717, 23.545529 42.413252, 23.551004 42.413141, 23.564114 42.421304, 23.576169 42.416757, 23.591913 42.420581, 23.602139 42.414084, 23.615665 42.413689, 23.631868 42.415581, 23.645376 42.421333, 23.66236 42.421728))"
+var regExp = /\(([^)]+)\)/;
+var lauCoordinates = regExp.exec(lau)
+var arrayCoord= lauCoordinates[1].substring(1).split(", ")
+for (var i=0; i< arrayCoord.length; i++){
+	c= arrayCoord[i].split(" ");
+	a.push(c)
+}
+
+var myLines = [{
+    "type": "Feature",
+    "properties": {"party": "Republican"},
+    "geometry": {
+        "type": "Polygon",
+        "coordinates": [a]
+    }
+}];
+
+var myStyle = {
+    "color": "#ff7800",
+    "weight": 5,
+    "opacity": 0.65
+}
+
+
+
+    var layers = {
+		layer1:{
+			layer:  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png'),
+			legend: '<i style="background: black; opacity: 1"></i><p><b>legend 1</b></p> <i style="background: red; opacity: 1"></i><p><b>legend 2</b></p>'
+		},
+        layer2: {
+            layer: L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}')
+        },
+		layer6:{
+			layer: L.layerGroup([bulgaria, vitosha, sofiaProvince, l, ul])
+		},
+		layer7:{
+			layer: L.geoJSON(myLines, {style: myStyle})
+		}
+    };
+
+    var scenes = {
+		overview: {lat: 42.75, lng: 25.5, zoom: 6, name: 'Cover Page', layers: []},
+        scene1: {lat: 42.75, lng: 25.5, zoom: 6, layers: [layers.layer1, layers.layer6], name: "SKIING (BOROVETS)"},
+        scene2: {lat: 42.56666666666667, lng: 23.283333333333335, zoom: 13, layers: [layers.layer1, layers.layer2, layers.layer6], name: "Mountain landscape and reference chains"},
+        scene3: {lat: 42.32167645846857, lng: 23.489059828660565, zoom: 10, layers: [layers.layer1, layers.layer7], name: "scene 3"},
+		scene4: {lat: 42.32167645846857, lng: 23.489059828660565, zoom: 10, layers: [layers.layer1, layers.layer7], name: "Income and gross value added"},
+		scene5: {lat: 42.32167645846857, lng: 23.489059828660565, zoom: 10, layers: [layers.layer1, layers.layer7], name: "Employment"},
+		scene6: {lat: 42.666666666666664, lng: 23.666666666666668, zoom: 13, layers: [layers.layer1, layers.layer6], name: "Interest on this VC"},
+		scene7: {lat: 42.18333333333333, lng: 23.583333333333332, zoom: 13, layers: [layers.layer1, layers.layer6], name: "Key local assets"}, 
+		scene8: {lat: 42.26444444444444, lng: 23.606944444444444, zoom: 13, layers: [layers.layer1, layers.layer6], name: "Challenges"},
+		scene9: {lat: 42.32167645846857, lng: 23.489059828660565, zoom: 10, layers: [layers.layer1, layers.layer7], name: "Innovation"}
+    };
+	
+
+
+    $('#storymap').storymap({
+        scenes: scenes,
+        layers: layers,
+        baselayer: layers.layer1,
+        legend: true,
+		mapinteraction: true,
+        loader: true,
+        flyto: true,
+        credits: "Build with <i class='material-icons' style='color: red; font-size: 10px;'>favorite</i> from Bo Zhao",
+        scalebar: false,
+        scrolldown: false,
+        progressline: true,
+        navwidget: true,
+        createMap: function () {
+            var map = L.map($(".storymap-map")[0], {zoomControl: false}).setView([44, -120], 7);
+            basemap = this.baselayer.layer.addTo(map);
+
+			L.control.zoom({
+				position: 'bottomright'
+			}).addTo(map);
+
+            return map;
+        }
+    });
+	
+
+	
+</script>
+
+
+</body>
+</html>

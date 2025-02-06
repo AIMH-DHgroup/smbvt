@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Example of A-Frame implementation</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+        <link rel="stylesheet" type="text/css" href="./../lib/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="./lib/style_main.css">
+        <script src="./lib/es6-shim.min.js"></script>
+        <script src="./lib/jquery-3.2.1.min.js"></script>
+        <script src="./lib/jquery-ui.min.js"></script>
+        <script src="./lib/bootstrap.min.js"></script>
+        <script src="./lib/script_main.js"></script>
+    </head>
+    <body>
+        <div id="alert-placeholder"></div>
+        <form id="form-model">
+            <div id="model-div">
+                <label for="models-available">Select model</label>
+                <select id="models-available" class="input-append form-control centered">
+                    <option selected="selected" disabled="disabled"></option>
+                </select>
+                <p>or</p>
+                <button type="button" id="upload-model" class="btn btn-default centered" onclick="document.getElementById('model-input').click();">Upload model</button>
+                <input type="file" id="model-input" class="model-input">
+            </div>
+        </form>
+    </body>
+</html>

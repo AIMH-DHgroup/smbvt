@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-draw/dist/leaflet.draw.css" />
+  <style>
+    #map {
+      height: 70vh;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <h2>Draw polygons on map</h2>
+  <div id="map"></div>
+  <div id="coordinates"></div>
+  </br>
+  <div style="text-align:center; width:100%"><button onclick="printCoordinates()">Confirm</button></div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-draw"></script>
+  <script>
+    // Variabili globali
+    var map;
+    var drawnItems;
+    var coordinatesDiv;
+    var polygons = [];
+
+    function initMap() {
+      // Inizializza la mappa
+      map = L.map('map').setView([0, 0], 3);
+
+      // Aggiungi un layer di tile per la mappa
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; OpenStreetMap contributors',
+        maxZoom: 18,
+      }).addTo(map);
+
+      // Crea un feature group per i poligoni disegnati
+      drawnItems = new L.FeatureGroup().addTo(map);
+
+      // Crea un controllo per il disegno dei poligoni
+      var drawControl = new L.Control.Draw({
+        draw: {
+          polygon: true,
+          circlemarker: false,
+          polyline: false,
+          rectangle: false,
+          circle: false,
+          marker: false
+        },
+        edit: {
+          featureGroup: drawnItems,
+          remove: true
+        }
+      });
+      map.addControl(drawControl);
+
+      // Aggiungi un listener per il completamento del disegno del poligono
+      map.on(L.Draw.Event.CREATED, function (event) {
+        var layer = event.layer;
+
+        drawnItems.addLayer(layer);
+        
+        // Salva il poligono nell'array dei poligoni
+        polygons.push(layer);
+      });
+
+      // Aggiungi un listener per rimuovere un poligono
+      map.on('draw:deleted', function (event) {
+        var layers = event.layers;
+        layers.eachLayer(function (layer) {
+          // Rimuovi il poligono dall'array dei poligoni
+          var index = polygons.indexOf(layer);
+          if (index !== -1) {
+            polygons.splice(index, 1);
+          }
+        });
+      });
+
+      // Crea un riquadro per le coordinate
+      coordinatesDiv = document.getElementById('coordinates');
+    }
+
+    // Funzione per ottenere le coordinate WKT del multipoligono
+    function getMultipolygonCoordinates() {
+      var coordinates = [];
+
+      polygons.forEach(function (polygon) {
+        var latLngs = polygon.getLatLngs()[0];
+        var polygonCoords = [];
+
+        for (var i = 0; i < latLngs.length; i++) {
+          var latLng = latLngs[i];
+          polygonCoords.push(latLng.lng + ' ' + latLng.lat);
+        }
+
+        coordinates.push('(' + polygonCoords.join(',') + ')');
+      });
+
+      // Costruisci la stringa WKT
+      var wkt = 'MULTIPOLYGON(' + coordinates.join(',') + ')';
+
+      return wkt;
+    }
+
+    // Funzione per stampare le coordinate WKT
+    function printCoordinates() {
+      var coordinates = getMultipolygonCoordinates();
+      //coordinatesDiv.innerHTML = '<h4>Coordinate WKT del multipoligono:</h4>' + coordinates;
+		
+		window.opener.document.getElementById("polygonArea").value= coordinates;
+		close();
+    }
+  </script>
+  <script>
+    // Inizializza la mappa quando il documento è pronto
+    document.addEventListener('DOMContentLoaded', function () {
+      initMap();
+    });
+  </script>
+</body>
+</html>
