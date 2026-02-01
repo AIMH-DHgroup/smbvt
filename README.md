@@ -1,14 +1,16 @@
 # The Story Map Building and Visualization Tool (SMBVT)
 
-Project collaborators: Valentina Bartalesi, Nicolò Pratelli, Emanuele Lenzi
+Project collaborators: Valentina Bartalesi, Nicolò Pratelli, Emanuele Lenzi, Claudio De Martino
 
-Developers: Emanuele Lenzi, Daniele Metilli (for the previous NBVT)
+Developers: Emanuele Lenzi and Claudio De Martino, Daniele Metilli (for the previous NBVT)
 
 The Story Map Building and Visualization Tool (SMBVT) is semi-automatic tool to construct and visualise narratives, intended as semantic networks of events related to each other through semantic relations, in form of story maps and timeline. The tool was developed as an extension of a previously developed tool called Narrative Building and Visualisation Tool (NBVT - http://dlnarratives.eu/tool/index.html). SMBVT, like NBVT does, obeys an [ontology for narratives](https://dlnarratives.eu/ontology.html) we developed.
 
 
 If you use ``SMBVT`` as support to your research consider citing:
 
+> Bartalesi, V., Lenzi, E., De Martino, C., Coro, G. _[Interactive story maps for historical musical instruments: a 3D and semantic web tool for cultural heritage preservation](https://doi.org/10.1007/s41060-025-01014-4)_. Int J Data Sci Anal 22, 21. 
+> 
 > Meghini C., Bartalesi V., Metilli D. _[Representing narratives in digital libraries: The narrative ontology](https://content.iospress.com/articles/semantic-web/sw200421)_. In: Semantic Web, vol. 12, no. 2, pp. 241-264, 2021.
 > 
 > Metilli D., Bartalesi V., Meghini C. _[A Wikidata-based tool for building and visualising narratives](https://link.springer.com/article/10.1007/s00799-019-00266-3)_. In: International Journal on Digital Libraries, vol. Springer, 2019.
