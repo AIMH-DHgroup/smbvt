@@ -1,4 +1,4 @@
-# The Story Map Building and Visualization Tool (SMBVT) 2.0
+# The Story Map Building and Visualization Tool (SMBVT)
 
 Project collaborators: Valentina Bartalesi, Nicolò Pratelli, Emanuele Lenzi, Claudio De Martino
 
