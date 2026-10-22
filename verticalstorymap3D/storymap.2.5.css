@@ -399,6 +399,33 @@ nav .navbar-brand {
 	.credits3d {display:none !important}
 	.geoMapSlide p, .geoMapSlide h2, .geoMapSlide h5 {color:black !important}
 	
+   
+   
+   /*map and 3d model bottom--text top (z-index of map in javascript)*/
+/*        .sectionSlide{height: 46vh !important; margin-bottom: 0px; padding-bottom: 50px; background-color: white !important;}
+	.storymap-map{top: auto !important; min-height: 50% !important;} 
+	.section{ margin: auto !important; margin-bottom: 5px !important;}
+	 .geoMapSlide{padding-bottom: 10px !important;}
+	 
+	 .api-frame {top: auto !important; min-height: 50% !important;} 
+	 .threeDModel h2, .threeDModel p {color: #111111 !important;}
+	.threeDModel{background-color: white !important; color: #111111 !important; overflow-y: visible !important; max-height: max-content !important; position: relative; top:0px !important; padding-top: 50px !important;}
+	.threeDModelSection {box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2) !important}  
+	
+	
+	#storymap{padding-right: 0px !important; padding-left: 0px !important; margin: 0px !important}
+	.row {margin-right:0px !important; margin-left:0px !important}
+	.storymap-story{padding-right: 0px !important; padding-left: 0px !important;}
+	.sectionSlide{margin:0px !important}
+	.storymap-map{padding-right: 0px !important; padding-left: 0px !important}
+
+	.storymap-attribution{display:none}  */
+	
+	
+	
+	 
+	
+	
 }
 
 @media only screen and (max-width: 767px) {

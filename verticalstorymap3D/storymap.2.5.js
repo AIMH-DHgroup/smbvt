@@ -271,6 +271,60 @@
                 }
 
             });
+			
+			
+/* $.each(sections, function (key, element) {
+    var section = $(element);
+    var path = section.data('background');
+
+    if (typeof path !== 'undefined') {
+        if (path.indexOf("jpg") >= 0 || path.indexOf("jpeg") >= 0 || path.indexOf("png") >= 0 || path.indexOf("bmp") >= 0 || path.indexOf("gif") >= 0) {
+            // Aggiunge lo stile per il background
+            $("head").append("<style> ." + section.data('scene') + "-bg-img { background: url(" + path + ") no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover;  -o-background-size: cover; background-size: cover; }</style>");
+
+            // Crea un'immagine invisibile per caricarla e rilevare quando è completa
+            var img = new Image();
+            img.src = path;
+
+            // Funzione per nascondere il loader con un leggero ritardo
+            function hideLoader() {
+                // Aggiunge la classe per il background alla sezione
+                $(section).find(".fullscreen").addClass(section.data('scene') + "-bg-img");
+				$(section).find(".fullscreen2").addClass(section.data('scene') + "-bg-img");
+                
+                // Aspetta un breve ritardo per assicurarsi che il background sia stato applicato
+                setTimeout(function() {
+                    $("#hideAll").fadeOut();
+                }, 100);  // Ritardo di 100ms
+            }
+
+            // Controlla se l'immagine è già in cache
+            if (img.complete) {
+                hideLoader();  // Se l'immagine è in cache, esegue immediatamente la funzione
+            } else {
+                // Se l'immagine non è ancora pronta, aspetta l'evento load
+                $(img).on('load', hideLoader);
+            }
+
+        } else if (path.indexOf("mp4") >= 0) {
+            // Aggiunge il video alla sezione
+            $(section).find(".fullscreen").before('<video class="fullscreen canvas-center"  playsinline autoplay muted loop><source src=' + path + '  type="video/mp4"></video>');
+            $(section).find(".fullscreen2").before('<video class="fullscreen canvas-center"  playsinline autoplay muted loop><source src=' + path + '  type="video/mp4"></video>')
+
+
+            // Aspetta che il video sia pronto a partire
+            $(section).find("video").on('canplay', function() {
+                // Nasconde l'elemento di caricamento una volta che il video è pronto
+                $("#hideAll").fadeOut();
+            });
+
+        } else {
+            console.log(path);
+        }
+    }
+}); */
+
+
 
 
             if (!String.prototype.includes) {

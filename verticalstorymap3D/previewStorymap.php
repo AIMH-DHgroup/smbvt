@@ -63,7 +63,7 @@
 	
 	<style>
 	.sectionTitle{margin-bottom:8%;text-align:center; color: #1c1c1c}
-	.sectionImage{max-width:90%; margin-bottom:8%}
+	.sectionImage{max-width:90%; margin-bottom:1%}
 	
 	.imgContent{text-align:center; width:100%; display: block;}
 	
@@ -162,6 +162,8 @@ z-index:3;
 	padding-left: 15px;
     padding-right: 15px;
 	}
+	
+.threeDModel iframe{width:100% !important}
 
 /*.threeDModel h5, .threeDModel .tl-entities {display:none}	*/
 
@@ -226,7 +228,7 @@ height: 80vh;
 .contentSlideFullscreen .digObjList a {background-color: white !important; font-size: 90% !important}
 
 
-
+.geoMapSlide iframe{width:100%}
 
 
 

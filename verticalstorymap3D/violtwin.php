@@ -158,7 +158,7 @@ z-index:3;
 	top: 50px;
 	max-height: 85vh;
     overflow-y: auto; /* Aggiungi scroll se il contenuto supera l'altezza */
-	background: rgba(0, 0, 0, 0.5) !important;
+	background: rgba(0, 0, 0, 0.5);
 	padding-left: 15px;
     padding-right: 15px;
 	}
@@ -187,8 +187,8 @@ threeDModel::-webkit-scrollbar-thumb {
 	
 	
 .threeDModelSection{
-	background: transparent !important;
-	box-shadow: none !important;
+	background: transparent ;
+	box-shadow: none ;
 	
 }
 
@@ -511,12 +511,16 @@ height: 80vh;
 <script src="visualizeOrizontalStorymap4.js"></script>
 <script>
 //display all when all the bjects in the page are loaded
-window.onload = function() 
-{ 
-document.getElementById("hideAll").style.display = "none"; 
+<!-- window.onload = function()  -->
+<!-- {  -->
+<!-- document.getElementById("hideAll").style.display = "none";  -->
 
 
-};
+<!-- }; -->
+
+window.addEventListener('load', function() {
+    document.getElementById("hideAll").style.display = "none";
+});
 </script>
 
 </body>
