@@ -947,6 +947,19 @@ $.ajax({
 					//$(".general-controls .control").hide()
 					$(".3dcredits").hide()
 				}
+				
+				//if we are in a slide with background image (on phone)...
+/*     				if ($(window).width() <= 575) {
+					console.log("ddddd")
+					var backgroundSlide= $('#'+currentVisibleSectionId).children().first().attr('class').split(' ')[0];
+					if (backgroundSlide == "fullscreen" || backgroundSlide == "fullscreen2") {
+						console.log("Si immagine di ba")
+						$(".storymap-map").css("z-index", "1000");
+					} else {
+						console.log("No immagine di ba")
+						$(".storymap-map").css("z-index", "1001");
+					} 
+				}   */  
 
 				  
 			}

@@ -386,8 +386,8 @@ $.ajax({
 						if(result.events[i].hasOwnProperty('eventMediaCaption') && result.events[i].eventMediaCaption != ""){var mediaCaption = result.events[i].eventMediaCaption } else {var mediaCaption= ""}
 						
 						
-						var divImageStory= '<span class="imgContent"><a href="'+result.events[i].eventMedia+'" target="_blank"><img class="sectionImage" src="'+result.events[i].eventMedia+'"></a></span>'
-						divImageStory += "</br><i>" + mediaCaption + "</i>"
+						var divImageStory= '<span class="imgContent"><a href="'+result.events[i].eventMedia+'" target="_blank"><img class="sectionImage" src="'+result.events[i].eventMedia+'"></a> </br><i>' + mediaCaption + '</i></span></br>'
+						//divImageStory += "</br><i>" + mediaCaption + "</i>"
 					
 					}
 				
@@ -397,8 +397,8 @@ $.ajax({
 					
 					var divImageStory="";
 					for(var iImg=0; iImg<result.events[i].eventMedia.length; iImg++){
-						divImageStory += '<span class="imgContent"><a href="'+result.events[i].eventMedia[iImg]+'" target="_blank"><img class="sectionImage" src="'+result.events[i].eventMedia[iImg]+'"></a></span>'
-						divImageStory += "</br><i>" + result.events[i].eventMediaCaption[iImg] + "</i></br>"				
+						divImageStory += '<span class="imgContent"><a href="'+result.events[i].eventMedia[iImg]+'" target="_blank"><img class="sectionImage" src="'+result.events[i].eventMedia[iImg]+'"></a> </br><i>' + result.events[i].eventMediaCaption[iImg] + '</i></span></br>'
+						//divImageStory += "</br><i>" + result.events[i].eventMediaCaption[iImg] + "</i></br>"				
 					}
 				
 				//event video
@@ -408,7 +408,7 @@ $.ajax({
 					if(result.events[i].hasOwnProperty('eventVideoCaption') && result.events[i].eventVideoCaption != ""){var mediaCaption = result.events[i].eventVideoCaption } else {var mediaCaption= ""}
 
 						var divImageStory= convertYouTubeLinkToIframe(result.events[i].eventVideo)
-						divImageStory += "</br><i>" + mediaCaption + "</i>"						
+						divImageStory += "</br><span style='width:100%; text-align:center; display:inline-block'><i>" + mediaCaption + "</i></span></br></br>"						
 				
 				
 				/////////////// Images in the old library (media.url)
@@ -740,51 +740,51 @@ $.ajax({
 												window.console.log(information);
 											}
 										});
-
-
-
+										
+									
+										
 									}
-
+									
 								})
-
+															
 								$("#arrowUp").on("click", function(){
-
+								
 									var currentVisibleSectionId3D = $(".storymap-story .sectionSlide.visible").prev(".sectionSlide");
-
+									
 									if (currentVisibleSectionId3D.attr('data-coordinate3d') !== undefined) {
-
-
+										
+										
 										api.gotoAnnotation(currentVisibleSectionId3D.attr('data-coordinate3d'),  {preventCameraAnimation: false, preventCameraMove: false}, function(err, index) {
 											if (!err) {
 												window.console.log('Going to annotation', index + 1);
 											}
 										});
-
+										
 										api.showAnnotationTooltip(currentVisibleSectionId3D.attr('data-coordinate3d'), function(err) {
 											if (!err) {
 												window.console.log('Showing annotation tooltip');
 											}
-										});
-
+										});	
+										
 									}
-
+									
 								})
-
+								
 								$(".storymap-scroll-top1").on("click", function(){
-
+								
 									var currentVisibleSectionId3D = $(".storymap-story .sectionSlide.visible").prev(".sectionSlide");
-
+									
 									if (currentVisibleSectionId3D.attr('data-coordinate3d') !== undefined) {
-
+										
 										$(".sketchfab-embed-wrapper").css( "display","none" ); //nasconde tutti i modelli 3d
 										$("#sketchfab-embed-wrapper-"+currentVisibleSectionId3D.attr('data-sketchfabid')).css( "display","block" ); //visualizza solo quello corrente
-
+										
 /*  										api.hideAnnotation(Number(currentVisibleSectionId3D.attr('data-coordinate3d'))+1, function(err, index) {
 											if (!err) {
 												window.console.log('hide annotation', index + 1);
 											}
-										});	 */
-
+										});	 */ 
+										
  										api.getAnnotationList(function(err, annotations) {
 											if (!err) {
 												window.console.log(annotations);
@@ -794,51 +794,51 @@ $.ajax({
 														if (!err) {
 															window.console.log('Hiding annotation', index + 1);
 														}
-													});
-													}
-
+													});	
+													}											
+												
 												}
 											}
-										});
-
+										}); 	
+					
 
 										api.showAnnotation(currentVisibleSectionId3D.attr('data-coordinate3d'), function(err, index) {
 											if (!err) {
 												window.console.log('Show annotation', index + 1);
 											}
-										});
-
+										});	
+										
 
 										api.gotoAnnotation(currentVisibleSectionId3D.attr('data-coordinate3d'),  {preventCameraAnimation: false, preventCameraMove: false}, function(err, index) {
 											if (!err) {
 												window.console.log('Going to annotation', index + 1);
 											}
 										});
-
+										
 										api.showAnnotationTooltip(currentVisibleSectionId3D.attr('data-coordinate3d'), function(err) {
 											if (!err) {
 												window.console.log('Showing annotation tooltip');
 											}
-										});
-
-
+										});	
+										
+										
 									}
-
+									
 								})
-
-							});
-
-
+							
+							});	
 
 
+						
 
-							//annotation associated with left menu
+							
+							//annotation associated with left menu 
 							$(".storymap-navwidget li").on("click", function(){
 									var aElement = $(this).find("a");
 
 									var currentVisibleSectionId3DID = aElement.attr("data-goTosceneId");
 									var currentVisibleSectionId3D= $("#"+currentVisibleSectionId3DID)
-
+									
 									if (currentVisibleSectionId3D.attr('data-coordinate3d') !== undefined) {
 
 										api.getAnnotationList(function(err, annotations) {
@@ -850,37 +850,37 @@ $.ajax({
 														if (!err) {
 															window.console.log('Hiding annotation', index + 1);
 														}
-													});
-													}
-
+													});	
+													}											
+												
 												}
 											}
-										});
-
+										});	
+					
 
 										api.showAnnotation(currentVisibleSectionId3D.attr('data-coordinate3d'), function(err, index) {
 											if (!err) {
 												window.console.log('Show annotation', index + 1);
 											}
-										});
-
+										});	
+										
 
 										api.gotoAnnotation(currentVisibleSectionId3D.attr('data-coordinate3d'),  {preventCameraAnimation: false, preventCameraMove: false}, function(err, index) {
 											if (!err) {
 												window.console.log('Going to annotation', index + 1);
 											}
 										});
-
+										
 										api.showAnnotationTooltip(currentVisibleSectionId3D.attr('data-coordinate3d'), function(err) {
 											if (!err) {
 												window.console.log('Showing annotation tooltip');
 											}
-										});
+										});	
 
-
+									
 									}
 							})
-
+							
 						},
 						error: function onError() {
 							console.log( 'Viewer error' );
@@ -891,21 +891,21 @@ $.ajax({
 						camera :0
 
 					})
-
+					
 					list3DModels.push(result.events[i].sketchfabid)
-
+					
 			}
-
+				
 				// end API SKETCHFAB
 
 
-				var event = result.events[i];
+				var event = result.events[i]; 
+			
 
-
-
+				
 				// attach element (title, img, description...) to slide
 				$(".storymap-story").append(""+
-
+					
 					'<section data-sketchfabid="'+result.events[i].sketchfabid+'" data-number-scene="'+numberScene+'" data-scene="scene'+numberScene+'" data-ev-id="'+result.events[i]._id+'" class="sectionSlide threeDModelSection" id="scene'+numberScene+'" data-background="model3D" style="width:100%" data-coordinate3d="'+(parseInt(result.events[i].annotationNumber3DModel) - 1)+'">' +
 					'<div class="threeDModel">'+
 
@@ -1100,6 +1100,18 @@ $.ajax({
 					//$(".general-controls .control").hide()
 					$(".3dcredits").hide()
 				}
+				
+				//if we are in a slide with background image (on phone)...
+/* 				if ($(window).width() <= 575) {
+					var backgroundSlide= $('#'+currentVisibleSectionId).children().first().attr('class').split(' ')[0];
+					if (backgroundSlide == "fullscreen" || backgroundSlide == "fullscreen2") {
+						console.log("Si immagine di ba")
+						$(".storymap-map").css("z-index", "1000");
+					} else {
+						console.log("No immagine di ba")
+						$(".storymap-map").css("z-index", "1001");
+					} 
+				} */
 
 				  
 			}
