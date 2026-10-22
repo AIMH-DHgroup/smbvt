@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="it">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title>ATON Storymap Viewer</title>
+    <link rel="stylesheet" href="aton-proxy.php/vendors/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="aton-proxy.php/vendors/bootstrap/css/bootstrap-icons/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="aton-proxy.php/res/css/main.css">
+    <link rel="stylesheet" href="aton-proxy.php/hathor/thirdparty/jodit.min.css">
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            background: #111;
+        }
+
+        #atonStatus {
+            position: fixed;
+            left: 12px;
+            bottom: 12px;
+            z-index: 20;
+            max-width: calc(100% - 24px);
+            padding: 8px 10px;
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.65);
+            color: #fff;
+            font: 13px/1.35 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            pointer-events: none;
+        }
+
+        #atonStatus[data-state="ready"] {
+            display: none;
+        }
+
+        #sideToolbar {
+            left: auto !important;
+            right: 4px !important;
+            top: 4px !important;
+            z-index: 70 !important;
+        }
+
+        #userToolbar {
+            display: none !important;
+        }
+
+        .hathor-main-toolbar,
+        .hathor-user-toolbar,
+        .hathor-bottom-toolbar {
+            background-color: rgba(var(--bs-body-bg-rgb), 0.5) !important;
+            border-radius: var(--bs-border-radius);
+            -webkit-backdrop-filter: blur(var(--aton-blur-radius));
+            backdrop-filter: blur(var(--aton-blur-radius));
+        }
+
+        .hathor-main-toolbar {
+            max-height: calc(100% - 8px);
+            overflow-y: auto;
+        }
+
+        .hathor-bottom-toolbar-container {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            pointer-events: none;
+            z-index: 60;
+        }
+
+        .hathor-bottom-toolbar {
+            display: inline-block;
+            margin: 4px;
+            pointer-events: initial;
+        }
+
+        .hathor-tasks-container,
+        .hathor-tasks-descr-container {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            pointer-events: none;
+            z-index: 60;
+        }
+
+        .hathor-tasks-container {
+            top: 0;
+        }
+
+        .hathor-tasks-descr-container {
+            bottom: 0;
+        }
+
+        .hathor-tasks,
+        .hathor-task-descr {
+            display: inline-block;
+            margin: 4px;
+            padding: 8px;
+            background-color: rgba(var(--bs-body-bg-rgb), 0.5) !important;
+            border-radius: var(--bs-border-radius);
+            -webkit-backdrop-filter: blur(var(--aton-blur-radius));
+            backdrop-filter: blur(var(--aton-blur-radius));
+        }
+
+        .hathor-side-panel {
+            padding-left: 0 !important;
+            padding-right: 50px !important;
+        }
+
+        .offcanvas.offcanvas-end {
+            width: min(430px, 92vw);
+            background-color: rgba(var(--bs-body-bg-rgb), 0.82) !important;
+            -webkit-backdrop-filter: blur(var(--aton-blur-radius));
+            backdrop-filter: blur(var(--aton-blur-radius));
+        }
+
+        .modal-backdrop,
+        .offcanvas-backdrop {
+            pointer-events: none;
+        }
+
+        @media (max-width: 575px) {
+            #sideToolbar {
+                display: none !important;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div id="atonStatus">Caricamento scena ATON...</div>
+    <div id="sideToolbar" class="aton-toolbar-left hathor-main-toolbar"></div>
+    <div id="fscover" class="hathor-fscover"></div>
+    <div class="hathor-tasks-container">
+        <div class="hathor-tasks" id="tasks"></div>
+    </div>
+    <div class="hathor-tasks-descr-container">
+        <div class="hathor-task-descr" id="task-descr"></div>
+    </div>
+    <div class="hathor-bottom-toolbar-container">
+        <div id="bottomToolbar" class="hathor-bottom-toolbar"></div>
+    </div>
+    <div id="userToolbar" class="hathor-user-toolbar"></div>
+    <script src="aton-proxy.php/vendors/vendors.min.js"></script>
+    <script src="aton-proxy.php/dist/THREE.bundle.js"></script>
+    <script src="aton-proxy.php/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="aton-proxy.php/hathor/thirdparty/jodit.min.js"></script>
+    <script type="module" src="aton-viewer.js"></script>
+</body>
+</html>

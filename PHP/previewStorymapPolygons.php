@@ -9,46 +9,13 @@ if(isset($_GET['dbusername_'])){
 require('PgConn.php');
 
 
-	$events=[];
-	$entitys=[];
-	$info="";
-	$relations="";
 	$currentdbname= $_GET['dbusername_'];
-
-	//get events
-	$sql= "SELECT value FROM \"".$currentdbname."\" where id ~ '^ev'";
-	$result = pg_query($sql) or die('Error message: ' . pg_last_error());
-
-
-	while ($row=pg_fetch_assoc($result)) {
-		array_push($events, $row['value']);
-	}
-	pg_free_result($result);
-	
-	
-	//get entitys
-	$sql= "SELECT value FROM \"".$currentdbname."\" where id ~ '^Q' or id ~ '^U'" ;
-	$result = pg_query($sql) or die('Error message: ' . pg_last_error());
-	
-	while ($row=pg_fetch_assoc($result)) {
-		array_push($entitys, $row['value']);
-	}
-	pg_free_result($result);
-	
-	
-	//get info (A1)
-	$sql= "SELECT value FROM \"".$currentdbname."\" where id = 'A1'" ;
-	$result = pg_query($sql) or die('Error message: ' . pg_last_error());
-	
-	while ($row=pg_fetch_assoc($result)) {
-		$info= $row['value'];
-	}
-	pg_free_result($result);
+	$payload = fetch_narrative_payload_raw($currentdbname);
 
 
 
 		// array json
-		$data= array( "events" => $events, "entitys" => $entitys, "info"=> $info);	
+		$data= array( "events" => $payload['events'], "entitys" => $payload['entitys'], "info"=> $payload['info']);	
 		$arrayJson= json_encode($data);
 		echo $arrayJson;
 		exit;
@@ -72,8 +39,8 @@ require('PgConn.php');
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 	
-	<link href="../../lib/narra.css" rel="stylesheet">
-	<link href="../../horizontalstorymap/movingStyle.css" rel="stylesheet">
+	<link href="../lib/narra.css" rel="stylesheet">
+	<link href="../horizontalstorymap/movingStyle.css" rel="stylesheet">
 
     <!--add favicon for the web page-->
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -81,7 +48,7 @@ require('PgConn.php');
     <!--Font-->
     <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="../../horizontalstorymap/storymap.2.5.css">
+    <link rel="stylesheet" type="text/css" href="../horizontalstorymap/storymap.2.5.css">
 
     <!--add required libraries-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.js"></script>
@@ -97,7 +64,7 @@ require('PgConn.php');
     <!--mini globle map-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.19/topojson.min.js"></script>
-    <script src="../../horizontalstorymap/globeminimap.js"></script>
+    <script src="../horizontalstorymap/globeminimap.js"></script>
 	
 	<!--WKT to GeoJson-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/wicket/1.3.8/wicket.min.js"></script>
@@ -106,7 +73,7 @@ require('PgConn.php');
 	var actualScene=1
 	</script>
     <!--story map plugin-->
-    <script src="../../horizontalstorymap/storymap.2.5.js"></script>
+    <script src="../horizontalstorymap/storymap.2.5.js"></script>
 	
 	
 
@@ -315,11 +282,11 @@ var layers = {
 		var Nevents = Object.keys(events).sort(sort_by_position)
 		
 		
-		var eventCoordinatesPoligon= [];
+		var eventCoordinatesPoligon= []
 		var eventsCoordinatesPoints= [];
-		var scenes= {};
+		var scenes= {}
 		
-		var numberScene=2;
+		var numberScene=2
 		
 		
 		scenes["scene1"] = {"lat" : 46.78203732560553, "lng": 12.82666424871100, "zoom": 5, "name": 'Intro', layers: []}
@@ -354,12 +321,12 @@ var layers = {
 			
 			// attach element (title, img, description...) to slide
 			if(events[i].hasOwnProperty('text') && events[i].hasOwnProperty('headline')){
-				var title= events[i].hasOwnProperty('headline');
-				var description= events[i].text.text;
+				var title= events[i].hasOwnProperty('headline')
+				var description= events[i].text.text
 
 			} else {
-				var description= events[i].description;
-				var title= events[i].title;
+				var description= events[i].description
+				var title= events[i].title
 				events[i].text = { headline : title, text :description }
 				console.log("ooop")
 				console.log(description)	
@@ -434,7 +401,6 @@ var layers = {
 						
 						var wicket = new Wkt.Wkt();
 						var readGeometry = wicket.read(PolygonSingleEntity);
-                        console.log("", readGeometry);
 						var geometry= readGeometry.toJson()
 						
 						var polygon = {

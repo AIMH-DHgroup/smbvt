@@ -1,27 +1,24 @@
 <?php
 
-$slides= $_POST['slides'];
-$user= $_POST['user'];
+require('api_helpers.php');
+ensure_session_started();
+require('PgConn.php');
+require_login_user();
 
-$id_nar= $_POST['idNarr']; 
+$slides = post_param('slides', '');
+$context = resolve_narrative_context_from_request(array(
+	'method' => 'POST',
+	'id_keys' => array('idNarr', 'idNarra', 'id'),
+	'subject_keys' => array('subject', 'subjectId'),
+));
+$user = $context['storageUser'];
+$idNarration = $context['idNarration'];
 
+$tempDir = ensure_directory(app_root_path() . DIRECTORY_SEPARATOR . 'TempJson');
+$fileName = $user . '-N' . $idNarration . '-slide.json';
+$filePath = $tempDir . DIRECTORY_SEPARATOR . $fileName;
 
-if (!file_exists('../TempJson')) {
-    mkdir('../TempJson', 0777, true);
-	chmod('../TempJson', 0777);
-}
+file_put_contents($filePath, $slides);
+chmod($filePath, 0777);
 
-
-$fp = fopen('../TempJson/'.$user. '-N' . $id_nar. '-slide.json', 'w');
-fwrite($fp, $slides);
-fclose($fp);
-chmod('../TempJson/'.$user. '-N' . $id_nar. '-slide.json', 0777);
-
-
-// array json
-$arrayJson= array( "url" => 'TempJson/'.$user. '-N' . $id_nar. '-slide.json');		
-$data= json_encode($arrayJson);
-echo $data;
-
-?>
-
+json_response(array('url' => 'TempJson/' . $fileName));

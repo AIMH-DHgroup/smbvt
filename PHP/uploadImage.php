@@ -1,15 +1,18 @@
 
 <?php
+require('api_helpers.php');
+ensure_session_started();
+require_login_user();
 require('PgConn.php');
 
-// move the blob file (passed by loadImageFromFile js function) in the images folder
-move_uploaded_file(
-    $_FILES['file']['tmp_name'], 
-    "/var/www/tool.dlnarratives.eu/images/".$_POST['fileName']
-); 
+$imagesDir = images_storage_dir();
 
-chmod("/var/www/tool.dlnarratives.eu/images/".$_POST['fileName'], 0777);
+$targetPath = rtrim($imagesDir, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . basename($_POST['fileName']);
 
-echo json_encode('Model uploaded successfully.');
+if (!move_uploaded_file($_FILES['file']['tmp_name'], $targetPath)) {
+	json_error_response('Upload failed', 500);
+}
 
-?>
+chmod($targetPath, 0777);
+
+json_response(array('ok' => true, 'path' => basename($targetPath)));

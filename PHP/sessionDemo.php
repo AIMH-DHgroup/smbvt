@@ -6,7 +6,9 @@
 require('../../../try/PgConnDemo.php');
 
 
-session_start();// Starting Session
+if (session_status() === PHP_SESSION_NONE) {
+	session_start();
+}
 
 
 if(!isset($_SESSION['Demon_on'])){
@@ -45,7 +47,7 @@ if(!isset($_SESSION['Demon_on'])){
 		
 		
 		//get 3 demo narratives
-		$stories = ["../json/bruni.json", "../json/giantsquid.json", "../json/apuanalps.json"];
+ /* 		$stories = ["../json/bruni.json", "../json/giantsquid.json", "../json/apuanalps.json"];
 
 		for($i=0; $i<sizeOf($stories); $i++){
 			
@@ -108,7 +110,7 @@ if(!isset($_SESSION['Demon_on'])){
 
 
 
-		}
+		}  */
 
 
 	

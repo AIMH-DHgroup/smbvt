@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.intelligence.tuc.gr/~batsakis/swrl-test#"
+     xml:base="http://www.intelligence.tuc.gr/~batsakis/swrl-test"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:narr="http://dlnarratives.eu/ontology#">
+    <owl:Ontology rdf:about="http://www.intelligence.tuc.gr/~batsakis/swrl-test"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.intelligence.tuc.gr/~batsakis/swrl-test#AllenRelation -->
+
+    <owl:ObjectProperty rdf:about="http://www.intelligence.tuc.gr/~batsakis/swrl-test#AllenRelation">
+        <owl:propertyDisjointWith rdf:resource="http://www.intelligence.tuc.gr/~batsakis/swrl-test#Null"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.intelligence.tuc.gr/~batsakis/swrl-test#Null -->
+
+    <owl:ObjectProperty rdf:about="http://www.intelligence.tuc.gr/~batsakis/swrl-test#Null"/>
+
+
+
+    <!-- http://www.intelligence.tuc.gr/~batsakis/swrl-test#b_di_ov_m_fi -->
+
+    <owl:ObjectProperty rdf:about="http://www.intelligence.tuc.gr/~batsakis/swrl-test#b_di_ov_m_fi">
+        <rdfs:subPropertyOf rdf:resource="http://www.intelligence.tuc.gr/~batsakis/swrl-test#AllenRelation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.intelligence.tuc.gr/~batsakis/swrl-test#d_s_f_eq -->
+
+    <owl:ObjectProperty rdf:about="http://www.intelligence.tuc.gr/~batsakis/swrl-test#d_s_f_eq">
+        <rdfs:subPropertyOf rdf:resource="http://www.intelligence.tuc.gr/~batsakis/swrl-test#AllenRelation"/>
+    </owl:ObjectProperty>
+
+
+    <owl:ObjectProperty rdf:about="http://www.intelligence.tuc.gr/~batsakis/swrl-test#d_ov_s">
+        <rdfs:subPropertyOf rdf:resource="http://www.intelligence.tuc.gr/~batsakis/swrl-test#AllenRelation"/>
+    </owl:ObjectProperty>
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+	<rdf:Description rdf:about="http://www.intelligence.tuc.gr/~batsakis/swrl-test#x">
+	    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+	</rdf:Description>
+    <rdf:Description rdf:about="http://www.intelligence.tuc.gr/~batsakis/swrl-test#y">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.intelligence.tuc.gr/~batsakis/swrl-test#z">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+	
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:head>
+			<rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.intelligence.tuc.gr/~batsakis/swrl-test#d_s_f_eq"/>
+                        <swrl:argument1 rdf:resource="http://www.intelligence.tuc.gr/~batsakis/swrl-test#x"/>
+                        <swrl:argument2 rdf:resource="http://www.intelligence.tuc.gr/~batsakis/swrl-test#y"/>
+                    </rdf:Description>
+                </rdf:first>
+			</rdf:Description>
+        </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+				<rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://dlnarratives.eu/ontology#consistsOf"/>
+                        <swrl:argument1 rdf:resource="http://www.intelligence.tuc.gr/~batsakis/swrl-test#x"/>
+                        <swrl:argument2 rdf:resource="http://www.intelligence.tuc.gr/~batsakis/swrl-test#y"/>
+					</rdf:Description>
+				</rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+			</rdf:Description>
+        </swrl:body>
+    </rdf:Description>
+	
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.intelligence.tuc.gr/~batsakis/swrl-test#d_ov_s"/>
+                        <swrl:argument1 rdf:resource="http://www.intelligence.tuc.gr/~batsakis/swrl-test#x"/>
+                        <swrl:argument2 rdf:resource="http://www.intelligence.tuc.gr/~batsakis/swrl-test#z"/>
+                    </rdf:Description>
+                </rdf:first>
+            </rdf:Description>
+        </swrl:head>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.intelligence.tuc.gr/~batsakis/swrl-test#d_ov_s"/>
+                        <swrl:argument1 rdf:resource="http://www.intelligence.tuc.gr/~batsakis/swrl-test#x"/>
+                        <swrl:argument2 rdf:resource="http://www.intelligence.tuc.gr/~batsakis/swrl-test#y"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.intelligence.tuc.gr/~batsakis/swrl-test#d_s_f_eq"/>
+                                <swrl:argument1 rdf:resource="http://www.intelligence.tuc.gr/~batsakis/swrl-test#y"/>
+                                <swrl:argument2 rdf:resource="http://www.intelligence.tuc.gr/~batsakis/swrl-test#z"/>
+                            </rdf:Description>
+                        </rdf:first>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+    </rdf:Description>
+
+</rdf:RDF>

@@ -22,45 +22,67 @@
 
 	<link rel="stylesheet" href="https://cdn.knightlab.com/libs/storymapjs/latest/css/storymap.css">
 	<script src="lib/storymap.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css">
+	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+	<script src="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
 
+	<script src="lib/demo-narraMapsNew.ui.js"></script>
+	<script src="lib/demo-narraMapsNew.map.js"></script>
+	<script src="lib/demo-narraMapsNew.wikidata.js"></script>
+	<script src="lib/demo-narraMapsNew.persistence.js"></script>
+	<script src="lib/demo-narraMapsNew.sketchfab.js"></script>
+	<script src="lib/demo-narraMapsNew.aton.js"></script>
 	<script src="lib/demo-narraMapsNew.js"></script>
+	<script src="lib/demo-narraMapsNew.events.js"></script>
 	
 	<!--FONT AWESOME-->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 </head>
-<body onscroll="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); resetEntityPopover(); hideEntityPopover();"
-onclick="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); resetEntityPopover(); hideEntityPopover();">
+<body class="js-hide-popovers">
 	<div class="spinner" style="position: fixed; top: 50%; left: 50%; margin-left: -40px; margin-top: -20px;">
 	  <div class="bounce1"></div>
 	  <div class="bounce2"></div>
 	  <div class="bounce3"></div>
 	</div>
+	<div id="bootstrap-progress-overlay">
+		<div id="bootstrap-progress-card">
+			<div id="bootstrap-progress-title">Creating narrative...</div>
+			<div id="bootstrap-progress-bar-wrap">
+				<div id="bootstrap-progress-bar"></div>
+			</div>
+			<div id="bootstrap-progress-meta">
+				<span id="bootstrap-progress-percent">0%</span>
+				<span id="bootstrap-progress-message">Starting...</span>
+			</div>
+		</div>
+	</div>
 
 	<div id="header">
 		<div id="logo-container">
-			<a href="../SMBVT_2.0.html"><img id="logo" src="img/aimh-lab.png" alt="AIMH-Lab logo" width="100" height="100"></a>
+			<a href="SMBVT_2.0.html"><img id="logo" src="img/aimh-lab.png" alt="AIMH-Lab logo" width="100" height="100"></a>
 			<span id="SMBVT" class="not-selectable">SMBVT</span>
 		</div>
 		<div id="central-div-header">
-			<div id="event-title" onscroll="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); resetEntityPopover(); hideEntityPopover();">
+			<div id="event-title" class="js-hide-popovers">
 				<h2 class="subjectName" id="bigName">Narration Title</h2>
 				<div id="title-cover-page-div">
-					<button id="buttonSaveTitle" onclick="confirmUpdateTitle();"><i class="fa-solid fa-pen"></i></button>
-					<button type="button" id="cover-page" onclick="confirmCoverPage();" data-toggle='tooltip' data-original-title="Change the narrative cover image"><i class="fa-regular fa-image"></i></button>
+					<button id="buttonSaveTitle" type="button"><i class="fa-solid fa-pen"></i></button>
+					<button type="button" id="cover-page" data-toggle='tooltip' data-original-title="Change the narrative cover image"><i class="fa-regular fa-image"></i></button>
 				</div>
 			</div>
 			<div id="central-nav">
-				<div class="nav not-selectable" id="addButton" onclick="switchContainerEventType(false, true);"><span>New Event</span></div>
-				<div class="nav not-selectable" id="saveButton" onclick="const evid = saveEvent(undefined); if (evid !== undefined) {displayEvent(undefined, evid);}"><span>Save Event</span></div>
-				<div class="nav not-selectable" id="cancelButton" onclick="confirmReset();"><span>Clear Form</span></div>
+				<div class="nav not-selectable" id="addButton"><span>New Event</span></div>
+				<div class="nav not-selectable" id="saveButton"><span>Save Event</span></div>
+				<div class="nav not-selectable" id="cancelButton"><span>Clear Form</span></div>
 
-				<div class="nav not-selectable" id="visMapButton" onclick="publishNarration(1);"><span>Map Preview</span></div>
-				<div class="nav not-selectable" id="visTimeButton" onclick="confirmVisualizeTimeline();"><span>Timeline Preview</span></div>
-				<div class="nav not-selectable" id="exportOWLButton" onclick="downloadOwl();"><span>Download OWL</span></div>
+				<div class="nav not-selectable" id="visMapButton"><span>Map Preview</span></div>
+				<div class="nav not-selectable" id="visTimeButton"><span>Timeline Preview</span></div>
+				<div class="nav not-selectable" id="exportOWLButton"><span>Download OWL</span></div>
 				<div class="nav not-selectable" id="exportButton"><span>Download JSON</span></div>
 
-				<div class="nav buttonPublishMap not-selectable" id="publish-story-container" onclick="publishNarration();">
+				<div class="nav buttonPublishMap not-selectable" id="publish-story-container">
 					<div id="loading"><img src="img/spinner.gif" alt="Loading icon" height="28" width="28"></div>
 					<span>Publish Story</span>
 				</div>
@@ -69,7 +91,7 @@ onclick="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); rese
 		</div>
 		<div id="right-header">
 			<div id="account-list" class="dropdown">
-				<button id="account-btn" class="dropdown-toggle not-selectable nav" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="toggleArrow($('#arrow-panel'));">Control Panel <i class='fa-solid fa-caret-right toggle-arrow' id="arrow-panel"></i></button>
+				<button id="account-btn" class="dropdown-toggle not-selectable nav" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Control Panel <i class='fa-solid fa-caret-right toggle-arrow' id="arrow-panel"></i></button>
 				<div class="dropdown-menu not-selectable" aria-labelledby="account-btn" id="dropdown-menu-header">
 					<p id="welcome">Welcome, <span id="userName"></span></p>
 					<div id="home" class="btn btn-primary header-nav-btn">Return to Home</div>
@@ -81,7 +103,7 @@ onclick="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); rese
 					<div id="account-menu">
 						<ul id="my-account-list">
 							<li class="dropdown-header">My Account</li>
-							<li class="narra-list-item"><a class="data" onclick="confirmLogout();">Logout</a></li>
+							<li class="narra-list-item"><a class="data" id="logout-link">Logout</a></li>
 						</ul>
 					</div>
 				</div>
@@ -109,7 +131,7 @@ onclick="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); rese
 	<div id='timeline-embed'></div>
 	<div id="mapdiv"></div>
 
-	<div id="container" onclick="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); resetEntityPopover(); hideEntityPopover();">
+	<div id="container" class="js-hide-popovers">
         <div id="leftNav">
 			<h4 id="entities-title">Entity Classes</h4>
             <div class="nav toggle-btn-entities" id="allButton" data-class="all"><span>All</span></div>
@@ -123,7 +145,7 @@ onclick="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); rese
             <h4 id="new-entity-title">New Entity</h4>
 			<div class="nav" id="plusButton"><span>New</span></div>
         </div>
-        <div id="controls" class="back" onscroll="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); resetEntityPopover(); hideEntityPopover();">
+		<div id="controls" class="back js-hide-popovers">
 			<h4 id="entities">Entities</h4>
 			<label for="searchInput" style="display: none;"></label>
 			<input id="searchInput" placeholder="Search entities..." class="input-append" onkeyup="searchEntity();">
@@ -136,14 +158,19 @@ onclick="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); rese
 				<h4 id="event-type-title">Create a new event</h4>
 				<div id="type-choice">
 					<div id="event-type-buttons">
-						<button id="map-event" class="nav not-selectable" onclick="loadEventType('map', false, false); $('#workspace').attr('data-evid', nextEvid());"><i id="map-icon" class="fa-solid fa-map"></i>Map</button>
-						<button id="sketch-event" class="nav not-selectable" onclick="loadEventType('sketchfab', false, false); $('#workspace').attr('data-evid', nextEvid());"><img id="sketch-icon" src="img/sketchfab.png" alt="Sketchfab icon" width="20" height="20">Sketchfab</button>
-						<button id="slide-event" class="nav not-selectable" onclick="loadEventType('slide', false, false); $('#workspace').attr('data-evid', nextEvid());"><i id="slide-icon" class="fa-solid fa-file-powerpoint"></i>Slide</button>
+						<button id="map-event" class="nav not-selectable" type="button"><i id="map-icon" class="fa-solid fa-map"></i>Map</button>
+						<button id="object3d-event" class="nav not-selectable" type="button"><i id="object3d-icon" class="fa-solid fa-cube"></i> 3D Model</button>
+						<button id="slide-event" class="nav not-selectable" type="button"><i id="slide-icon" class="fa-solid fa-file-powerpoint"></i>Slide</button>
+					</div>
+					<div id="three-d-event-options">
+						<button id="three-d-back-event" class="nav not-selectable" type="button"><i class="fa-solid fa-arrow-left"></i>Back</button>
+						<button id="sketchfab-option-event" class="nav not-selectable" type="button"><img id="sketch-icon" src="img/sketchfab.png" alt="Sketchfab icon" width="20" height="20">Sketchfab</button>
+						<button id="aton-option-event" class="nav not-selectable" type="button"><i id="aton-icon" class="fa-solid fa-cube"></i>Aton</button>
 					</div>
 				</div>
 			</div>
 		</div>
-        <div id="workspace" class="back" onscroll="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); resetEntityPopover(); hideEntityPopover();">
+		<div id="workspace" class="back js-hide-popovers">
 			<div id="event-type-form-container"><span id="event-type-icon"></span><span id="event-type-text"></span></div>
 			<h4 id="form-title">Event Information</h4>
 			<p id="mandatory-fields-text">(*) are mandatory</p>
@@ -186,24 +213,52 @@ onclick="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); rese
                     </div>
                 </div>
 
+
 				<div class="form-group" id="id-group">
 					<div class="tooltip-div">
-						<label for="id-text" class="entitiesLabel label-tooltip">Model ID (*)</label>
+						<label for="id-text" id="model-id-label" class="entitiesLabel label-tooltip">Model ID (*)</label>
 						<a class="tooltips" href="./img/modelIDExample.png" target="_blank"><i class="fa-solid fa-circle-info"></i></a>
-                		<input autocomplete="off" id="id-text" class="input-append form-control">
+                  		<input autocomplete="off" id="id-text" class="input-append form-control">
 					</div>
 				</div>
 
-				<div class="form-group" id="number-group">
-					<div class="tooltip-div">
-						<label for="number-text" class="entitiesLabel label-tooltip">Sketchfab annotation</label>
-						<a class="tooltips" data-toggle="tooltip" data-original-title="It is the number of the sketchfab annotation."><i class="fa-solid fa-circle-info"></i></a>
+				<div class="form-group form-table" id="sketchfab-editor-group">
+					<div class="tooltip-div sketchfab-editor-header">
+						<label class="entitiesLabel label-tooltip" for="load-sketchfab-model">Sketchfab annotation selector</label>
+						<a class="tooltips" data-toggle="tooltip" data-original-title="Load the Sketchfab model, then choose the annotation directly from the embedded viewer."><i class="fa-solid fa-circle-info"></i></a>
 					</div>
-					<input autocomplete="off" id="number-text" class="input-append form-control">
+					<div id="sketchfab-editor-controls">
+						<button id="load-sketchfab-model" class="btn btn-default" type="button">Load model</button>
+						<span id="sketchfab-editor-status">Insert a model ID, then load the Sketchfab scene.</span>
+					</div>
+					<div id="sketchfab-editor-frame-wrap">
+						<iframe id="sketchfab-editor-frame" title="Sketchfab event editor" loading="lazy"></iframe>
+					</div>
+				</div>
+
+				<div class="form-group form-table" id="aton-editor-group">
+					<div class="tooltip-div aton-editor-header">
+						<label class="entitiesLabel label-tooltip" for="load-aton-model">ATON viewpoint selector</label>
+						<a class="tooltips" data-toggle="tooltip" data-original-title="Load the ATON model, navigate the embedded viewer, and the selected viewpoint will be used for this event."><i class="fa-solid fa-circle-info"></i></a>
+					</div>
+					<div id="aton-editor-controls">
+						<button id="load-aton-model" class="btn btn-default" type="button">Load model</button>
+						<span id="aton-editor-status">Insert a model ID, then load the ATON scene.</span>
+					</div>
+					<div id="aton-editor-frame-wrap">
+						<iframe id="aton-editor-frame" title="ATON event editor" loading="lazy"></iframe>
+					</div>
+					<div class="form-group" id="number-group">
+						<div class="tooltip-div">
+							<label for="number-text" id="model-detail-label" class="entitiesLabel label-tooltip">Sketchfab annotation</label>
+							<a id="model-detail-help" class="tooltips" data-toggle="tooltip" data-original-title="It is the number of the sketchfab annotation."><i class="fa-solid fa-circle-info"></i></a>
+						</div>
+						<input autocomplete="off" id="number-text" class="input-append form-control">
+					</div>
 				</div>
 
                 <div class="form-group form-table" id="descDiv">
-                	<label for="descArea" class="entitiesLabel">Description</label>
+                 	<label for="descArea" class="entitiesLabel">Description</label>
                     <textarea id="descArea" class="form-control"></textarea>
                 </div>
 
@@ -218,7 +273,7 @@ onclick="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); rese
 						</div>
 
 						<div id="button-image-backImg-div" class="form-group button-background-image-div">
-							<button id="selectEventLocalBackgroundImage" onclick="document.getElementById('backImgInput').click();" class="btn btn-default selectEventLocalBackgroundImage" type="button" style="overflow:hidden;">Upload image</button>
+							<button id="selectEventLocalBackgroundImage" class="btn btn-default selectEventLocalBackgroundImage" type="button" style="overflow:hidden;">Upload image</button>
 						</div>
 						<input  style="display:none;" type="file" id="backImgInput" class="backImgInput">
 
@@ -275,7 +330,7 @@ onclick="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); rese
 							</div>
 
 							<div id="button-image-div" class="form-group button-image-div">
-								<button id="selectEventLocalImage" onclick="document.getElementById('eventImageInput').click();" class="btn btn-default selectEventLocalImage" type="button" style="overflow:hidden;">Upload image</button>
+							<button id="selectEventLocalImage" class="btn btn-default selectEventLocalImage" type="button" style="overflow:hidden;">Upload image</button>
 							</div>
 							<input  style="display:none;" type="file" id="eventImageInput" class="eventImageInput">
 
@@ -288,10 +343,21 @@ onclick="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); rese
 					</div>
 				</div>
 				<div id="add-image">
-					<button id="add-image-icon" type="button" onclick="addImageGroup(false);"><i class="fa-solid fa-plus"></i></button><label for="add-image-icon" id="add-image-text">Add image</label>
+					<button id="add-image-icon" type="button"><i class="fa-solid fa-plus"></i></button><label for="add-image-icon" id="add-image-text">Add image</label>
 				</div>
 
 				<h4 id="location-title">Event Location</h4>
+
+				<div class="form-group form-table" id="map-editor-group">
+					<div class="tooltip-div map-editor-header">
+						<label class="entitiesLabel label-tooltip" for="map-editor-canvas">Event map editor</label>
+						<a class="tooltips" data-toggle="tooltip" data-original-title="Draw a point or a polygon directly on the map. You can also click on any Place entity associated with the event. In the popup, choose whether to display the entity's point or polygon geometry, if available. The map will then display the geometries of all selected entities."><i class="fa-solid fa-circle-info"></i></a>
+					</div>
+					<div id="map-editor-status">Draw one event geometry (point or polygon), or select one geometry from an entity.</div>
+					<div id="map-editor-canvas"></div>
+					<input type="hidden" id="mapZoomInput">
+				</div>
+				
 				<div class="form-group choose-coors" id="choose-coors">
 					<span id="choose-coors-title">Choose how to express coordinates (*)</span>
 					<input type="radio" id="point-radio" class="radioButtons radioCoorsBtn" name="coors-type" value="point">
@@ -313,7 +379,7 @@ onclick="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); rese
 	                    	<input autocomplete="off"  type="text" class="input-append dateInput form-control" id="longitud" onfocus="$(this).css('color', '#333');">
 						</div>
 	                </div>
-					<button id="openPopupSearchCoordinates" onclick="openPopupMap();" class="btn btn-default" type="button">Find from map</button>
+					<button id="openPopupSearchCoordinates" class="btn btn-default" type="button">Find from map</button>
 				</div>
 
                 <div class="form-group form-table" id="polygon">
@@ -323,12 +389,12 @@ onclick="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); rese
 						<textarea id="polygonArea" class="form-control"></textarea>
 					</div>
 
-					<button id="openPopupDrawPolygon" onclick="window.open('HTML/drawPolygons.html', 'Draw_Polygons', 'width=900,height=700')" class="btn btn-default" type="button">Draw polygons on map</button>
+					<button id="openPopupDrawPolygon" class="btn btn-default" type="button">Draw polygons on map</button>
                 </div>
 
 				<div class="form-group" id="place-group">
 					<label for="placeLabel" class="entitiesLabel">Place label</label>
-                	<input autocomplete="off" id="placeLabel" class="input-append form-control"  style="font-size:14px; text-align: left !important;">
+                 	<input autocomplete="off" id="placeLabel" class="input-append form-control"  style="font-size:14px; text-align: left !important;">
 				</div>
 
 				<div class="form-group" id="position-group">
@@ -344,7 +410,7 @@ onclick="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); rese
             </form>
         </div>
 
-		<div id="sidebar" onscroll="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); resetEntityPopover(); hideEntityPopover();">
+		<div id="sidebar" class="js-hide-popovers">
 			<h4 id="sidebar-title">Events</h4>
 			<div id="eventSearchDiv" style="margin-top: 1.5%;text-align: center;">
 				<label for="eventSearch" style="display: none;"></label>
@@ -355,12 +421,12 @@ onclick="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); rese
 				<span id="counter-text">Number of created events: </span><span id="events-counter"></span>
 			</div>
 
-			<div id="timeline" onclick="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); resetEntityPopover(); hideEntityPopover();"></div>
-			<div id="overlay" onclick="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); resetEntityPopover(); hideEntityPopover();"></div>
-			<div id="relHelpContainer" class="centered" onclick="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); resetEntityPopover(); hideEntityPopover();">
+			<div id="timeline" class="js-hide-popovers"></div>
+			<div id="overlay" class="js-hide-popovers"></div>
+			<div id="relHelpContainer" class="centered js-hide-popovers">
 				<h2 class="relHelp"><span class="arrow">⬆</span> Drag events into the boxes above <span class="arrow">⬆</span></h2>
 			</div>
-			<div id="bottomTimeline" onclick="$('.popover').hide(); $('.radioEntityBtn').prop('checked', false); resetEntityPopover(); hideEntityPopover();"></div>
+			<div id="bottomTimeline" class="js-hide-popovers"></div>
 		</div>
     </div>
 	

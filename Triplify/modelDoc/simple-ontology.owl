@@ -1,0 +1,22 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix narr:  <http://dlnarratives.eu/> .
+
+<http://dlnarratives.eu/ontology#consistsOf>
+        a             owl:ObjectProperty .
+
+<http://www.intelligence.tuc.gr/~batsakis/swrl-test#d_ov_s>
+        a             owl:ObjectProperty .
+
+<http://dlnarratives.eu/narrative/N1/event/ev1>
+    	a                        narr:Event ;
+		<http://www.intelligence.tuc.gr/~batsakis/swrl-test#d_ov_s>   <http://dlnarratives.eu/narrative/N1/event/ev2> .
+
+<http://dlnarratives.eu/narrative/N1/event/ev2>
+        a                        narr:Event ;
+		<http://dlnarratives.eu/ontology#consistsOf>		<http://dlnarratives.eu/narrative/N1/event/ev3> .
+
+<http://dlnarratives.eu/narrative/N1/event/ev3>
+    	a                        narr:Event .
+
+narr:Event
+        a                owl:Class .

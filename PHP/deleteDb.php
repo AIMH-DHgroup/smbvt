@@ -1,48 +1,35 @@
-
 <?php
-//DB POSTGRES
+
+require('api_helpers.php');
+ensure_session_started();
 require('PgConn.php');
 
-	$objcid= $_POST['objId'];
-	$dbname= $_POST['dbname'];
-	$dbuser= $_POST['dbuser'];
-	$dbIdNarra = $_POST['dbIdNarra'];
-	$msg="Nessuna eliminazione";
-	$rows = 0;
+$context = resolve_narrative_context_from_request(array(
+	'method' => 'POST',
+));
+$objectId = post_param('objId', '');
+$message = 'Nessuna eliminazione';
+$tableName = $context['tableName'];
 
+$result = pg_query_or_fail("SELECT id FROM \"$tableName\" WHERE id = '" . pg_escape_string($objectId) . "'");
+$rows = pg_num_rows($result);
 
+if ($rows === 1) {
+	$result2 = pg_query_or_fail("DELETE FROM \"$tableName\" WHERE id = '" . pg_escape_string($objectId) . "'");
 
+	if (substr($objectId, 0, 1) === 'Q' || substr($objectId, 0, 1) === 'U') {
+		$message = 'entità ' . $objectId . ' eliminata';
+	} elseif (substr($objectId, 0, 2) === 'ev') {
+		$message = 'evento ' . $objectId . ' eliminato';
+	} elseif ($objectId === 'D1') {
+		$message = 'relazione D1 ' . $objectId . ' eliminata';
+	} elseif ($objectId === 'A1') {
+		$message = 'info A1 ' . $objectId . ' eliminata';
+	}
 
-	$sql= "SELECT id FROM \"".$dbIdNarra.$dbuser."-".$dbname."\" WHERE id = '" . $objcid . "'";
-	$result = pg_query($sql) or die('Error message: ' . pg_last_error());
-	$rows = pg_num_rows($result);
+	pg_free_result($result2);
+}
 
-	if($rows == 1){
-		
-		$sql2= "DELETE FROM \"".$dbIdNarra.$dbuser."-".$dbname."\" WHERE id = '" . $objcid . "'";
-		$result2 = pg_query($sql2) or die('Error message: ' . pg_last_error());
-		
-		if (substr( $objcid, 0, 1 ) === "Q" or substr( $objcid, 0, 1 ) === "U") { 
-			$msg= "entità " . $objcid . " eliminata";
-		} else if (substr( $objcid, 0, 2 ) === "ev"){
-			$msg= "evento " . $objcid . " eliminato";
-		} else if ($objcid == "D1") {
-			$msg= "relazione D1 " . $objcid . " eliminata";
-		} else if($objcid == "A1"){
-			$msg= "info A1 " . $objcid . " eliminata";
-		}
+pg_free_result($result);
 
-		pg_free_result($result2);
-			
-		
-	} 
-
-	pg_free_result($result);
-
-	
-
-		// array json
-		$arrayJson= array( "msg" => $msg);	
-		$data= json_encode($arrayJson);
-		echo $data;
-?>
+json_response(array('msg' => $message));

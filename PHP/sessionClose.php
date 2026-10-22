@@ -1,8 +1,7 @@
 <?php
-session_start();
+
+require('api_helpers.php');
+ensure_session_started();
 session_destroy();
 
-// array json
-$arrayJson= array( "msg" => "session closed");		
-$data= json_encode($arrayJson);
-echo $data;
+json_response(array('msg' => 'session closed'));

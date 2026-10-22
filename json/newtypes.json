@@ -1,0 +1,23 @@
+{
+	"types": [{
+		"en": "no type",
+		"it": "nessun tipo",
+		"roles": []
+	}, {
+		"en": "historical event",
+		"it": "storia",
+		"roles": []
+	}, {
+		"en": "natural event",
+		"it": "natura",
+		"roles": []
+	}, {
+		"en": "valorisation event",
+		"it": "valorizzazione",
+		"roles": []
+	},  {
+		"en": "descriptive event",
+		"it": "descrizione",
+		"roles": []
+	}]
+}

@@ -1,65 +1,39 @@
-
 <?php
-//DB POSTGRES
+
+require('api_helpers.php');
+ensure_session_started();
 require('PgConn.php');
 
+$userCheck = '';
+$allDbName = array();
+$idNarra = post_param('idNarra');
 
-//session_start();// Starting Session
-$user_check="";
-$allDbName=[];
-if(isset($_SESSION['login_user'])){
-	
-	//get dbName (userName-idWikiSubjectNarration)
-	$dbName= $_POST['dbN'];
-	
-	//get only subjectNarration
-	$arrayDbName= explode("-",$dbName);
-	$subjectNarration= $arrayDbName[1];
-	
-	//get idNarra (can be "null" or integer)
-	$idNarra= $_POST['idNarra'];
+if (login_user_value() !== '') {
+	$dbName = post_param('dbN', '');
+	$parts = explode('-', $dbName, 2);
+	$subjectNarration = isset($parts[1]) ? $parts[1] : '';
 
-	// GET USER
-	$user_check=$_SESSION['login_user'];
-	$sql= "SELECT username FROM users where username= '".$user_check."'" ;
-	$result = pg_query($sql) or die('Error message: ' . pg_last_error());
+	$userCheck = login_user_value();
+	$result = pg_query_or_fail("SELECT username FROM users where username= '" . pg_escape_string($userCheck) . "'");
+	pg_free_result($result);
 
-
-
-	
-	
-	// If idNarration is null, it's NEW narration. Has to insered in DB. Else, idNarration remains id of a existing narration passed with URL query in JS
-	if($idNarra == null){
-		
-		$sql= "WITH ins AS (INSERT INTO narrations (id_dbname, title, \"user\", subject) VALUES ('".$dbName."', '".$subjectNarration."', '".$_SESSION['id_user']."', '".$subjectNarration."') RETURNING id_dbname) select count(*) from ins";
-		$result = pg_query($sql) or die('Error message: ' . pg_last_error());
-		
-		
+	if ($idNarra === null || $idNarra === '' || $idNarra === 'null') {
+		$sql = "WITH ins AS (INSERT INTO narrations (id_dbname, title, \"user\", subject) VALUES ('" . pg_escape_string($dbName) . "', '" . pg_escape_string($subjectNarration) . "', '" . pg_escape_string((string) current_user_id()) . "', '" . pg_escape_string($subjectNarration) . "') RETURNING id_dbname) select count(*) from ins";
+		$result = pg_query_or_fail($sql);
 		pg_free_result($result);
-		
-		$sql= "SELECT last_value FROM id_narration_seq";
-		$result = pg_query($sql) or die('Error message: ' . pg_last_error());
+
+		$result = pg_query_or_fail('SELECT last_value FROM id_narration_seq');
 		while ($row = pg_fetch_row($result)) {
-			$idNarra=$row[0];
+			$idNarra = $row[0];
 		}
 		pg_free_result($result);
-	} 	
-			
-	
-	// get all narrations of this user
-	$query = "select id, title, subject from narrations where \"user\"= '".$_SESSION['id_user']."'";
-	$result = pg_query($query) or die('Error message: ' . pg_last_error());
-			
-	while ($row = pg_fetch_row($result)) {
-		array_push($allDbName,$row);
 	}
-	pg_free_result($result);
-	
+
+	$allDbName = fetch_narrations_basic_for_user(current_user_id());
 }
 
-
-		// array json
-		$arrayJson= array( "username" => $user_check, "allDBName" => $allDbName, "idNarra" => $idNarra);		
-		$data= json_encode($arrayJson);
-		echo $data;
-?>
+json_response(array(
+	'username' => $userCheck,
+	'allDBName' => $allDbName,
+	'idNarra' => $idNarra,
+));

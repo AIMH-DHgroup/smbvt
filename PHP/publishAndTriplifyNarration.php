@@ -1,226 +1,93 @@
-
 <?php
-//DB POSTGRES
+
+require('api_helpers.php');
+ensure_session_started();
 require('PgConn.php');
 
-$slides= $_POST['slides'];
-$user= $_POST['user'];
-$title= $_POST['narrationTitle'];
-$id_nar= $_POST['idNarr']; 
-$subjectNarration= $_POST['subject'];
-$baseUrl= $_POST['baseURL'];
+$context = resolve_narrative_context_from_request(array(
+	'method' => 'POST',
+	'id_keys' => array('idNarr', 'idNarra', 'id'),
+	'subject_keys' => array('subject', 'subjectId'),
+));
+$slides = post_param('slides', '');
+$user = $context['storageUser'];
+$title = post_param('narrationTitle', '');
+$idNarration = $context['idNarration'];
+$subjectNarration = $context['subjectId'];
+$baseUrl = post_param('baseURL', '');
 
+$tableName = $context['tableName'];
+$scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+$triplifyRoot = realpath(__DIR__ . '/../Triplify');
 
-//////////////Triplify////////////
+$events = fetch_narrative_events_map($tableName);
+$entities = fetch_narrative_entities_map($tableName);
+$info = fetch_narrative_info_object($tableName);
 
-	$date = new DateTime();
-	
-	$events=[];
-	$entitys=[];
-	$info="";
-	$currentdbname= $id_nar . $user . "-" . strtolower($subjectNarration);
-	
-	$start= $date->getTimestamp();
-
-	//get events
-	$sql= "SELECT id, value FROM \"".$currentdbname."\" where id ~ '^ev'";
-	$result = pg_query($sql) or die('Error message: ' . pg_last_error());
-
-
-	while ($row=pg_fetch_assoc($result)) {
-		//array_push($events, json_decode($row['value']));
-		$events[str_replace(" ","",$row['id'])] =  json_decode($row['value']);
-	}
-	pg_free_result($result);
-	
-	
-	//get entitys
-	$sql= "SELECT id, value FROM \"".$currentdbname."\" where id ~ '^Q' or id ~ '^U'" ;
-	$result = pg_query($sql) or die('Error message: ' . pg_last_error());
-	
-	while ($row=pg_fetch_assoc($result)) {
-		//array_push($entitys, json_decode($row['value']));
-		$entitys[str_replace(" ","",$row['id'])] =  json_decode($row['value']);
-	}
-	pg_free_result($result);
-	
-
-	//get info (A1)
-	$sql= "SELECT value FROM \"".$currentdbname."\" where id = 'A1'" ;
-	$result = pg_query($sql) or die('Error message: ' . pg_last_error());
-	
-	while ($row=pg_fetch_assoc($result)) {
-		$info= json_decode($row['value']);
-	}
-	pg_free_result($result);
-	
-	// choose fuseki dataset and folder to dave owl files
-	if(isset($info->CSVnumber)){
-		$datasetFs= "https://tool.dlnarratives.eu/fuseki/moving";
-		$datasetName= "moving";
-		$folderSaveOwl="moving/";
-	} else if($baseUrl == "dlnarratives.moving.d4science.org"){
-		$datasetFs= "https://tool.dlnarratives.eu/fuseki/Narration2";
-		$datasetName= "Narration2";
-		$folderSaveOwl="Narration2/";
-	} else if(isset($_SESSION['Demon_on'])){
-		$datasetFs= "https://tool.dlnarratives.eu/fuseki/prova2";
-		$datasetName= "prova2";
-		$folderSaveOwl="prova2/";
-	} else {
-		$datasetFs= "https://tool.dlnarratives.eu/fuseki/narratives";
-		$datasetName= "narratives";
-		$folderSaveOwl="narratives/";
-	}
-	
-	// force dataset
-/* 	$datasetFs= "https://tool.dlnarratives.eu/fuseki/Narration2";
-	$datasetName= "Narration2";
-	$folderSaveOwl="Narration2/"; */
-	
-	// create json object
-	//header('Content-Type: application/json');
-	$results = array("entities"=> $entitys, "narra"=> $info, "events"=> $events);
-	$dataJson = json_encode($results);
-
-	
-	//create jsonFile to pass at jar file
-	//$myfile = fopen("/var/www/tool.dlnarratives.eu/owl/" . $currentdbname . ".json", "w+") or die("Unable to open file!");
-	$myfile = fopen("/var/www/tool.dlnarratives.eu/json/" . $folderSaveOwl.$user. "_N". $id_nar . ".json", "w+") or die("Unable to open file!");
-	fwrite($myfile, $dataJson);
-	fclose($myfile);
-	chmod("/var/www/tool.dlnarratives.eu/json/" . $folderSaveOwl.$user. "_N". $id_nar . ".json", 0777);
-	
-	//create owl file  ProvaJv
-	//$path = "/usr/local/etc/selfservice/";
-	$path = "../Triplify/";
-	chdir($path);
-	
-	
-	
-	//exect jar file and disply eventual errors
-	error_reporting(E_ALL);
-
-	//$cmd = "java -jar " . $path . "triplify.jar /tmp/" . $currentdbname . ".json /var/www/tool.dlnarratives.eu/owl/".$folderSaveOwl.$user. "_N" . $id_nar .".owl ".$datasetFs." 2>&1";
-	$cmd = "java -jar " . $path . "triplify.jar /var/www/tool.dlnarratives.eu/json/" . $folderSaveOwl.$user. "_N". $id_nar . ".json /var/www/tool.dlnarratives.eu/owl/".$folderSaveOwl.$user. "_N" . $id_nar .".owl ".$datasetFs." 2>&1";
-
-
-	$output=null;
-	$retval=null;
-	exec($cmd,$output,$retval);
-	//echo "Returned with status $retval and output:\n";
-	//print_r($output);  // TO SEE ALL JAVA OUTPUT (ERROR)
-
-
-
-	$end= $date->getTimestamp();
-	
-/* 		// array json
-		$arrayJson= array( "id" => $output, "numberEvents" => $output[1], "consistent" => $output[5], "pathFileOwl" => "../owl/".explode("-", $currentdbname)[0]. "_" . $_POST['idNarration'] .".owl");	
-		$data= json_encode($arrayJson);
-		echo $data; */
-
-
-
-
-//////////////Publish////////////
-chmod("/var/www/tool.dlnarratives.eu/owl/".$folderSaveOwl.$user. "_N" . $id_nar .".owl", 0777);
-
-if(isset($info->CSVnumber)){
-	
-	$folderToSaveStory="storymaps";
-		
-	$buttonLeft='		
-		<a href="../../../Search/?user='.$user.'&id=N'.$id_nar.'&dataset='.$datasetName.'">
-		<div class="otherNarratives">
-		  <button class="dropbtn">Search</button>
-
-		</div>
-		</a>';
-		
-	$buttonRight= '
-		<div class="otherVisual">
-		  <button class="dropbtn">Other Visualizations</button>
-		  <div class="otherVisual-content">
-			<a href="?visualization=map">Storymap</a>
-			<a href="?visualization=timeline">Timeline</a>
-			
-		  </div>
-		</div>';
-	
-
-
-} else if($baseUrl == "dlnarratives.moving.d4science.org"){
-	
-	$folderToSaveStory= "storymaps";
-	$buttonLeft='		
-		<a href="../../../Search/?user='.$user.'&id=N'.$id_nar.'&dataset='.$datasetName.'">
-		<div class="otherNarratives">
-		  <button class="dropbtn">Search</button>
-
-		</div>
-		</a>';
-		
-	$buttonRight= '
-		<div class="otherVisual">
-		  <button class="dropbtn">Other Visualizations</button>
-		  <div class="otherVisual-content">
-			<a href="?visualization=map">Storymap</a>
-			<a href="?visualization=timeline">Timeline</a>
-		  </div>
-		</div>';
-		
+if (isset($_SESSION['Demon_on'])) {
+	$datasetFs = 'https://tool.dlnarratives.eu/fuseki/prova2';
+	$datasetName = 'prova2';
+	$storageSubdir = 'prova2';
+} elseif (isset($info->CSVnumber)) {
+	$datasetFs = 'https://tool.dlnarratives.eu/fuseki/moving';
+	$datasetName = 'moving';
+	$storageSubdir = 'moving';
 } else {
-	$folderToSaveStory="storymaps";
-	
-/* 	$buttonLeft= '
-		<div class="otherNarratives">
-		<button class="dropbtn" onclick="history.back()">Back</button>
-		</div>'; */
-		
-	$buttonLeft='		
-		<a href="../../../Search/?user='.$user.'&id=N'.$id_nar.'&dataset='.$datasetName.'">
-		<div class="otherNarratives">
-		  <button class="dropbtn">Search</button>
-
-		</div>
-		</a>';
-		
-	$buttonRight= '
-		<div class="otherVisual">
-		  <button class="dropbtn">Other Visualizations</button>
-		  <div class="otherVisual-content">
-			<a href="?visualization=map">Storymap</a>
-			<a href="?visualization=timeline">Timeline</a>
-			<a href="../../../Entity_With_Events/?user='.$user.'&idNarra=N'.$id_nar.'&dataset='.$datasetName.'">Entity With Related Events</a>
-		  </div>
-		</div>';
+	$datasetFs = 'https://tool.dlnarratives.eu/fuseki/narratives';
+	$datasetName = 'narratives';
+	$storageSubdir = 'narratives';
 }
 
-if (!file_exists('../'.$folderToSaveStory.'/'.$user)) {
-    mkdir('../'.$folderToSaveStory.'/'.$user, 0777, true);
-	chmod('../'.$folderToSaveStory.'/'.$user, 0777);
+$triplifyPayload = array(
+	'entities' => $entities,
+	'narra' => $info,
+	'events' => $events,
+);
+
+$jsonDir = json_storage_dir($storageSubdir);
+$owlDir = owl_storage_dir($storageSubdir);
+$jsonPath = $jsonDir . DIRECTORY_SEPARATOR . $user . '_N' . $idNarration . '.json';
+$owlPath = $owlDir . DIRECTORY_SEPARATOR . $user . '_N' . $idNarration . '.owl';
+
+file_put_contents($jsonPath, json_encode($triplifyPayload));
+chmod($jsonPath, 0777);
+
+$output = array();
+$retval = null;
+if ($triplifyRoot !== false) {
+	$command = 'java -jar ' . escapeshellarg($triplifyRoot . DIRECTORY_SEPARATOR . 'triplify.jar') . ' ' .
+		escapeshellarg($jsonPath) . ' ' .
+		escapeshellarg($owlPath) . ' ' .
+		escapeshellarg($datasetFs) . ' 2>&1';
+	exec($command, $output, $retval);
+	if (file_exists($owlPath)) {
+		chmod($owlPath, 0777);
+	}
+} else {
+	$output[] = 'Triplify directory not found';
+	$retval = 1;
 }
 
+$storyBaseDir = ensure_directory(app_root_path() . DIRECTORY_SEPARATOR . 'storymaps' . DIRECTORY_SEPARATOR . $user);
+$storyDir = ensure_directory($storyBaseDir . DIRECTORY_SEPARATOR . 'N' . $idNarration);
 
-if (!file_exists('../'.$folderToSaveStory.'/'.$user. '/N' . $id_nar)) {
-    mkdir('../'.$folderToSaveStory.'/'.$user. '/N' . $id_nar, 0777, true);
-	chmod('../'.$folderToSaveStory.'/'.$user. '/N' . $id_nar, 0777);
+$slideJsonPath = $storyDir . DIRECTORY_SEPARATOR . 'slide.json';
+file_put_contents($slideJsonPath, $slides);
+chmod($slideJsonPath, 0777);
+
+$searchLink = '../../../Search/?user=' . $user . '&id=N' . $idNarration . '&dataset=' . $datasetName;
+$visualizationLinks = array(
+	'<a href="?visualization=map">Storymap</a>',
+	'<a href="?visualization=timeline">Timeline</a>',
+);
+if (!isset($info->CSVnumber)) {
+	$visualizationLinks[] = '<a href="../../../Entity_With_Events/?user=' . $user . '&idNarra=N' . $idNarration . '&dataset=' . $datasetName . '">Entity With Related Events</a>';
 }
 
-
-$fp = fopen('../'.$folderToSaveStory.'/'.$user. '/N' . $id_nar. '/slide.json', 'w');
-fwrite($fp, $slides);
-fclose($fp);
-chmod('../'.$folderToSaveStory.'/'.$user. '/N' . $id_nar. '/slide.json', 0777);
-
-
-
-
-$html= '<html>
+$html = '<html>
 <head>
 	<meta charset="UTF-8">
-    <title>Narrative - '. $title .'</title>
+    <title>Narrative - ' . $title . '</title>
     <link rel="stylesheet" type="text/css" href="../../../lib/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="../../../lib/narra.css" />
     <script src="../../../lib/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
@@ -229,73 +96,43 @@ $html= '<html>
 	
     <script src="../../../lib/typeahead.bundle.min.js" type="text/javascript" charset="utf-8"></script>
 	
-
 	<script src="../../lib/visualization.js" type="text/javascript" charset="utf-8"></script>
-
 	<link rel="stylesheet" href="https://cdn.knightlab.com/libs/storymapjs/0.8.6/css/storymap.css">
-	<script type="text/javascript" src="../../../lib/storymap.js"></script>  
+	<script type="text/javascript" src="../../../lib/storymap.js"></script>
 	<link rel="stylesheet" type="text/css" href="../../../lib/timeline.css" />
 	<script src="../../../lib/timeline-min.js" type="text/javascript" charset="utf-8"></script>
-	
 	<link rel="stylesheet" type="text/css" href="../../lib/narrativeVisualization.css" />
-
 </head>
-
 <body>
 	<div id="menu">
 		<div id="titleTable">
-		<h1>'. $title .'</h1>
+		<h1>' . $title . '</h1>
 		</div>
-	
-	'.$buttonRight.'
-		
-	'.$buttonLeft.'
-		
+		<div class="otherVisual">
+		  <button class="dropbtn">Other Visualizations</button>
+		  <div class="otherVisual-content">
+			' . implode("\n\t\t\t", $visualizationLinks) . '
+		  </div>
+		</div>
+		<a href="' . $searchLink . '">
+		<div class="otherNarratives">
+		  <button class="dropbtn">Search</button>
+		</div>
+		</a>
 	</div>
-	
 	<div id="mapdiv"></div>
-
-	<!-- <script src="../../lib/LoadJsonSlidesAndBugFixSlide.js" type="text/javascript" charset="utf-8"></script>-->
-	
-	
 </body>
-</html>
-';
+</html>';
 
-$fp1 = fopen('../'.$folderToSaveStory.'/'.$user. '/N' . $id_nar. '/index.html', 'w');
-fwrite($fp1, $html);
-fclose($fp1);
-chmod('../'.$folderToSaveStory.'/'.$user. '/N' . $id_nar. '/index.html', 0777);
+$indexPath = $storyDir . DIRECTORY_SEPARATOR . 'index.html';
+file_put_contents($indexPath, $html);
+chmod($indexPath, 0777);
 
+$link = $scheme . '://' . $baseUrl . '/storymaps/' . $user . '/N' . $idNarration . '/';
 
-//save storymap json in db
-/* 	$table= $id_nar . $user . "-" . strtolower($subjectNarration);
-	
-	$sql= "SELECT id FROM \"$table\" where id= 'storyMap'" ;
-	$result = pg_query($sql) or die('Error message: ' . pg_last_error());
-	$rows = pg_num_rows($result);
-	
-	if($rows == 1){
-		
-		$sql2= "UPDATE \"$table\" SET value = '". pg_escape_string($slides) . "' where id='storyMap'";
-		$result2 = pg_query($sql2) or die('Error message: ' . pg_last_error()); 
-
-	} else {
-		
-		$sql2= "INSERT INTO \"$table\" (id, value) 
-		VALUES ('storyMap', '". pg_escape_string($slides) . "')";
-		$result2 = pg_query($sql2) or die('Error message: ' . pg_last_error());
-	} */
-
-
-//manage link of storymap (polygons library)
-	$link= 'https://'.$baseUrl.'/'.$folderToSaveStory.'/'.$user. '/N' . $id_nar . '/';
-	if(isset($info->CSVnumber)){
-		$link= 'https://'.$baseUrl.'/horizontalstorymap/?user=moving.52&id=N' . $id_nar;
-	}	
-		
-// array json
-		$arrayJson= array( "msg" => $slides, "link" => $link, "output" => $output);		
-		$data= json_encode($arrayJson);
-		echo $data;
-?>
+json_response(array(
+	'msg' => $slides,
+	'link' => $link,
+	'output' => $output,
+	'exitCode' => $retval,
+));

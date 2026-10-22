@@ -1,0 +1,1665 @@
+@prefix dctypes: <http://purl.org/dc/dcmitype/> .
+@prefix narr:  <http://narra.isti.cnr.it/> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .
+@prefix protege: <http://protege.stanford.edu/plugins/owl/protege#> .
+@prefix swrl:  <http://www.w3.org/2003/11/swrl#> .
+@prefix cnt:   <http://www.w3.org/2011/content#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix crminf: <http://narra.isti.cnr.it/crminf/> .
+@prefix xsp:   <http://www.owl-ontologies.com/2005/08/07/xsp.owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ecrm:  <http://erlangen-crm.org/current/> .
+@prefix efrbroo: <http://erlangen-crm.org/efrbroo/> .
+@prefix time:  <http://www.w3.org/2006/time#> .
+@prefix crm:   <http://erlangen-crm.org/current/> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+
+crm:P80_end_is_qualified_by
+        a                   owl:DatatypeProperty ;
+        rdfs:comment        "Scope note:\nThis property qualifies the end of an E52 Time-Span in some way.\n\nThe nature of the qualification may be certainty, precision, source etc.\n\nExamples:\n- the time-span of the Holocene (E52) end is qualified by approximately (E62)\n\nIn First Order Logic:\nP80(x,y) ⊃ E52(x)\nP80(x,y) ⊃ E62(y)\nP80(x,y) ⊃ P3(x,y)"@en ;
+        rdfs:domain         crm:E52_Time-Span ;
+        rdfs:label          "P80 end is qualified by"@en ;
+        rdfs:subPropertyOf  crm:P3_has_note ;
+        skos:notation       "P80"^^xsd:string .
+
+<http://narra.isti.cnr.it/resource/Q91119>
+        a                        crm:E53_Place ;
+        rdfs:comment             ""^^xsd:string ;
+        rdfs:label               ""^^xsd:string ;
+        crm:P1_is_identified_by  <http://narra.isti.cnr.it/resource/Q91119/appellation> ;
+        owl:sameAs               "https://wikidata.org/entity/Q91119" .
+
+<http://narra.isti.cnr.it/resource/Q2634>
+        a                        crm:E53_Place ;
+        rdfs:comment             ""^^xsd:string ;
+        rdfs:label               ""^^xsd:string ;
+        crm:P1_is_identified_by  <http://narra.isti.cnr.it/resource/Q2634/appellation> ;
+        owl:sameAs               "https://wikidata.org/entity/Q2634" .
+
+crm:P67i_is_referred_to_by
+        a              owl:ObjectProperty ;
+        rdfs:domain    crm:E1_CRM_Entity ;
+        rdfs:label     "P67 is referred to by"@en ;
+        rdfs:range     crm:E89_Propositional_Object ;
+        owl:inverseOf  crm:P67_refers_to ;
+        skos:notation  "P67i"^^xsd:string .
+
+time:Interval  a  owl:Class .
+
+crm:E19_Physical_Object
+        a                owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises items of a material nature that are units for documentation and have physical boundaries that separate them completely in an objective way from other objects.\n\nThe class also includes all aggregates of objects made for functional purposes of whatever kind, independent of physical coherence, such as a set of chessmen. Typically, instances of E19 Physical Object can be moved (if not too heavy).\n\nIn some contexts, such objects, except for aggregates, are also called \"bona fide objects\" (Smith & Varzi, 2000, pp.401-420), i.e. naturally defined objects.\n\nThe decision as to what is documented as a complete item, rather than by its parts or components, may be a purely administrative decision or may be a result of the order in which the item was acquired.\n\nExamples:\n- John Smith\n- Aphrodite of Milos\n- the Palace of Knossos\n- the Cullinan diamond\n- Apollo 13 at the time of launch\n\nIn First Order Logic:\nE19(x) ⊃ E18(x)"@en ;
+        rdfs:label       "E19 Physical Object"@en ;
+        rdfs:subClassOf  crm:E18_Physical_Thing ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                           owl:onProperty      crm:P55_has_current_location
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                           owl:onProperty      crm:P54_has_current_permanent_location
+                         ] ;
+        skos:notation    "E19"^^xsd:string .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/inference-making/4>
+        crminf:J2_concluded_that  <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/conclusion-belief/4> .
+
+<http://narra.isti.cnr.it/resource/U0c24b1c9-c99d-4763-8226-ed320586f865>
+        crm:P106_is_composed_of  <http://narra.isti.cnr.it/resource/U0c24b1c9-c99d-4763-8226-ed320586f865/text/1> ;
+        crm:P1_is_identified_by  <http://narra.isti.cnr.it/resource/U0c24b1c9-c99d-4763-8226-ed320586f865/appellation> .
+
+crm:P11_had_participant
+        a                   owl:ObjectProperty ;
+        rdfs:comment        "Scope note:\nThis property describes the active or passive participation of instances of E39 Actors in an E5 Event.\n\nIt connects the life-line of the related E39 Actor with the E53 Place and E50 Date of the event. The property implies that the Actor was involved in the event but does not imply any causal relationship. The subject of a portrait can be said to have participated in the creation of the portrait.\n\nExamples:\n- Napoleon (E21) participated in The Battle of Waterloo (E7)\n- Maria (E21) participated in Photographing of Maria (E7)\n\nIn First Order Logic:\nP11(x,y) ⊃ E5(x)\nP11(x,y) ⊃ E39(y)\nP11(x,y) ⊃ P12(x,y)"@en ;
+        rdfs:domain         crm:E5_Event ;
+        rdfs:label          "P11 had participant"@en ;
+        rdfs:range          crm:E39_Actor ;
+        rdfs:subPropertyOf  crm:P12_occurred_in_the_presence_of ;
+        owl:inverseOf       crm:P11i_participated_in ;
+        skos:notation       "P11"^^xsd:string .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486996647725/proposition-set/2>
+        crm:P106_is_composed_of  <http://narra.isti.cnr.it/narrative/N1/event/ev1486996647725/proposition/2> .
+
+crm:E18_Physical_Thing
+        a                 owl:Class ;
+        rdfs:comment      "Scope note:\nThis class comprises all persistent physical items with a relatively stable form, man-made or natural.\n\nDepending on the existence of natural boundaries of such things, the CRM distinguishes the instances of E19 Physical Object from instances of E26 Physical Feature, such as holes, rivers, pieces of land etc. Most instances of E19 Physical Object can be moved (if not too heavy), whereas features are integral to the surrounding matter.\n\nAn instance of E18 Physical Thing occupies not only a particular geometric space, but in the course of its existence it also forms a trajectory through spacetime, which occupies a real, that is phenomenal, volume in spacetime. We include in the occupied space the space filled by the matter of the physical thing and all its inner spaces, such as the interior of a box. Physical things consisting of aggregations of physically unconnected objects, such as a set of chessmen, occupy a number of individually contiguous spacetime volumes equal to the number of unconnected objects that constitute the set.\n\nWe model E18 Physical Thing to be a subclass of E72 Legal Object and of E92 Spacetime volume. The latter is intended as a phenomenal spacetime volume as defined in CRMgeo (Doerr and Hiebel 2013). By virtue of this multiple inheritance we can discuss the physical extent of an E18 Physical Thing without representing each instance of it together with an instance of its associated spacetime volume. This model combines two quite different kinds of substance: an instance of E18 Physical Thing is matter while a spacetime volume is an aggregation of points in spacetime. However, the real spatiotemporal extent of an instance of E18 Physical Thing is regarded to be unique to it, due to all its details and fuzziness; its identity and existence depends uniquely on the identity of the instance of E18 Physical Thing. Therefore this multiple inheritance is unambiguous and effective and furthermore corresponds to the intuitions of natural language.\n\nThe CIDOC CRM is generally not concerned with amounts of matter in fluid or gaseous states.\n\nExamples:\n- the Cullinan Diamond (E19)\n- the cave \"Ideon Andron\" in Crete (E26)\n- the Mona Lisa (E22)\n\nIn First Order Logic:\nE18(x) ⊃ E72(x)\nE18(x) ⊃ E92(x)"@en ;
+        rdfs:label        "E18 Physical Thing"@en ;
+        rdfs:subClassOf   crm:E72_Legal_Object , crm:E92_Spacetime_Volume ;
+        rdfs:subClassOf   [ a                   owl:Restriction ;
+                            owl:onProperty      crm:P53_has_former_or_current_location ;
+                            owl:someValuesFrom  crm:E53_Place
+                          ] ;
+        rdfs:subClassOf   [ a                   owl:Restriction ;
+                            owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                            owl:onProperty      crm:P13i_was_destroyed_by
+                          ] ;
+        rdfs:subClassOf   [ a                   owl:Restriction ;
+                            owl:onProperty      crm:P45_consists_of ;
+                            owl:someValuesFrom  crm:E57_Material
+                          ] ;
+        owl:disjointWith  crm:E28_Conceptual_Object ;
+        skos:notation     "E18"^^xsd:string .
+
+crminf:I4_Proposition_Set
+        a       owl:Class .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486996647725/inference-making/1>
+        crminf:J2_concluded_that  <http://narra.isti.cnr.it/narrative/N1/event/ev1486996647725/conclusion-belief/1> .
+
+cnt:chars  a         owl:DatatypeProperty ;
+        rdfs:domain  efrbroo:F23_Expression_Fragment ;
+        rdfs:label   "content#chars" ;
+        rdfs:range   xsd:string .
+
+crm:P93_took_out_of_existence
+        a       owl:ObjectProperty .
+
+crm:P135i_was_created_by
+        a       owl:ObjectProperty .
+
+crm:E5_Event  a          owl:Class , owl:ObjectProperty ;
+        rdfs:comment     "This property relates an event to the narrative that contains it."^^xsd:string , "Scope note:\nThis class comprises changes of states in cultural, social or physical systems, regardless of scale, brought about by a series or group of coherent physical, cultural, technological or legal phenomena. Such changes of state will affect instances of E77 Persistent Item or its subclasses.\n\nThe distinction between an E5 Event and an E4 Period is partly a question of the scale of observation. Viewed at a coarse level of detail, an E5 Event is an 'instantaneous' change of state. At a fine level, the E5 Event can be analysed into its component phenomena within a space and time frame, and as such can be seen as an E4 Period. The reverse is not necessarily the case: not all instances of E4 Period give rise to a noteworthy change of state.\n\nExamples:\n- the birth of Cleopatra (E67)\n- the destruction of Herculaneum by volcanic eruption in 79 AD (E6)\n- World War II (E7)\n- the Battle of Stalingrad (E7)\n- the Yalta Conference (E7)\n- my birthday celebration 28-6-1995 (E7)\n- the falling of a tile from my roof last Sunday\n- the CIDOC Conference 2003 (E7)\n\nIn First Order Logic:\nE5(x) ⊃ E4(x)"@en ;
+        rdfs:domain      <http://narra.isti.cnr.it/ontology#Narrative> ;
+        rdfs:label       "E5 Event"@en , "E5_Event" ;
+        rdfs:range       crm:E90_Symbolic_Object ;
+        rdfs:subClassOf  crm:E4_Period ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      crm:P12_occurred_in_the_presence_of ;
+                           owl:someValuesFrom  crm:E77_Persistent_Item
+                         ] ;
+        skos:notation    "E5"^^xsd:string .
+
+<http://narra.isti.cnr.it/resource/U8d3d7eb9-86a0-4f24-9532-28fd5c25c39b/reference/4>
+        a          dctypes:Text , cnt:ContentAsText ;
+        dc:format  "text/plain"^^xsd:string ;
+        cnt:chars  ""^^xsd:string .
+
+crm:P13_destroyed  a  owl:ObjectProperty .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493/conclusion-belief/2>
+        crminf:J4_that  <http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493/proposition-set/2> .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/premise-belief/2>
+        crminf:J1_was_premise_for  <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/inference-making/2> .
+
+crm:P3_has_note  a     owl:DatatypeProperty ;
+        rdfs:comment   "Scope note:\nThis property is a container for all informal descriptions about an object that have not been expressed in terms of CRM constructs.\n\nIn particular it captures the characterisation of the item itself, its internal structures, appearance etc.\nLike property P2 has type (is type of), this property is a consequence of the restricted focus of the CRM. The aim is not to capture, in a structured form, everything that can be said about an item; indeed, the CRM formalism is not regarded as sufficient to express everything that can be said. Good practice requires use of distinct note fields for different aspects of a characterisation. The P3.1 has type property of P3 has note allows differentiation of specific notes, e.g. \"construction\", \"decoration\" etc.\nAn item may have many notes, but a note is attached to a specific item.\n\nExamples:\n- coffee mug - OXCMS:1983.1.1 (E19) has note \"chipped at edge of handle\" (E62) has type\nCondition (E55)\n\nIn First Order Logic:\nP3(x,y) ⊃ E1(x)\nP3(x,y) ⊃ E62(y)\nP3(x,y,z) ⊃ [P3(x,y) ∧ E55(z)]\n\nProperties: P3.1 has type: E55 Type"@en ;
+        rdfs:domain    crm:E1_CRM_Entity ;
+        rdfs:label     "P3 has note"@en ;
+        skos:notation  "P3"^^xsd:string .
+
+<http://narra.isti.cnr.it/ontology#Narrative>
+        a                owl:Class ;
+        rdfs:comment     "This class represents a narrative."^^xsd:string ;
+        rdfs:subClassOf  crm:E73_Information_Object .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/conclusion-belief/7>
+        crminf:J4_that  <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/proposition-set/7> .
+
+crm:P8i_witnessed  a   owl:ObjectProperty ;
+        rdfs:domain    crm:E18_Physical_Thing ;
+        rdfs:label     "P8 witnessed"@en ;
+        rdfs:range     crm:E4_Period ;
+        owl:inverseOf  crm:P8_took_place_on_or_within ;
+        skos:notation  "P8i"^^xsd:string .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/proposition/4>
+        a                rdf:Statement ;
+        rdf:object       <http://narra.isti.cnr.it/resource/U14927839562704307121> ;
+        rdf:predicate    crm:P12_occurred_in_the_presence_of ;
+        rdf:subject      <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748> ;
+        crm:P3_has_note  ""^^xsd:string .
+
+narr:1294-12-24-1294-12-24
+        a       time:E52_Time-Span ;
+        <http://narra.isti.cnr.it/ontology#timeSpanFinishedBy>
+                narr:1294-12-24 ;
+        <http://narra.isti.cnr.it/ontology#timeSpanStartedBy>
+                narr:1294-12-24 .
+
+<http://narra.isti.cnr.it/resource/U1e2bdc86-db88-47c0-8f76-cef686cbe9a3/appellation>
+        crm:P3_has_note  "Wikipedia"^^xsd:string .
+
+narr:Death_of_Henry_VII
+        crm:P3_has_note  "Death of Henry VII"^^xsd:string .
+
+crm:P94_has_created  a      owl:ObjectProperty ;
+        rdfs:comment        "Scope note:\nThis property allows a conceptual E65 Creation to be linked to the E28 Conceptual Object created by it.\n\nIt represents the act of conceiving the intellectual content of the E28 Conceptual Object. It does not represent the act of creating the first physical carrier of the E28 Conceptual Object. As an example, this is the composition of a poem, not its commitment to paper.\n\nExamples:\n- the composition of \"The Four Friends\" by A. A. Milne (E65) has created \"The Four Friends\" by A. A. Milne (E28)\n\nIn First Order Logic:\nP94(x,y) ⊃ E65(x)\nP94(x,y) ⊃ E28(y)\nP94(x,y) ⊃ P92(x,y)"@en ;
+        rdfs:domain         crm:E65_Creation ;
+        rdfs:label          "P94 has created"@en ;
+        rdfs:range          crm:E28_Conceptual_Object ;
+        rdfs:subPropertyOf  crm:P92_brought_into_existence ;
+        owl:inverseOf       crm:P94i_was_created_by ;
+        skos:notation       "P94"^^xsd:string .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493/inference-making/2>
+        crminf:J2_concluded_that  <http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493/conclusion-belief/2> .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493/proposition-set/2>
+        crm:P106_is_composed_of  <http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493/proposition/2> .
+
+narr:   a                owl:Ontology ;
+        rdfs:comment     "" ;
+        rdfs:label       "An Ontology for Narratives" ;
+        dc:creator       "Carlo Meghini, Valentina Bartalesi, Daniele Metilli, Filippo Benedetti" ;
+        dc:date          "2017-02-20" ;
+        dc:publisher     "ISTI-CNR" ;
+        owl:imports      crm: , time: , efrbroo: ;
+        owl:versionInfo  "1.0" .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493/proposition/1/observation/1>
+        crminf:O16_observed_value  <http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493/proposition/1/observed-proposition-set/1> ;
+        crminf:O8_observed         <http://narra.isti.cnr.it/resource/U8d3d7eb9-86a0-4f24-9532-28fd5c25c39b> .
+
+<http://narra.isti.cnr.it/resource/Q2044/appellation>
+        crm:P3_has_note  ""^^xsd:string .
+
+narr:1272-09-29-1277-12-31
+        a       time:E52_Time-Span ;
+        <http://narra.isti.cnr.it/ontology#timeSpanFinishedBy>
+                narr:1277-12-31 ;
+        <http://narra.isti.cnr.it/ontology#timeSpanStartedBy>
+                narr:1272-09-29 .
+
+<http://narra.isti.cnr.it/ontology#hadParticipant>
+        a             owl:ObjectProperty ;
+        rdfs:comment  "This property relates an event with an instance of the class ActorWithRole."^^xsd:string ;
+        rdfs:domain   crm:E5_Event ;
+        rdfs:label    "ontology#hadParticipant" ;
+        rdfs:range    <http://narra.isti.cnr.it/ontology#ActorWithRole> .
+
+crm:P11i_participated_in
+        a                   owl:ObjectProperty ;
+        rdfs:domain         crm:E39_Actor ;
+        rdfs:label          "P11 participated in"@en ;
+        rdfs:range          crm:E5_Event ;
+        rdfs:subPropertyOf  crm:P12i_was_present_at ;
+        owl:inverseOf       crm:P11_had_participant ;
+        skos:notation       "P11i"^^xsd:string .
+
+crm:P144i_gained_member_by
+        a       owl:ObjectProperty .
+
+efrbroo:F2_Expression
+        a                owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises the intellectual or artistic realisations of works in the form of identifiable immaterial objects, such as texts, poems, jokes, musical or choreographic notations, movement pattern, sound pattern, images, multimedia objects, or any combination of such forms that have objectively recognisable structures. The substance of F2 Expression is signs.\n\nExpressions cannot exist without a physical carrier, but do not depend on a specific physical carrier and can exist on one or more carriers simultaneously. Carriers may include human memory.\n\nInasmuch as the form of F2 Expression is an inherent characteristic of the F2 Expression, any change in form (e.g., from alpha-numeric notation to spoken word, a poem created in capitals and rendered in lower case) is a new F2 Expression. Similarly, changes in the intellectual conventions or instruments that are employed to express a work (e.g., translation from one language to another) result in the creation of a new F2 Expression. Thus, if a text is revised or modified, the resulting F2 Expression is considered to be a new F2 Expression. Minor changes, such as corrections of spelling and punctuation, etc., are normally considered variations within the same F2 Expression. On a practical level, the degree to which distinctions are made between variant expressions of a work will depend to some extent on the nature of the F1 Work itself, and on the anticipated needs of users.\n\nThe genre of the work may provide an indication of which features are essential to the expression. In some cases, aspects of physical form, such as typeface and page layout, are not integral to the intellectual or artistic realisation of the work as such, and therefore are not distinctive criteria for the respective expressions. For another work features such as layout may be essential. For instance, the author or a graphic designer may wrap a poem around an image.\n\nAn expression of a work may include expressions of other works within it. For instance, an anthology of poems is regarded as a work in its own right that makes use of expressions of the individual poems that have been selected and ordered as part of an intellectual process. This does not make the contents of the aggregated expressions part of this work, but only parts of the resulting expression.\n\nIf an instance of F2 Expression is of a specific form, such as text, image, etc., it may be simultaneously instantiated in the specific classes representing these forms in CIDOC CRM. Thereby one can make use of the more specific properties of these classes, such as language (which is applicable to linguistic objects only).\n\nExamples:\nThe Italian text of Dante’s ‘Divina Commedia’ as found in the authoritative critical edition ‘La Commedia secondo l’antica vulgata a cura di Giorgio Petrocchi’, Milano: Mondadori, 1966-67 (= Le Opere di Dante Alighieri, Edizione Nazionale a cura della Società Dantesca Italiana, VII, 1-4) (F22)\n\nThe Italian text of Dante’s ‘Inferno’ as found in the same edition (F22)\n\nNel mezzo del cammin di nostra vita \nmi ritrovai per una selva oscura    \nché la diritta via era smarrita [the Italian text of the first stanza of Dante’s ‘Inferno’ and ‘Divina Commedia’] (F23)\n\nThe signs which make up Christian Morgenstern’s ‘Fisches Nachtgesang’ [a poem consisting simply of “-” and “˘” signs, arranged in a determined combination] (F22)\n        "@en ;
+        rdfs:label       "F2 Expression"@en ;
+        rdfs:subClassOf  crm:E73_Information_Object ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      efrbroo:R17i_was_created_by ;
+                           owl:someValuesFrom  efrbroo:F28_Expression_Creation
+                         ] .
+
+crm:P144_joined_with  a  owl:ObjectProperty .
+
+crm:P1i_identifies  a  owl:ObjectProperty ;
+        rdfs:domain    crm:E41_Appellation ;
+        rdfs:label     "P1 identifies"@en ;
+        rdfs:range     crm:E1_CRM_Entity ;
+        owl:inverseOf  crm:P1_is_identified_by ;
+        skos:notation  "P1i"^^xsd:string .
+
+crm:E66_Formation  a     owl:Class ;
+        rdfs:comment     "Scope note: \nThis class comprises events that result in the formation of a formal or informal E74 Group of people,\nsuch as a club, society, association, corporation or nation.\n\nE66 Formation does not include the arbitrary aggregation of people who do not act as a collective.\nThe formation of an instance of E74 Group does not require that the group is populated with members\nat the time of formation. In order to express the joining of members at the time of formation, the\nrespective activity should be simultaneously an instance of both E66 Formation and E85 Joining.\n\nExamples:\n the formation of the CIDOC CRM Special Interest Group\n the formation of the Soviet Union\n the conspiring of the murderers of Caesar\n\nIn First Order Logic:\nE66(x) ⊃ E7(x)\nE66(x) ⊃ E63(x)"@en ;
+        rdfs:label       "E66 Formation"@en ;
+        rdfs:subClassOf  crm:E63_Beginning_of_Existence , crm:E7_Activity ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      crm:P95_has_formed ;
+                           owl:someValuesFrom  crm:E74_Group
+                         ] ;
+        skos:notation    "E66"^^xsd:string .
+
+crm:P53_has_former_or_current_location
+        a       owl:ObjectProperty .
+
+crm:P83_had_at_least_duration
+        a       owl:ObjectProperty .
+
+<http://narra.isti.cnr.it/ontology#hasText>
+        a             owl:ObjectProperty ;
+        rdfs:comment  "This property relates a narrative to the text that expresses it."^^xsd:string ;
+        rdfs:domain   <http://narra.isti.cnr.it/ontology#Narrative> ;
+        rdfs:label    "ontology#hasText" ;
+        rdfs:range    crm:E90_Symbolic_Object .
+
+crm:E90_Symbolic_Object
+        a                owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises identifiable symbols and any aggregation of symbols, such as characters, identifiers, traffic signs, emblems, texts, data sets, images, musical scores, multimedia objects, computer program code or mathematical formulae that have an objectively recognizable structure and that are documented as single units. \n\nIt includes sets of signs of any nature, which may serve to designate something, or to communicate some propositional content.\n\nAn instance of E90 Symbolic Object does not depend on a specific physical carrier, which can include human memory, and it can exist on one or more carriers simultaneously. An instance of E90 Symbolic Object may or may not have a specific meaning, for example an arbitrary character string. \n\nIn some cases, the content of an instance of E90 Symbolic Object may completely be represented by a serialized digital content model, such as a sequence of ASCII-encoded characters, an XML or HTML document, or a TIFF image. The property P3 has note allows for the description of this content model. In order to disambiguate which symbolic level is the carrier of the meaning, the property P3.1 has type can be used to specify the encoding (e.g. \"bit\", \"Latin character\", RGB pixel). \n\nExamples:\n- 'ecognizabl' \n- The \"no-smoking\" sign (E36) \n- \"BM000038850.JPG\" (E75) \n- image BM000038850.JPG from the Clayton Herbarium in London (E38) \n- The distribution of form, tone and colour found on Leonardo da Vinci's painting named \"Mona Lisa\" in daylight (E38)\n- The Italian text of Dante's \"Divina Commedia\" as found in the authoritative critical edition La Commedia secondo l'antica vulgata a cura di Giorgio Petrocchi, Milano: Mondadori, 1966-67 (= Le Opere di Dante Alighieri, Edizione Nazionale a cura della Società Dantesca Italiana, VII, 1-4) (E33)\n\nIn First Order Logic:\nE90(x) ⊃ E28(x)\nE90(x) ⊃ E72(x)"@en ;
+        rdfs:label       "E90 Symbolic Object"@en ;
+        rdfs:subClassOf  crm:E28_Conceptual_Object , crm:E72_Legal_Object ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      crm:P106_is_composed_of ;
+                           owl:someValuesFrom  crm:E90_Symbolic_Object
+                         ] ;
+        skos:notation    "E90"^^xsd:string .
+
+crm:E80_Part_Removal  a  owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises the activities that result in an instance of E18 Physical Thing being decreased by the removal of a part.\n\nTypical scenarios include the detachment of an accessory, the removal of a component or part of a composite object, or the deaccessioning of an object from a curated E78 Collection. If the E80 Part Removal results in the total decomposition of the original object into pieces, such that the whole ceases to exist, the activity should instead be modelled as an E81 Transformation, i.e. a simultaneous destruction and production. In cases where the part removed has no discernible identity prior to its removal but does have an identity subsequent to its removal, the activity should be regarded as both E80 Part Removal and E12 Production. This class of activities forms a basis for reasoning about the history, and continuity of identity over time, of objects that are removed from other objects, such as precious gemstones being extracted from different items of jewelry, or cultural artifacts being deaccessioned from different museum collections over their lifespan.\n\nExamples:\n- the removal of the engine from my car\n- the disposal of object number 1976:234 from the collection\n\nIn First Order Logic:\nE80(x) ⊃ E11(x)"@en ;
+        rdfs:label       "E80 Part Removal"@en ;
+        rdfs:subClassOf  crm:E11_Modification ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      crm:P112_diminished ;
+                           owl:someValuesFrom  crm:E24_Physical_Man-Made_Thing
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      crm:P113_removed ;
+                           owl:someValuesFrom  crm:E18_Physical_Thing
+                         ] ;
+        skos:notation    "E80"^^xsd:string .
+
+crm:P14i_performed  a       owl:ObjectProperty ;
+        rdfs:label          "P14 performed"@en ;
+        rdfs:range          crm:E7_Activity ;
+        rdfs:subPropertyOf  crm:P11i_participated_in ;
+        owl:inverseOf       crm:P14_carried_out_by ;
+        skos:notation       "P14i"^^xsd:string .
+
+<http://narra.isti.cnr.it/ontology#causallyDependsOn>
+        a             owl:ObjectProperty ;
+        rdfs:comment  "This property relates an event with another event that caused it.This property connects events that in normal discourse are predicatedto have a cause-effect relation, e.g. the eruption of the Vesuviuscaused the destruction of Pompeii."^^xsd:string ;
+        rdfs:domain   crm:E5_Event ;
+        rdfs:label    "ontology#causallyDependsOn" ;
+        rdfs:range    crm:E5_Event .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/conclusion-belief/2>
+        crminf:J4_that  <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/proposition-set/2> .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/proposition-set/4>
+        crm:P106_is_composed_of  <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/proposition/4> .
+
+crm:P118_overlaps_in_time_with
+        a              owl:ObjectProperty ;
+        rdfs:comment   "Scope note:\nThis property identifies an overlap between the instances of E52 Time-Span of two instances of E2 Temporal Entity.\n\nIt implies a temporal order between the two entities: if A overlaps in time B, then A must start before B, and B must end after A. This property is only necessary if the relevant time spans are unknown (otherwise the relationship can be calculated).\n\nThis property is the same as the \"overlaps / overlapped-by\" relationships of Allen’s temporal logic (Allen, 1983, pp. 832-843).\n\nExamples:\n- the Iron Age (E4) overlaps in time with the Roman period (E4)\n\nIn First Order Logic:\nP118(x,y) ⊃ E2(x)\nP118(x,y) ⊃ E2(y)"@en ;
+        rdfs:domain    crm:E2_Temporal_Entity ;
+        rdfs:label     "P118 overlaps in time with"@en ;
+        rdfs:range     crm:E2_Temporal_Entity ;
+        owl:inverseOf  crm:P118i_is_overlapped_in_time_by ;
+        skos:notation  "P118"^^xsd:string .
+
+crm:E21_Person  a        owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises real persons who live or are assumed to have lived.\n\nLegendary figures that may have existed, such as Ulysses and King Arthur, fall into this class if the documentation refers to them as historical figures. In cases where doubt exists as to whether several persons are in fact identical, multiple instances can be created and linked to indicate their relationship. The CRM does not propose a specific form to support reasoning about possible identity.\n\nExamples:\n- Tut-Ankh-Amun\n- Nelson Mandela\n\nIn First Order Logic:\nE21(x) ⊃ E20(x)\nE21(x) ⊃ E39(x)"@en ;
+        rdfs:label       "E21 Person"@en ;
+        rdfs:subClassOf  crm:E20_Biological_Object , crm:E39_Actor ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "1"^^xsd:nonNegativeInteger ;
+                           owl:onProperty   crm:P98i_was_born
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:minCardinality  "2"^^xsd:int ;
+                           owl:onProperty      crm:P152_has_parent
+                         ] ;
+        skos:notation    "E21"^^xsd:string .
+
+<http://narra.isti.cnr.it/resource/U0c24b1c9-c99d-4763-8226-ed320586f865/appellation>
+        crm:P3_has_note  "Henry VII, Holy Roman Emperor"^^xsd:string .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/inference-making/5>
+        crminf:J2_concluded_that  <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/conclusion-belief/5> .
+
+crm:E41_Appellation  a   owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises signs, either meaningful or not, or arrangements of signs following a specific syntax, that are used or can be used to refer to and identify a specific instance of some class or category within a certain context. \n\nInstances of E41 Appellation do not identify things by their meaning, even if they happen to have one, but instead by convention, tradition, or agreement. Instances of E41 Appellation are cultural constructs; as such, they have a context, a history, and a use in time and space by some group of users. A given instance of E41 Appellation can have alternative forms, i.e., other instances of E41 Appellation that are always regarded as equivalent independent from the thing it denotes. \n\nSpecific subclasses of E41 Appellation should be used when instances of E41 Appellation of a characteristic form are used for particular objects. Instances of E49 Time Appellation, for example, which take the form of instances of E50 Date, can be easily recognised.\n\nE41 Appellation should not be confused with the act of naming something. Cf. E15 Identifier Assignment \n\nExamples:\n- \"Martin\" \n- \"the Forth Bridge\"\n- \"the Merchant of Venice\" (E35)\n- \"Spigelia marilandica (L.) L.\" [not the species, just the name]\n- \"information science\" [not the science itself, but the name through which we refer to it in an English-speaking context] \n- “安” [Chinese \"an\", meaning \"peace\"]\n\nIn First Order Logic:\nE41(x) ⊃ E90(x)"@en ;
+        rdfs:label       "E41 Appellation"@en ;
+        rdfs:subClassOf  crm:E90_Symbolic_Object ;
+        skos:notation    "E41"^^xsd:string .
+
+crm:E81_Transformation
+        a                owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises the events that result in the simultaneous destruction of one or more than one E77 Persistent Item and the creation of one or more than one E77 Persistent Item that preserves recognizable substance from the first one(s) but has fundamentally different nature and identity.\n\nAlthough the old and the new instances of E77 Persistent Item are treated as discrete entities having separate, unique identities, they are causally connected through the E81 Transformation; the destruction of the old E77 Persistent Item(s) directly causes the creation of the new one(s) using or preserving some relevant substance. Instances of E81 Transformation are therefore distinct from re-classifications (documented using E17 Type Assignment) or modifications (documented using E11 Modification) of objects that do not fundamentally change their nature or identity. Characteristic cases are reconstructions and repurposing of historical buildings or ruins, fires leaving buildings in ruins, taxidermy of specimen in natural history and the reorganization of a corporate body into a new one.\n\nExamples:\n- the death and mummification of Tut-Ankh-Amun (transformation of Tut-Ankh-Amun from a living person to a mummy) (E69,E81,E7)\n\nIn First Order Logic:\nE81(x) ⊃ E63(x)\nE81(x) ⊃ E64(x)"@en ;
+        rdfs:label       "E81 Transformation"@en ;
+        rdfs:subClassOf  crm:E63_Beginning_of_Existence , crm:E64_End_of_Existence ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      crm:P124_transformed ;
+                           owl:someValuesFrom  crm:E77_Persistent_Item
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      crm:P123_resulted_in ;
+                           owl:someValuesFrom  crm:E77_Persistent_Item
+                         ] ;
+        skos:notation    "E81"^^xsd:string .
+
+crm:E52_Time-Span  a     owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises abstract temporal extents, in the sense of Galilean physics, having a beginning, an end and a duration.\n\nTime Span has no other semantic connotations. Time-Spans are used to define the temporal extent of instances of E4 Period, E5 Event and any other phenomena valid for a certain time. An E52 Time-Span may be identified by one or more instances of E49 Time Appellation.\n\nSince our knowledge of history is imperfect, instances of E52 Time-Span can best be considered as approximations of the actual Time-Spans of temporal entities. The properties of E52 Time-Span are intended to allow these approximations to be expressed precisely.  An extreme case of approximation, might, for example, define an E52 Time-Span having unknown beginning, end and duration. Used as a common E52 Time-Span for two events, it would nevertheless define them as being simultaneous, even if nothing else was known.\n\nAutomatic processing and querying of instances of E52 Time-Span is facilitated if data can be parsed into an E61 Time Primitive.\n\nExamples:\n- 1961\n- from 12-17-1993 to 12-8-1996\n- 14h30 - 16h22 4th July 1945\n- 9.30 am 1.1.1999 to 2.00 pm 1.1.1999\n- duration of the Ming Dynasty\n\nIn First Order Logic:\nE52(x) ⊃ E1(x)"@en ;
+        rdfs:label       "E52 Time-Span"@en ;
+        rdfs:subClassOf  crm:E1_CRM_Entity ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                           owl:onProperty      crm:P83_had_at_least_duration
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                           owl:onProperty      crm:P84_had_at_most_duration
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      crm:P4i_is_time-span_of ;
+                           owl:someValuesFrom  crm:E2_Temporal_Entity
+                         ] ;
+        skos:notation    "E52"^^xsd:string .
+
+crm:P55_has_current_location
+        a       owl:ObjectProperty .
+
+<http://narra.isti.cnr.it/resource/Q134646/participant>
+        a                        <http://narra.isti.cnr.it/ontology#ActorWithRole> ;
+        rdfs:comment             ""^^xsd:string ;
+        rdfs:label               ""^^xsd:string ;
+        crm:P1_is_identified_by  <http://narra.isti.cnr.it/resource/Q134646/appellation> ;
+        <http://narra.isti.cnr.it/ontology#hasRole>
+                <http://narra.isti.cnr.it/role/participant> ;
+        <http://narra.isti.cnr.it/ontology#hasSubject>
+                <http://narra.isti.cnr.it/resource/Q134646> .
+
+<http://narra.isti.cnr.it/resource/Q91119/appellation>
+        crm:P3_has_note  ""^^xsd:string .
+
+<http://narra.isti.cnr.it/resource/Q2044>
+        a                        crm:E53_Place ;
+        rdfs:comment             ""^^xsd:string ;
+        rdfs:label               ""^^xsd:string ;
+        crm:P1_is_identified_by  <http://narra.isti.cnr.it/resource/Q2044/appellation> ;
+        owl:sameAs               "https://wikidata.org/entity/Q2044" .
+
+crminf:O16_observed_value
+        a            owl:ObjectProperty ;
+        rdfs:domain  crminf:S4_Observation ;
+        rdfs:label   "O16_observed_value" ;
+        rdfs:range   crminf:I4_Proposition_Set .
+
+crm:E86_Leaving  a       owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises the activities that result in an instance of E39 Actor to be disassociated from an instance of E74 Group. This class does not imply initiative by either party. It may be the initiative of a third party.\n\nTypical scenarios include the termination of membership in a social organisation, ending the employment at a company, divorce, and the end of tenure of somebody in an official position.\n\nExamples:\n- The end of Sir Isaac Newton's duty as Member of Parliament for the University of Cambridge to the Convention Parliament in 1702\n- George Washington's leaving office in 1797\n- The implementation of the treaty regulating the termination of Greenland’s membership in EU between EU, Denmark and Greenland February 1. 1985\n\nIn First Order Logic:\nE86(x) ⊃ E7(x)"@en ;
+        rdfs:label       "E86 Leaving"@en ;
+        rdfs:subClassOf  crm:E7_Activity ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "1"^^xsd:nonNegativeInteger ;
+                           owl:onProperty   crm:P145_separated
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:minCardinality  "1"^^xsd:nonNegativeInteger ;
+                           owl:onProperty      crm:P146_separated_from
+                         ] ;
+        skos:notation    "E86"^^xsd:string .
+
+crm:P118i_is_overlapped_in_time_by
+        a              owl:ObjectProperty ;
+        rdfs:domain    crm:E2_Temporal_Entity ;
+        rdfs:label     "P118 is overlapped in time by"@en ;
+        rdfs:range     crm:E2_Temporal_Entity ;
+        owl:inverseOf  crm:P118_overlaps_in_time_with ;
+        skos:notation  "P118i"^^xsd:string .
+
+crm:P117_occurs_during
+        a              owl:ObjectProperty , owl:TransitiveProperty ;
+        rdfs:comment   "Scope note:\nThis property allows the entire E52 Time-Span of an E2 Temporal Entity to be situated within the Time-Span of another temporal entity that starts before and ends after the included temporal entity.\n\nThis property is only necessary if the time span is unknown (otherwise the relationship can be calculated). This property is the same as the \"during / includes\" relationships of Allen’s temporal logic (Allen, 1983, pp. 832-843).\n\nExamples:\n- Middle Saxon period (E4) occurs during Saxon period (E4)\n\nIn First Order Logic:\nP117(x,y) ⊃ E2(x)\nP117(x,y) ⊃ E2(y)"@en ;
+        rdfs:domain    crm:E2_Temporal_Entity ;
+        rdfs:label     "P117 occurs during"@en ;
+        rdfs:range     crm:E2_Temporal_Entity ;
+        owl:inverseOf  crm:P117i_includes ;
+        skos:notation  "P117"^^xsd:string .
+
+crm:P59i_is_located_on_or_within
+        a       owl:ObjectProperty .
+
+crm:P108_has_produced
+        a       owl:ObjectProperty .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486996647725/inference-making/2>
+        crminf:J2_concluded_that  <http://narra.isti.cnr.it/narrative/N1/event/ev1486996647725/conclusion-belief/2> .
+
+crm:P99_dissolved  a  owl:ObjectProperty .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493/conclusion-belief/3>
+        crminf:J4_that  <http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493/proposition-set/3> .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/premise-belief/3>
+        crminf:J1_was_premise_for  <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/inference-making/3> .
+
+crminf:J2_concluded_that
+        a            owl:ObjectProperty ;
+        rdfs:domain  crminf:I5_Inference_Making ;
+        rdfs:label   "J2_concluded_that" ;
+        rdfs:range   crminf:I2_Belief .
+
+crminf:S15_Observable_Entity
+        a       owl:Class .
+
+<http://narra.isti.cnr.it/resource/Q2634/appellation>
+        crm:P3_has_note  ""^^xsd:string .
+
+crm:P106_is_composed_of
+        a              owl:ObjectProperty , owl:TransitiveProperty ;
+        rdfs:comment   "Scope note:\nThis property associates an instance of E90 Symbolic Object with a part of it that is by itself an instance of E90 Symbolic Object, such as fragments of texts or clippings from an image. This property is transitive.\n\nExamples:\n- This Scope note P106 (E33) is composed of fragments of texts (E33)\n- 'recognizable' P106 (E90) is composed of 'ecognizabl' (E90)\n\nIn First Order Logic:\nP106(x,y) ⊃ E90(x)\nP106(x,y) ⊃ E90(y)"@en ;
+        rdfs:domain    crm:E90_Symbolic_Object ;
+        rdfs:label     "P106 is composed of"@en ;
+        rdfs:range     crm:E90_Symbolic_Object ;
+        owl:inverseOf  crm:P106i_forms_part_of ;
+        skos:notation  "P106"^^xsd:string .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/proposition/5>
+        a                rdf:Statement ;
+        rdf:object       <http://narra.isti.cnr.it/resource/Q2044> ;
+        rdf:predicate    crm:P7_took_place_at ;
+        rdf:subject      <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748> ;
+        crm:P3_has_note  ""^^xsd:string .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493/inference-making/3>
+        crminf:J2_concluded_that  <http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493/conclusion-belief/3> .
+
+<http://narra.isti.cnr.it/resource/Q1067>
+        a             crm:E39_Actor ;
+        rdfs:comment  ""^^xsd:string ;
+        rdfs:label    ""^^xsd:string ;
+        owl:sameAs    "https://wikidata.org/entity/Q1067" .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493/proposition-set/3>
+        crm:P106_is_composed_of  <http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493/proposition/3> .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493/proposition/1>
+        a                rdf:Statement ;
+        rdf:object       <http://narra.isti.cnr.it/resource/Q134646/participant> ;
+        rdf:predicate    <http://narra.isti.cnr.it/ontology#hadParticipant> ;
+        rdf:subject      <http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493> ;
+        crm:P3_has_note  ""^^xsd:string ;
+        <http://narra.isti.cnr.it/ontology#hasSource>
+                <http://narra.isti.cnr.it/resource/U8d3d7eb9-86a0-4f24-9532-28fd5c25c39b> ;
+        <http://narra.isti.cnr.it/ontology#hasTextFragment>
+                <http://narra.isti.cnr.it/resource/U8d3d7eb9-86a0-4f24-9532-28fd5c25c39b/text/3> .
+
+crm:E64_End_of_Existence
+        a                owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises events that end the existence of any E77 Persistent Item.\n\nIt may be used for temporal reasoning about things (physical items, groups of people, living beings) ceasing to exist; it serves as a hook for determination of a terminus postquem and antequem. In cases where substance from a Persistent Item continues to exist in a new form, the process would be documented by E81 Transformation.\n\nExamples:\n- the death of Snoopy, my dog\n- the melting of the snowman\n- the burning of the Temple of Artemis in Ephesos by Herostratos in 356BC\n\nIn First Order Logic:\nE64(x) ⊃ E5(x)"@en ;
+        rdfs:label       "E64 End of Existence"@en ;
+        rdfs:subClassOf  crm:E5_Event ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      crm:P93_took_out_of_existence ;
+                           owl:someValuesFrom  crm:E77_Persistent_Item
+                         ] ;
+        skos:notation    "E64"^^xsd:string .
+
+crm:E12_Production  a    owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises activities that are designed to, and succeed in, creating one or more new items.\n\nIt specializes the notion of modification into production. The decision as to whether or not an object is regarded as new is context sensitive. Normally, items are considered \"new\" if there is no obvious overall similarity between them and the consumed items and material used in their production. In other cases, an item is considered \"new\" because it becomes relevant to documentation by a modification. For example, the scribbling of a name on a potsherd may make it a voting token. The original potsherd may not be worth documenting, in contrast to the inscribed one.\n\nThis entity can be collective: the printing of a thousand books, for example, would normally be considered a single event.\n\nAn event should also be documented using E81 Transformation if it results in the destruction of one or more objects and the simultaneous production of others using parts or material from the originals. In this case, the new items have separate identities and matter is preserved, but identity is not.\n\nExamples:\n- the construction of the SS Great Britain\n- the first casting of the Little Mermaid from the harbour of Copenhagen\n- Rembrandt's creating of the seventh state of his etching \"Woman sitting half dressed beside a stove\", 1658, identified by Bartsch Number 197 (E12,E65,E81)\n\nIn First Order Logic:\nE12(x) ⊃ E11(x)\nE12(x) ⊃ E63(x)"@en ;
+        rdfs:label       "E12 Production"@en ;
+        rdfs:subClassOf  crm:E11_Modification , crm:E63_Beginning_of_Existence ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      crm:P108_has_produced ;
+                           owl:someValuesFrom  crm:E24_Physical_Man-Made_Thing
+                         ] ;
+        skos:notation    "E12"^^xsd:string .
+
+<http://narra.isti.cnr.it/resource/U14927832423509773348>
+        a                        crm:E89_Propositional_Object ;
+        rdfs:comment             ""^^xsd:string ;
+        rdfs:label               ""^^xsd:string ;
+        crm:P1_is_identified_by  <http://narra.isti.cnr.it/resource/U14927832423509773348/appellation> .
+
+efrbroo:F23_Expression_Fragment
+        a                owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises parts of Expressions and these parts are not Self-contained Expressions themselves.\n\nThe existence of an instance of F23 Expression Fragment can be due to accident, such as loss of material over time, e.g. the only remaining manuscript of an antique text being partially eaten by worms, or due to deliberate isolation, such as excerpts taken from a text by the compiler of a collection of excerpts.\n\nAn F23 Expression Fragment is only identified with respect to its occurrence in a known or assumed whole. The size of an instance of F23 Expression Fragment ranges from more than 99% of an instance of F22 Self-Contained Expression to tiny bits (a few words from a text, one bar from a musical composition, one detail from a still image, a two-second clip from a movie, etc.).\n\nExamples:\nThe only remnants of Sappho’s poems \n\nThe words ‘Beati pauperes spiritu’ (excerpted from Matthew’s Gospel 5,3 in Latin translation)       \n        "@en ;
+        rdfs:label       "F23 Expression Fragment"@en ;
+        rdfs:subClassOf  efrbroo:F2_Expression .
+
+crm:P119i_is_met_in_time_by
+        a              owl:ObjectProperty ;
+        rdfs:domain    crm:E2_Temporal_Entity ;
+        rdfs:label     "P119 is met in time by"@en ;
+        rdfs:range     crm:E2_Temporal_Entity ;
+        owl:inverseOf  crm:P119_meets_in_time_with ;
+        skos:notation  "P119i"^^xsd:string .
+
+<http://narra.isti.cnr.it/resource/U8d3d7eb9-86a0-4f24-9532-28fd5c25c39b>
+        crm:P106_is_composed_of  <http://narra.isti.cnr.it/resource/U8d3d7eb9-86a0-4f24-9532-28fd5c25c39b/text/3> ;
+        crm:P1_is_identified_by  <http://narra.isti.cnr.it/resource/U8d3d7eb9-86a0-4f24-9532-28fd5c25c39b/appellation> .
+
+crm:E8_Acquisition  a    owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises transfers of legal ownership from one or more instances of E39 Actor to one or more other instances of E39 Actor.\n\nThe class also applies to the establishment or loss of ownership of instances of E18 Physical Thing. It does not, however, imply changes of any other kinds of right. The recording of the donor and/or recipient is optional. It is possible that in an instance of E8 Acquisition there is either no donor or no recipient. Depending on the circumstances, it may describe:\n\n1. the beginning of ownership\n2. the end of ownership\n3. the transfer of ownership\n4. the acquisition from an unknown source\n5. the loss of title due to destruction of the item\n\nIt may also describe events where a collector appropriates legal title, for example by annexation or field collection. The interpretation of the museum notion of \"accession\" differs between institutions. The CRM therefore models legal ownership (E8 Acquisition) and physical custody (E10 Transfer of Custody) separately. Institutions will then model their specific notions of accession and deaccession as combinations of these.\n\nExamples:\n- the collection of a hammer-head shark of the genus Sphyrna (Carchariniformes) XXXtbc by John Steinbeck and Edward Ricketts at Puerto Escondido in the Gulf of Mexico on March 25th, 1940\n- the acquisition of El Greco's \"The Apostles Peter and Paul\" by the State Hermitage in Saint Petersburg\n- the loss of my stuffed chaffinch 'Fringilla coelebs Linnaeus, 1758' due to insect damage last year\n\nIn First Order Logic:\nE8(x) ⊃ E7(x)"@en ;
+        rdfs:label       "E8 Acquisition"@en ;
+        rdfs:subClassOf  crm:E7_Activity ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:minCardinality  "1"^^xsd:nonNegativeInteger ;
+                           owl:onProperty      crm:P24_transferred_title_of
+                         ] ;
+        skos:notation    "E8"^^xsd:string .
+
+crm:P123_resulted_in  a  owl:ObjectProperty .
+
+crm:P9i_forms_part_of
+        a              owl:TransitiveProperty , owl:ObjectProperty ;
+        rdfs:domain    crm:E4_Period ;
+        rdfs:label     "P9 forms part of"@en ;
+        rdfs:range     crm:E4_Period ;
+        owl:inverseOf  crm:P9_consists_of ;
+        skos:notation  "P9i"^^xsd:string .
+
+crm:P4i_is_time-span_of
+        a              owl:ObjectProperty ;
+        rdfs:domain    crm:E52_Time-Span ;
+        rdfs:label     "P4 is time-span of"@en ;
+        rdfs:range     crm:E2_Temporal_Entity ;
+        owl:inverseOf  crm:P4_has_time-span ;
+        skos:notation  "P4i"^^xsd:string .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/conclusion-belief/3>
+        crminf:J4_that  <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/proposition-set/3> .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/proposition-set/5>
+        crm:P106_is_composed_of  <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/proposition/5> .
+
+<http://narra.isti.cnr.it/resource/Q397/appellation>
+        crm:P3_has_note  ""^^xsd:string .
+
+<http://narra.isti.cnr.it/resource/Q1067/participant>
+        a                        <http://narra.isti.cnr.it/ontology#ActorWithRole> ;
+        rdfs:comment             ""^^xsd:string ;
+        rdfs:label               ""^^xsd:string ;
+        crm:P1_is_identified_by  <http://narra.isti.cnr.it/resource/Q1067/appellation> ;
+        <http://narra.isti.cnr.it/ontology#hasRole>
+                <http://narra.isti.cnr.it/role/participant> ;
+        <http://narra.isti.cnr.it/ontology#hasSubject>
+                <http://narra.isti.cnr.it/resource/Q1067> .
+
+crm:P152_has_parent  a  owl:ObjectProperty .
+
+<http://narra.isti.cnr.it/resource/Q781219/appellation>
+        crm:P3_has_note  ""^^xsd:string .
+
+crm:P2_has_type  a     owl:ObjectProperty ;
+        rdfs:comment   "Scope note:\nThis property allows sub typing of CRM entities - a form of specialisation – through the use of a terminological hierarchy, or thesaurus.\n\nThe CRM is intended to focus on the high-level entities and relationships needed to describe data structures. Consequently, it does not specialise entities any further than is required for this immediate purpose. However, entities in the isA hierarchy of the CRM may by specialised into any number of sub entities, which can be defined in the E55 Type hierarchy. E51 Contact Point, for example, may be specialised into \"e-mail address\", \"telephone number\", \"post office box\", \"URL\" etc. none of which figures explicitly in the CRM hierarchy. Sub typing obviously requires consistency between the meaning of the terms assigned and the more general intent of the CRM entity in question.\n\nExamples:\n- \"enquiries@cidoc-crm.org\" (E51) has type e-mail address (E55)\n\nIn First Order Logic:\nP2(x,y) ⊃ E1(x)\nP2(x,y) ⊃ E55(y)"@en ;
+        rdfs:domain    crm:E1_CRM_Entity ;
+        rdfs:label     "P2 has type"@en ;
+        rdfs:range     crm:E55_Type ;
+        owl:inverseOf  crm:P2i_is_type_of ;
+        skos:notation  "P2"^^xsd:string .
+
+crm:E30_Right  a  owl:Class .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/inference-making/6>
+        crminf:J2_concluded_that  <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/conclusion-belief/6> .
+
+crm:E77_Persistent_Item
+        a                owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises items that have a persistent identity, sometimes known as \"endurants\" in philosophy.\n\nThey can be repeatedly recognized within the duration of their existence by identity criteria rather than by continuity or observation. Persistent Items can be either physical entities, such as people, animals or things, or conceptual entities such as ideas, concepts, products of the imagination or common names. \n\nThe criteria that determine the identity of an item are often difficult to establish -; the decision depends largely on the judgement of the observer. For example, a building is regarded as no longer existing if it is dismantled and the materials reused in a different configuration. On the other hand, human beings go through radical and profound changes during their life-span, affecting both material composition and form, yet preserve their identity by other criteria. Similarly, inanimate objects may be subject to exchange of parts and matter. The class E77 Persistent Item does not take any position about the nature of the applicable identity criteria and if actual knowledge about identity of an instance of this class exists. There may be cases, where the identity of an E77 Persistent Item is not decidable by a certain state of knowledge.\nThe main classes of objects that fall outside the scope the E77 Persistent Item class are temporal objects such as periods, events and acts, and descriptive properties.\n\nExamples:\n- Leonardo da Vinci\n- Stonehenge\n- the hole in the ozone layer\n- the First Law of Thermodynamics\n- the Bermuda Triangle\n\nIn First Order Logic:\nE77(x) ⊃ E1(x)"@en ;
+        rdfs:label       "E77 Persistent Item"@en ;
+        rdfs:subClassOf  crm:E1_CRM_Entity ;
+        skos:notation    "E77"^^xsd:string .
+
+<http://narra.isti.cnr.it/resource/U14927832423509773348/appellation>
+        crm:P3_has_note  ""^^xsd:string .
+
+crm:P113_removed  a  owl:ObjectProperty .
+
+<http://narra.isti.cnr.it/resource/U0c24b1c9-c99d-4763-8226-ed320586f865/text/1>
+        a          dctypes:Text , cnt:ContentAsText ;
+        <http://narra.isti.cnr.it/ontology#hasReference>
+                <http://narra.isti.cnr.it/resource/U0c24b1c9-c99d-4763-8226-ed320586f865/reference/2> ;
+        dc:format  "text/plain"^^xsd:string ;
+        cnt:chars  "His first target was the Guelph city of Siena, which he began to besiege, but within a week, Henry succumbed to malaria, which fast saw him become seriously ill. Fading rapidly, he left Siena on August 22, and was sheltering in the little town of Buonconvento near Siena when he died on 24 August 1313.[25] His body was taken to Pisa. Henry was not even 40 years old when he died, and the high hopes for an effective Imperial power in Italy died with him."^^xsd:string .
+
+crm:P117i_includes  a  owl:ObjectProperty , owl:TransitiveProperty ;
+        rdfs:domain    crm:E2_Temporal_Entity ;
+        rdfs:label     "P117 includes"@en ;
+        rdfs:range     crm:E2_Temporal_Entity ;
+        owl:inverseOf  crm:P117_occurs_during ;
+        skos:notation  "P117i"^^xsd:string .
+
+<http://narra.isti.cnr.it/resource/U0c24b1c9-c99d-4763-8226-ed320586f865/creation>
+        crm:P14_carried_out_by  <http://narra.isti.cnr.it/resource/U37d680bb-62ab-4964-8ba6-72a22394504d> ;
+        crm:P94_has_created     <http://narra.isti.cnr.it/resource/U0c24b1c9-c99d-4763-8226-ed320586f865> .
+
+crm:E68_Dissolution  a   owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises the events that result in the formal or informal termination of an E74 Group of people.\n\nIf the dissolution was deliberate, the Dissolution event should also be instantiated as an E7 Activity.\n\nExamples:\n- the fall of the Roman Empire\n- the liquidation of Enron Corporation\n\nIn First Order Logic:\nE68(x) ⊃ E64(x)"@en ;
+        rdfs:label       "E68 Dissolution"@en ;
+        rdfs:subClassOf  crm:E64_End_of_Existence ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      crm:P99_dissolved ;
+                           owl:someValuesFrom  crm:E74_Group
+                         ] ;
+        skos:notation    "E68"^^xsd:string .
+
+crm:E79_Part_Addition
+        a                owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises activities that result in an instance of E24 Physical Man-Made Thing being increased, enlarged or augmented by the addition of a part.\n\nTypical scenarios include the attachment of an accessory, the integration of a component, the addition of an element to an aggregate object, or the accessioning of an object into a curated E78 Collection. Objects to which parts are added are, by definition, man-made, since the addition of a part implies a human activity. Following the addition of parts, the resulting man-made assemblages are treated objectively as single identifiable wholes, made up of constituent or component parts bound together either physically (for example the engine becoming a part of the car), or by sharing a common purpose (such as the 32 chess pieces that make up a chess set). This class of activities forms a basis for reasoning about the history and continuity of identity of objects that are integrated into other objects over time, such as precious gemstones being repeatedly incorporated into different items of jewellery, or cultural artifacts being added to different museum instances of E78 Collection over their lifespan.\n\nExamples:\n- the setting of the koh-i-noor diamond into the crown of Queen Elizabeth the Queen Mother\n- the addition of the painting \"Room in Brooklyn\" by Edward Hopper to the collection of the Museum of Fine Arts, Boston\n\nIn First Order Logic:\nE79(x) ⊃ E11(x)"@en ;
+        rdfs:label       "E79 Part Addition"@en ;
+        rdfs:subClassOf  crm:E11_Modification ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      crm:P110_augmented ;
+                           owl:someValuesFrom  crm:E24_Physical_Man-Made_Thing
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      crm:P111_added ;
+                           owl:someValuesFrom  crm:E18_Physical_Thing
+                         ] ;
+        skos:notation    "E79"^^xsd:string .
+
+<http://narra.isti.cnr.it/resource/U8d3d7eb9-86a0-4f24-9532-28fd5c25c39b/creation>
+        crm:P14_carried_out_by  <http://narra.isti.cnr.it/resource/U1e2bdc86-db88-47c0-8f76-cef686cbe9a3> ;
+        crm:P94_has_created     <http://narra.isti.cnr.it/resource/U8d3d7eb9-86a0-4f24-9532-28fd5c25c39b> .
+
+crm:P116i_is_started_by
+        a              owl:ObjectProperty , owl:TransitiveProperty ;
+        rdfs:domain    crm:E2_Temporal_Entity ;
+        rdfs:label     "P116 is started by"@en ;
+        rdfs:range     crm:E2_Temporal_Entity ;
+        owl:inverseOf  crm:P116_starts ;
+        skos:notation  "P116i"^^xsd:string .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486996647725/premise-belief/1>
+        crminf:J1_was_premise_for  <http://narra.isti.cnr.it/narrative/N1/event/ev1486996647725/inference-making/1> ;
+        crminf:J4_that             <http://narra.isti.cnr.it/narrative/N1/event/ev1486996647725/proposition/1/observed-proposition-set/1> .
+
+crm:E55_Type  a          owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises concepts denoted by terms from thesauri and controlled vocabularies used to characterize and classify instances of CRM classes. Instances of E55 Type represent concepts  in contrast to instances of E41 Appellation which are used to name instances of CRM classes.\n\nE55 Type is the CRM's interface to domain specific ontologies and thesauri. These can be represented in the CRM as subclasses of E55 Type, forming hierarchies of terms, i.e. instances of E55 Type linked via P127 has broader  term (has narrower term). Such hierarchies may be extended with additional properties.\n\nExamples:\n- weight, length, depth [types of E54]\n- portrait, sketch, animation [types of E38]\n- French, English, German [E56]\n- excellent, good, poor [types of E3]\n- Ford Model T, chop stick [types of E22]\n- cave, doline, scratch [types of E26]\n- poem, short story [types of E33]\n- wedding, earthquake, skirmish [types of E5]\n\nIn First Order Logic:\nE55(x) ⊃ E28(x)"@en ;
+        rdfs:label       "E55 Type"@en ;
+        rdfs:subClassOf  crm:E28_Conceptual_Object ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                           owl:onProperty      crm:P135i_was_created_by
+                         ] ;
+        skos:notation    "E55"^^xsd:string .
+
+crm:P54_has_current_permanent_location
+        a       owl:ObjectProperty .
+
+time:after  a          owl:ObjectProperty ;
+        rdfs:domain    time:Instant ;
+        rdfs:label     "time#after" ;
+        rdfs:range     time:Instant ;
+        owl:inverseOf  time:before .
+
+crm:P115i_is_finished_by
+        a              owl:ObjectProperty , owl:TransitiveProperty ;
+        rdfs:domain    crm:E2_Temporal_Entity ;
+        rdfs:label     "P115 is finished by"@en ;
+        rdfs:range     crm:E2_Temporal_Entity ;
+        owl:inverseOf  crm:P115_finishes ;
+        skos:notation  "P115i"^^xsd:string .
+
+narr:1294-12-24  a     time:Instant ;
+        crm:inXSDDate  "1294-12-24"^^xsd:date .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/premise-belief/4>
+        crminf:J1_was_premise_for  <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/inference-making/4> .
+
+<http://narra.isti.cnr.it/resource/U8d3d7eb9-86a0-4f24-9532-28fd5c25c39b/appellation>
+        crm:P3_has_note  "Pope Boniface VIII"^^xsd:string .
+
+<http://narra.isti.cnr.it/resource/U1e2bdc86-db88-47c0-8f76-cef686cbe9a3>
+        crm:P1_is_identified_by  <http://narra.isti.cnr.it/resource/U1e2bdc86-db88-47c0-8f76-cef686cbe9a3/appellation> .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/proposition/6>
+        a                rdf:Statement ;
+        rdf:object       <http://narra.isti.cnr.it/resource/U12> ;
+        rdf:predicate    crm:P12_occurred_in_the_presence_of ;
+        rdf:subject      <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748> ;
+        crm:P3_has_note  ""^^xsd:string .
+
+crminf:O8_observed  a  owl:ObjectProperty ;
+        rdfs:domain  crminf:S15_Observable_Entity ;
+        rdfs:label   "O8_observed" ;
+        rdfs:range   crminf:S4_Observation .
+
+<http://narra.isti.cnr.it/resource/U0c24b1c9-c99d-4763-8226-ed320586f865/reference/2>
+        a          dctypes:Text , cnt:ContentAsText ;
+        dc:format  "text/plain"^^xsd:string ;
+        cnt:chars  ""^^xsd:string .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493/proposition/2>
+        a                rdf:Statement ;
+        rdf:object       <http://narra.isti.cnr.it/resource/Q781219> ;
+        rdf:predicate    crm:P12_occurred_in_the_presence_of ;
+        rdf:subject      <http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493> ;
+        crm:P3_has_note  ""^^xsd:string .
+
+crm:E2_Temporal_Entity
+        a                 owl:Class ;
+        rdfs:comment      "Scope note:\nThis class comprises all phenomena, such as the instances of E4 Periods, E5 Events and states, which happen over a limited extent in time. This extent in time must be contiguous, i.e., without gaps. In case the defining kinds of phenomena for an instance of E2 Temporal Entity cease to happen, and occur later again at another time, we regard that the former E2 Temporal Entity has ended and a new instance has come into existence. In more intuitive terms, the same event cannot happen twice.\n\nIn some contexts, these are also called perdurants. This class is disjoint from E77 Persistent Item. This is an abstract class and has no direct instances. E2 Temporal Entity is specialized into E4 Period, which applies to a particular geographic area (defined with a greater or lesser degree of precision), and E3 Condition State, which applies to instances of E18 Physical Thing.\n\nExamples:\n- Bronze Age (E4)\n- the earthquake in Lisbon 1755 (E5)\n- the Peterhof Palace near Saint Petersburg being in ruins from 1944 – 1946 (E3)\n\nIn First Order Logic:\nE2(x) ⊃ E1(x)"@en ;
+        rdfs:label        "E2 Temporal Entity"@en ;
+        rdfs:subClassOf   crm:E1_CRM_Entity ;
+        rdfs:subClassOf   [ a                owl:Restriction ;
+                            owl:cardinality  "1"^^xsd:nonNegativeInteger ;
+                            owl:onProperty   crm:P4_has_time-span
+                          ] ;
+        owl:disjointWith  crm:E77_Persistent_Item ;
+        skos:notation     "E2"^^xsd:string .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/inference-making/1>
+        crminf:J2_concluded_that  <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/conclusion-belief/1> .
+
+<http://narra.isti.cnr.it/resource/U14927839562704307121>
+        a                        crm:E89_Propositional_Object ;
+        rdfs:comment             ""^^xsd:string ;
+        rdfs:label               ""^^xsd:string ;
+        crm:P1_is_identified_by  <http://narra.isti.cnr.it/resource/U14927839562704307121/appellation> .
+
+crm:P110_augmented  a  owl:ObjectProperty .
+
+crm:P14_carried_out_by
+        a                   owl:ObjectProperty ;
+        rdfs:comment        "Scope note:\nThis property describes the active participation of an E39 Actor in an E7 Activity.\n\nIt implies causal or legal responsibility. The P14.1 in the role of property of the property allows the nature of an Actor's participation to be specified.\n\nExamples:\n- the painting of the Sistine Chapel (E7) carried out by Michaelangelo Buonaroti (E21) in the role of master craftsman (E55)\n\nIn First Order Logic:\nP14 (x,y) ⊃ E7(x)\nP14 (x,y)⊃ E39(y)\nP14 (x,y) ⊃ P11(x,y)\nP14(x,y,z) ⊃ [P14(x,y) ∧ E55(z)]"@en ;
+        rdfs:domain         crm:E7_Activity ;
+        rdfs:label          "P14 carried out by"@en ;
+        rdfs:subPropertyOf  crm:P11_had_participant ;
+        owl:inverseOf       crm:P14i_performed ;
+        skos:notation       "P14"^^xsd:string .
+
+time:Instant  a          owl:Class ;
+        rdfs:subClassOf  time:TemporalEntity .
+
+crm:E85_Joining  a       owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises the activities that result in an instance of E39 Actor becoming a member of an instance of E74 Group. This class does not imply initiative by either party. It may be the initiative of a third party.\n\nTypical scenarios include becoming a member of a social organisation, becoming employee of a company, marriage, the adoption of a child by a family and the inauguration of somebody into an official position.\n\nExamples:\n- The election of Sir Isaac Newton as Member of Parliament for the University of Cambridge to the Convention Parliament of 1689\n- The inauguration of Mikhail Sergeyevich Gorbachev as leader of the Union of Soviet Socialist Republics (USSR) in 1985\n- The implementation of the membership treaty between EU and Denmark  January 1. 1973\n\nIn First Order Logic:\nE85(x) ⊃ E7(x)"@en ;
+        rdfs:label       "E85 Joining"@en ;
+        rdfs:subClassOf  crm:E7_Activity ;
+        rdfs:subClassOf  [ a                owl:Restriction ;
+                           owl:cardinality  "1"^^xsd:nonNegativeInteger ;
+                           owl:onProperty   crm:P143_joined
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:minCardinality  "1"^^xsd:nonNegativeInteger ;
+                           owl:onProperty      crm:P144_joined_with
+                         ] ;
+        skos:notation    "E85"^^xsd:string .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493/premise-belief/1>
+        crminf:J1_was_premise_for  <http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493/inference-making/1> ;
+        crminf:J4_that             <http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493/proposition/1/observed-proposition-set/1> .
+
+crm:P7i_witnessed  a   owl:ObjectProperty ;
+        rdfs:domain    crm:E53_Place ;
+        rdfs:label     "P7 witnessed"@en ;
+        rdfs:range     crm:E4_Period ;
+        owl:inverseOf  crm:P7_took_place_at ;
+        skos:notation  "P7i"^^xsd:string .
+
+crm:P12i_was_present_at
+        a              owl:ObjectProperty ;
+        rdfs:domain    crm:E77_Persistent_Item ;
+        rdfs:label     "P12 was present at"@en ;
+        rdfs:range     crm:E5_Event ;
+        owl:inverseOf  crm:P12_occurred_in_the_presence_of ;
+        skos:notation  "P12i"^^xsd:string .
+
+crm:P124_transformed  a  owl:ObjectProperty .
+
+crm:P95_has_formed  a  owl:ObjectProperty .
+
+time:before  a       owl:TransitiveProperty , owl:ObjectProperty ;
+        rdfs:domain  time:Instant , time:TemporalEntity ;
+        rdfs:label   "time#before" ;
+        rdfs:range   time:Instant , time:TemporalEntity .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/conclusion-belief/4>
+        crminf:J4_that  <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/proposition-set/4> .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/proposition/1>
+        a                rdf:Statement ;
+        rdf:object       <http://narra.isti.cnr.it/resource/Q1067/participant> ;
+        rdf:predicate    <http://narra.isti.cnr.it/ontology#hadParticipant> ;
+        rdf:subject      <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748> ;
+        crm:P3_has_note  ""^^xsd:string .
+
+crm:P4_has_time-span  a  owl:ObjectProperty ;
+        rdfs:comment   "Scope note:\nThis property describes the temporal confinement of an instance of an E2 Temporal Entity.\n\nThe related E52 Time-Span is understood as the real Time-Span during which the phenomena were active, which make up the temporal entity instance. It does not convey any other meaning than a positioning on the \"time-line\" of chronology. The Time-Span in turn is approximated by a set of dates (E61 Time Primitive). A temporal entity can have in reality only one Time-Span, but there may exist alternative opinions about it, which we would express by assigning multiple Time-Spans. Related temporal entities may share a Time-Span. Time-Spans may have completely unknown dates but other descriptions by which we can infer knowledge.\n\nExamples:\n- the Yalta Conference (E7) has time-span Yalta Conference time-span (E52)\n\nIn First Order Logic:\nP4(x,y) ⊃ E2(x)\nP4(x,y) ⊃ E52(y)"@en ;
+        rdfs:domain    crm:E2_Temporal_Entity ;
+        rdfs:label     "P4 has time-span"@en ;
+        rdfs:range     crm:E52_Time-Span ;
+        owl:inverseOf  crm:P4i_is_time-span_of ;
+        skos:notation  "P4"^^xsd:string .
+
+crm:P129_is_about  a        owl:ObjectProperty ;
+        rdfs:comment        "Scope note:\nThis property documents that an E89 Propositional Object has as subject an instance of E1 CRM Entity.\n\nThis differs from P67 refers to (is referred to by), which refers to an E1 CRM Entity, in that it describes the primary subject or subjects of an E89 Propositional Object.\n\nExamples:\n- The text entitled 'Reach for the sky' (E33) is about Douglas Bader (E21)\n\nIn First Order Logic:\nP129(x,y) ⊃ E89(x)\nP129(x,y) ⊃ E1(y)\nP129(x,y) ⊃ P67(x,y)"@en ;
+        rdfs:domain         crm:E89_Propositional_Object ;
+        rdfs:label          "P129 is about"@en ;
+        rdfs:range          crm:E1_CRM_Entity ;
+        rdfs:subPropertyOf  crm:P67_refers_to ;
+        owl:inverseOf       crm:P129i_is_subject_of ;
+        skos:notation       "P129"^^xsd:string .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/proposition-set/6>
+        crm:P106_is_composed_of  <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/proposition/6> .
+
+<http://narra.isti.cnr.it/ontology#hasReference>
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "This property relates a proposition with a reference fragment.For instance, the reference fragment \"Inferno II, 121\" +refers to a specific part of the work \"Divine Comedy\"."^^xsd:string ;
+        rdfs:domain   crm:E73_Information_Object ;
+        rdfs:label    "ontology#hasReference" ;
+        rdfs:range    xsd:string .
+
+crm:E72_Legal_Object  a  owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises those material or immaterial items to which instances of E30 Right, such as the right of ownership or use, can be applied.\n\nThis is true for all E18 Physical Thing. In the case of instances of E28 Conceptual Object, however, the identity of the E28 Conceptual Object or the method of its use may be too ambiguous to reliably establish instances of E30 Right, as in the case of taxa and inspirations. Ownership of corporations is currently regarded as out of scope of the CRM.\n\nExamples:\n- the Cullinan diamond (E19)\n- definition of the CIDOC Conceptual Reference Model Version 2.1 (E73)\n\nIn First Order Logic:\nE72(x) ⊃ E70(x)"@en ;
+        rdfs:label       "E72 Legal Object"@en ;
+        rdfs:subClassOf  crm:E70_Thing ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      crm:P104_is_subject_to ;
+                           owl:someValuesFrom  crm:E30_Right
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      crm:P105_right_held_by ;
+                           owl:someValuesFrom  crm:E39_Actor
+                         ] ;
+        skos:notation    "E72"^^xsd:string .
+
+<http://narra.isti.cnr.it/resource/U11>
+        a                        crm:E89_Propositional_Object ;
+        rdfs:comment             ""^^xsd:string ;
+        rdfs:label               ""^^xsd:string ;
+        crm:P1_is_identified_by  <http://narra.isti.cnr.it/resource/U11/appellation> .
+
+<http://narra.isti.cnr.it/ontology#hasRole>
+        a             owl:DatatypeProperty ;
+        rdfs:comment  "This property relates the class ActorWithRole with a literal that represents."^^xsd:string ;
+        rdfs:domain   <http://narra.isti.cnr.it/ontology#ActorWithRole> ;
+        rdfs:label    "ontology#hasRole" ;
+        rdfs:range    <http://narra.isti.cnr.it/ontology#Role> .
+
+crm:E67_Birth  a         owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises the births of human beings. E67 Birth is a biological event focussing on the context of people coming into life. (E63 Beginning of Existence comprises the coming into life of any living beings).\n\nTwins, triplets etc. are brought into life by the same E67 Birth event. The introduction of the E67 Birth event as a documentation element allows the description of a range of family relationships in a simple model. Suitable extensions may describe more details and the complexity of motherhood with the intervention of modern medicine. In this model, the biological father is not seen as a necessary participant in the E67 Birth event.\n\nExamples:\n- the birth of Alexander the Great\n\nIn First Order Logic:\nE67(x) ⊃ E63(x)"@en ;
+        rdfs:label       "E67 Birth"@en ;
+        rdfs:subClassOf  crm:E63_Beginning_of_Existence ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      crm:P97_from_father ;
+                           owl:someValuesFrom  crm:E21_Person
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      crm:P96_by_mother ;
+                           owl:someValuesFrom  crm:E21_Person
+                         ] ;
+        skos:notation    "E67"^^xsd:string .
+
+crm:P24_transferred_title_of
+        a       owl:ObjectProperty .
+
+crm:E71_Man-Made_Thing
+        a                owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises discrete, identifiable man-made items that are documented as single units.\n\nThese items are either intellectual products or man-made physical things, and are characterized by relative stability. They may for instance have a solid physical form, an electronic encoding, or they may be logical concepts or structures.\n\nExamples:\n- Beethoven's 5th Symphony (E73)\n- Michelangelo's David\n- Einstein's Theory of General Relativity (E73)\n- the taxon 'Fringilla coelebs Linnaeus, 1758' (E55)\n\nIn First Order Logic:\nE71(x) ⊃ E70(x)"@en ;
+        rdfs:label       "E71 Man-Made Thing"@en ;
+        rdfs:subClassOf  crm:E70_Thing ;
+        skos:notation    "E71"^^xsd:string .
+
+<http://narra.isti.cnr.it/resource/Q1067/appellation>
+        crm:P3_has_note  ""^^xsd:string .
+
+<http://narra.isti.cnr.it/resource/Q152717>
+        a             crm:E39_Actor ;
+        rdfs:comment  ""^^xsd:string ;
+        rdfs:label    ""^^xsd:string ;
+        owl:sameAs    "https://wikidata.org/entity/Q152717" .
+
+crm:P92i_was_brought_into_existence_by
+        a                   owl:ObjectProperty ;
+        rdfs:domain         crm:E77_Persistent_Item ;
+        rdfs:label          "P92 was brought into existence by"@en ;
+        rdfs:range          crm:E63_Beginning_of_Existence ;
+        rdfs:subPropertyOf  crm:P12i_was_present_at ;
+        owl:inverseOf       crm:P92_brought_into_existence ;
+        skos:notation       "P92i"^^xsd:string .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/inference-making/7>
+        crminf:J2_concluded_that  <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/conclusion-belief/7> .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486996647725/proposition/1>
+        a                rdf:Statement ;
+        rdf:object       <http://narra.isti.cnr.it/resource/Q152717/dead> ;
+        rdf:predicate    <http://narra.isti.cnr.it/ontology#hadParticipant> ;
+        rdf:subject      <http://narra.isti.cnr.it/narrative/N1/event/ev1486996647725> ;
+        crm:P3_has_note  ""^^xsd:string ;
+        <http://narra.isti.cnr.it/ontology#hasSource>
+                <http://narra.isti.cnr.it/resource/U0c24b1c9-c99d-4763-8226-ed320586f865> ;
+        <http://narra.isti.cnr.it/ontology#hasTextFragment>
+                <http://narra.isti.cnr.it/resource/U0c24b1c9-c99d-4763-8226-ed320586f865/text/1> .
+
+crm:P13i_was_destroyed_by
+        a       owl:ObjectProperty .
+
+crm:E39_Actor  a         owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises people, either individually or in groups, who have the potential to perform intentional actions of kinds for which someone may be held responsible.\n\nThe CRM does not attempt to model the inadvertent actions of such actors. Individual people should be documented as instances of E21 Person, whereas groups should be documented as instances of either E74 Group or its subclass E40 Legal Body.\n\nExamples:\n- London and Continental Railways (E40)\n- the Governor of the Bank of England in 1975 (E21)\n- Sir Ian McKellan (E21)\n\nIn First Order Logic:\nE39(x) ⊃ E77(x)"@en ;
+        rdfs:label       "E39 Actor"@en ;
+        rdfs:subClassOf  crm:E77_Persistent_Item ;
+        skos:notation    "E39"^^xsd:string .
+
+crm:P114_is_equal_in_time_to
+        a              owl:ObjectProperty , owl:SymmetricProperty , owl:TransitiveProperty ;
+        rdfs:comment   "Scope note:\nThis symmetric property allows the instances of E2 Temporal Entity with the same E52 Time-Span to be equated.\nThis property is only necessary if the time span is unknown (otherwise the equivalence can be calculated).\n\nThis property is the same as the \"equal\" relationship of Allen’s temporal logic (Allen, 1983, pp. 832-843).\nThis property is transitive.\n\nExamples:\n- the destruction of the Villa Justinian Tempus (E6) is equal in time to the death of Maximus Venderus (E69)\n\nIn First Order Logic:\nP114(x,y) ⊃ E2(x)\nP114(x,y) ⊃ E2(y)\nP114(x,y) ⊃ P114(y,x)"@en ;
+        rdfs:domain    crm:E2_Temporal_Entity ;
+        rdfs:label     "P114 is equal in time to"@en ;
+        rdfs:range     crm:E2_Temporal_Entity ;
+        owl:inverseOf  crm:P114_is_equal_in_time_to ;
+        skos:notation  "P114"^^xsd:string .
+
+crm:E74_Group  a         owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises any gatherings or organizations of E39 Actors that act collectively or in a similar way due to any form of unifying relationship. In the wider sense this class also comprises official positions which used to be regarded in certain contexts as one actor, independent of the current holder\nof the office, such as the president of a country. In such cases, it may happen that the Group never had more than one member. A joint pseudonym (i.e., a name that seems indicative of an individual but that is actually used as a persona by two or more people) is a particular case of E74 Group..\n\nA gathering of people becomes an E74 Group when it exhibits organizational characteristics usually typified by a set of ideas or beliefs held in common, or actions performed together. These might be communication, creating some common artifact, a common purpose such as study, worship, business, sports, etc. Nationality can be modelled as membership in an E74 Group (cf. HumanML markup). Married couples and other concepts of family are regarded as particular examples of E74 Group. \n\nExamples:\n- the impressionists\n- the Navajo\n- the Greeks\n- the peace protestors in New York City on February 15 2003\n- Exxon-Mobil\n- King Solomon and his wives\n- the President of the Swiss Confederation\n- Nicolas Bourbaki \n- Betty Crocker\n- Ellery Queen\n\nIn First Order Logic:\nE74(x) ⊃ E39(x)"@en ;
+        rdfs:label       "E74 Group"@en ;
+        rdfs:subClassOf  crm:E39_Actor ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:minCardinality  "2"^^xsd:nonNegativeInteger ;
+                           owl:onProperty      crm:P144i_gained_member_by
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                           owl:onProperty      crm:P95i_was_formed_by
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:minCardinality  "0"^^xsd:nonNegativeInteger ;
+                           owl:onProperty      crm:P146i_lost_member_by
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:minCardinality  "2"^^xsd:nonNegativeInteger ;
+                           owl:onProperty      crm:P107_has_current_or_former_member
+                         ] ;
+        skos:notation    "E74"^^xsd:string .
+
+crm:E70_Thing  a         owl:Class ;
+        rdfs:comment     "Scope note:\nThis general class comprises discrete, identifiable, instances of E77 Persistent Item that are documented as single units, that either consist of matter or depend on being carried by matter and are characterized by relative stability. \n\nThey may be intellectual products or physical things. They may for instance have a solid physical form, an electronic encoding, or they may be a logical concept or structure.\n\nExamples:\n- my photograph collection (E78)\n- the bottle of milk in my refrigerator (E22)\n- the plan of the Strassburger Muenster (E29)\n- the thing on the top of Otto Hahn's desk (E19)\n- the form of the no-smoking sign (E36)\n- the cave of Dirou, Mani, Greece (E27)\n\nIn First Order Logic:\nE70(x) ⊃ E77(x)"@en ;
+        rdfs:label       "E70 Thing"@en ;
+        rdfs:subClassOf  crm:E77_Persistent_Item ;
+        skos:notation    "E70"^^xsd:string .
+
+crm:E7_Activity  a       owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises actions intentionally carried out by instances of E39 Actor that result in changes of state in the cultural, social, or physical systems documented.\n\nThis notion includes complex, composite and long-lasting actions such as the building of a settlement or a war, as well as simple, short-lived actions such as the opening of a door.\n\nExamples:\n- the Battle of Stalingrad\n- the Yalta Conference\n- my birthday celebration 28-6-1995\n- the writing of \"Faust\" by Goethe (E65)\n- the formation of the Bauhaus 1919 (E66)\n- calling the place identified by TGN '7017998' 'Quyunjig' by the people of Iraq\n- Kira Weber working in glass art from 1984 to 1993\n- Kira Weber working in oil and pastel painting from 1993\n\nIn First Order Logic:\nE7(x) ⊃ E5(x)"@en ;
+        rdfs:label       "E7 Activity"@en ;
+        rdfs:subClassOf  crm:E5_Event ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      crm:P14_carried_out_by ;
+                           owl:someValuesFrom  crm:E39_Actor
+                         ] ;
+        skos:notation    "E7"^^xsd:string .
+
+crm:P143_joined  a  owl:ObjectProperty .
+
+crm:P111_added  a  owl:ObjectProperty .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486996647725/premise-belief/2>
+        crminf:J1_was_premise_for  <http://narra.isti.cnr.it/narrative/N1/event/ev1486996647725/inference-making/2> .
+
+<http://narra.isti.cnr.it/narrator/eb629c15-b7e9-4f62-a36f-f6a2c7b177e1>
+        rdfs:label  "Valentina Bartalesi" .
+
+crm:E65_Creation  a      owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises events that result in the creation of conceptual items or immaterial products, such as legends, poems, texts, music, images, movies, laws, types etc.\n\nExamples:\n- the framing of the U.S. Constitution\n- the drafting of U.N. resolution 1441\n\nIn First Order Logic:\nE65(x) ⊃ E7(x)\nE65(x) ⊃ E63(x)"@en ;
+        rdfs:label       "E65 Creation"@en ;
+        rdfs:subClassOf  crm:E63_Beginning_of_Existence , crm:E7_Activity ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      crm:P94_has_created ;
+                           owl:someValuesFrom  crm:E28_Conceptual_Object
+                         ] ;
+        skos:notation    "E65"^^xsd:string .
+
+<http://narra.isti.cnr.it/ontology#ActorWithRole>
+        a                owl:Class ;
+        rdfs:comment     "In order to assign a role to an actor, this reification class was introduced.Through the property hadParticipant an event is related with this class.ActorWithRole is related with the class Actor through the property hasSubjectand to a literal that represents the role through the property hasRole."^^xsd:string ;
+        rdfs:subClassOf  crm:E1_CRM_Entity .
+
+narr:Education_of_Dante
+        crm:P3_has_note  "Education of Dante"^^xsd:string .
+
+crm:E28_Conceptual_Object
+        a                owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises non-material products of our minds and other human produced data that have become objects of a discourse about their identity, circumstances of creation or historical implication. The production of such information may have been supported by the use of technical devices such as cameras or computers.\n\nCharacteristically, instances of this class are created, invented or thought by someone, and then may be documented or communicated between persons. Instances of E28 Conceptual Object have the ability to exist on more than one particular carrier at the same time, such as paper, electronic signals, marks, audio media, paintings, photos, human memories, etc.\nThey cannot be destroyed. They exist as long as they can be found on at least one carrier or in at least one human memory. Their existence ends when the last carrier and the last memory are lost.\n\nExamples:\n- Beethoven's \"Ode an die Freude\" (Ode to Joy) (E73)\n- the definition of \"ontology\" in the Oxford English Dictionary\n- the knowledge about the victory at Marathon carried by the famous runner\n- 'Maxwell equations' [preferred subject access point from LCSH,\n http://lccn.loc.gov/sh85082387, as of 19 November 2012]\n- 'Equations, Maxwell' [variant subject access point, from the same source]\n\nIn First Order Logic:\nE28(x) ⊃ E71(x)"@en ;
+        rdfs:label       "E28 Conceptual Object"@en ;
+        rdfs:subClassOf  crm:E71_Man-Made_Thing ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      crm:P94i_was_created_by ;
+                           owl:someValuesFrom  crm:E65_Creation
+                         ] ;
+        skos:notation    "E28"^^xsd:string .
+
+<http://narra.isti.cnr.it/resource/Q152717/dead>
+        a                        <http://narra.isti.cnr.it/ontology#ActorWithRole> ;
+        rdfs:comment             ""^^xsd:string ;
+        rdfs:label               ""^^xsd:string ;
+        crm:P1_is_identified_by  <http://narra.isti.cnr.it/resource/Q152717/appellation> ;
+        <http://narra.isti.cnr.it/ontology#hasRole>
+                <http://narra.isti.cnr.it/role/participant> ;
+        <http://narra.isti.cnr.it/ontology#hasSubject>
+                <http://narra.isti.cnr.it/resource/Q152717> .
+
+efrbroo:R17i_was_created_by
+        a       owl:ObjectProperty .
+
+crm:P120i_occurs_after
+        a              owl:ObjectProperty , owl:TransitiveProperty ;
+        rdfs:domain    crm:E2_Temporal_Entity ;
+        rdfs:label     "P120 occurs after"@en ;
+        rdfs:range     crm:E2_Temporal_Entity ;
+        owl:inverseOf  crm:P120_occurs_before ;
+        skos:notation  "P120i"^^xsd:string .
+
+crm:P96_by_mother  a  owl:ObjectProperty .
+
+crm:E9_Move  a           owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises changes of the physical location of the instances of E19 Physical Object.\n\nNote, that the class E9 Move inherits the property P7 took place at (witnessed): E53 Place. Moves may also be documented to consist of other moves (via P9 consists of (forms part of)), in order to describe intermediate stages on a trajectory. In that case, start and end points of the partial moves should match appropriately between each other and with the overall event.\n\nExamples:\n- the relocation of London Bridge from the UK to the USA\n- the movement of the exhibition \"Treasures of Tut-Ankh-Amun\" 1976-1979\n\nIn First Order Logic:\nE9(x) ⊃ E7(x)"@en ;
+        rdfs:label       "E9 Move"@en ;
+        rdfs:subClassOf  crm:E7_Activity ;
+        skos:notation    "E9"^^xsd:string .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/premise-belief/5>
+        crminf:J1_was_premise_for  <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/inference-making/5> .
+
+crm:P8_took_place_on_or_within
+        a              owl:ObjectProperty ;
+        rdfs:comment   "Scope note:\nThis property describes the location of an instance of E4 Period with respect to an E19 Physical Object.\nP8 took place on or within (witnessed) is a shortcut of the more fully developed path from E4 Period through P7 took place at, E53 Place, P156 occupies (is occupied by) to E18 Physical Thing.\n\nIt describes a period that can be located with respect to the space defined by an E19 Physical Object such as a ship or a building. The precise geographical location of the object during the period in question may be unknown or unimportant.\nFor example, the French and German armistice of 22 June 1940 was signed in the same railway carriage as the armistice of 11 November 1918.\n\nExamples:\n- the coronation of Queen Elisabeth II (E7) took place on or within Westminster Abbey (E19)\n\nIn First Order Logic:\nP8(x,y) ⊃ E4(x)\nP8(x,y) ⊃ E18(y)"@en ;
+        rdfs:domain    crm:E4_Period ;
+        rdfs:label     "P8 took place on or within"@en ;
+        rdfs:range     crm:E18_Physical_Thing ;
+        owl:inverseOf  crm:P8i_witnessed ;
+        skos:notation  "P8"^^xsd:string .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/proposition-set/1>
+        crm:P106_is_composed_of  <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/proposition/1> .
+
+crm:E11_Modification  a  owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises all instances of E7 Activity that create, alter or change E24 Physical Man-Made Thing.\n\nThis class includes the production of an item from raw materials, and other so far undocumented objects, and the preventive treatment or restoration of an object for conservation.\n\nSince the distinction between modification and production is not always clear, modification is regarded as the more generally applicable concept. This implies that some items may be consumed or destroyed in a Modification, and that others may be produced as a result of it. An event should also be documented using E81 Transformation if it results in the destruction of one or more objects and the simultaneous production of others using parts or material from the originals. In this case, the new items have separate identities.\n\nIf the instance of the E29 Design or Procedure utilized for the modification prescribes the use of specific materials, they should be documented using property P68 foresees use of (use foreseen by): E57 Material of E29 Design or Procedure, rather than via P126 employed (was employed in): E57 Material.\n\nExamples:\n- the construction of the SS Great Britain (E12)\n- the impregnation of the Vasa warship in Stockholm for preservation after 1956\n- the transformation of the Enola Gay into a museum exhibit by the National Air and Space Museum in Washington DC between 1993 and 1995 (E12, E81)\n- the last renewal of the gold coating of the Toshogu shrine in Nikko, Japan\n\nIn First Order Logic:\nE11(x) ⊃ E7(x)"@en ;
+        rdfs:label       "E11 Modification"@en ;
+        rdfs:subClassOf  crm:E7_Activity ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      crm:P31_has_modified ;
+                           owl:someValuesFrom  crm:E24_Physical_Man-Made_Thing
+                         ] ;
+        skos:notation    "E11"^^xsd:string .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/proposition/7>
+        a                rdf:Statement ;
+        rdf:object       <http://narra.isti.cnr.it/resource/U11> ;
+        rdf:predicate    crm:P12_occurred_in_the_presence_of ;
+        rdf:subject      <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748> ;
+        crm:P3_has_note  ""^^xsd:string .
+
+crm:E73_Information_Object
+        a                owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises identifiable immaterial items, such as a poems, jokes, data sets, images, texts, multimedia objects, procedural prescriptions, computer program code, algorithm or mathematical formulae, that have an objectively recognizable structure and are documented as single units.\nThe encoding structure known as a \"named graph\" also falls under this class, so that each \"named graph\" is an instance of an E73 Information Object.\n\nAn E73 Information Object does not depend on a specific physical carrier, which can include human memory, and it can exist on one or more carriers simultaneously.\nInstances of E73 Information Object of a linguistic nature should be declared as instances of the E33 Linguistic Object subclass. Instances of E73 Information Object of a documentary nature should be declared as instances of the E31 Document subclass. Conceptual items such as types and classes are not instances of E73 Information Object, nor are ideas without a reproducible expression.\n\nExamples:\n- image BM000038850.JPG from the Clayton Herbarium in London\n- E. A. Poe's \"The Raven\"\n- the movie \"The Seven Samurai\" by Akira Kurosawa\n- the Maxwell Equations\n- The Getty AAT as published as Linked Open Data, accessed 1/10/2014\n\nIn First Order Logic: \nE73(x) ⊃ E89(x)  \nE73(x) ⊃ E90(x)"@en ;
+        rdfs:label       "E73 Information Object"@en ;
+        rdfs:subClassOf  crm:E89_Propositional_Object , crm:E90_Symbolic_Object ;
+        skos:notation    "E73"^^xsd:string .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493/proposition/3>
+        a                rdf:Statement ;
+        rdf:object       <http://narra.isti.cnr.it/resource/Q2634> ;
+        rdf:predicate    crm:P7_took_place_at ;
+        rdf:subject      <http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493> ;
+        crm:P3_has_note  ""^^xsd:string .
+
+narr:Election_of_Boniface_VIII
+        crm:P3_has_note  "Election of Boniface VIII"^^xsd:string .
+
+crm:P148_has_component
+        a              owl:ObjectProperty , owl:TransitiveProperty ;
+        rdfs:comment   "Scope note:\nThis property associates an instance of E89 Propositional Object with a structural part of it that is by itself an instance of E89 Propositional Object.\n\nExamples:\n- Dante's \"Divine Comedy\" (E89) has component Dante's \"Hell\" (E89)\n\nIn First Order Logic:\nP148(x,y) ⊃ E89(x)\nP148(x,y) ⊃ E89(y)"@en ;
+        rdfs:domain    crm:E89_Propositional_Object ;
+        rdfs:label     "P148 has component"@en ;
+        rdfs:range     crm:E89_Propositional_Object ;
+        owl:inverseOf  crm:P148i_is_component_of ;
+        skos:notation  "P148"^^xsd:string .
+
+crm:P79_beginning_is_qualified_by
+        a                   owl:DatatypeProperty ;
+        rdfs:comment        "Scope note:\nThis property qualifies the beginning of an E52 Time-Span in some way.\n\nThe nature of the qualification may be certainty, precision, source etc.\n\nExamples:\n- the time-span of the Holocene (E52) beginning is qualified by approximately (E62)\n\nIn First Order Logic:\nP79 (x,y) ⊃ E52 (x)\nP79 (x,y) ⊃ E62(y)\nP79(x,y) ⊃ P3(x,y)"@en ;
+        rdfs:domain         crm:E52_Time-Span ;
+        rdfs:label          "P79 beginning is qualified by"@en ;
+        rdfs:subPropertyOf  crm:P3_has_note ;
+        skos:notation       "P79"^^xsd:string .
+
+crm:P116_starts  a     owl:ObjectProperty , owl:TransitiveProperty ;
+        rdfs:comment   "Scope note:\nThis property allows the starting point for a E2 Temporal Entity to be situated by reference to the starting point of another temporal entity of longer duration.\n\nThis property is only necessary if the time span is unknown (otherwise the relationship can be calculated). This property is the same as the \"starts / started-by\" relationships of Allen’s temporal logic (Allen, 1983, pp. 832-843).\n\nExamples:\n- Early Bronze Age (E4) starts Bronze Age (E4)\n\nIn First Order Logic:\nP116(x,y) ⊃ E2(x)\nP116(x,y) ⊃ E2(y)"@en ;
+        rdfs:domain    crm:E2_Temporal_Entity ;
+        rdfs:label     "P116 starts"@en ;
+        rdfs:range     crm:E2_Temporal_Entity ;
+        owl:inverseOf  crm:P116i_is_started_by ;
+        skos:notation  "P116"^^xsd:string .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/inference-making/2>
+        crminf:J2_concluded_that  <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/conclusion-belief/2> .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493>
+        a                        <http://wikidata.org/entity/Q40231> ;
+        crm:P1_is_identified_by  narr:Election_of_Boniface_VIII ;
+        crm:P3_has_note          ""^^xsd:string ;
+        crm:P4_has_time-span     narr:1294-12-24-1294-12-24 ;
+        crm:P9_consists_of       <http://narra.isti.cnr.it/narrative/N1/event/ev1486996647725> ;
+        <http://narra.isti.cnr.it/ontology#partOfNarrative>
+                <http://narra.isti.cnr.it/narrative/N1> .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486996647725/conclusion-belief/1>
+        crminf:J4_that  <http://narra.isti.cnr.it/narrative/N1/event/ev1486996647725/proposition-set/1> .
+
+<http://narra.isti.cnr.it/resource/Q134646/appellation>
+        crm:P3_has_note  ""^^xsd:string .
+
+<http://narra.isti.cnr.it/resource/U8d3d7eb9-86a0-4f24-9532-28fd5c25c39b/text/3>
+        a          dctypes:Text , cnt:ContentAsText ;
+        <http://narra.isti.cnr.it/ontology#hasReference>
+                <http://narra.isti.cnr.it/resource/U8d3d7eb9-86a0-4f24-9532-28fd5c25c39b/reference/4> ;
+        dc:format  "text/plain"^^xsd:string ;
+        cnt:chars  ""^^xsd:string .
+
+<http://narra.isti.cnr.it/resource/U37d680bb-62ab-4964-8ba6-72a22394504d>
+        crm:P1_is_identified_by  <http://narra.isti.cnr.it/resource/U37d680bb-62ab-4964-8ba6-72a22394504d/appellation> .
+
+crm:P104_is_subject_to
+        a       owl:ObjectProperty .
+
+<http://narra.isti.cnr.it/resource/U12/appellation>
+        crm:P3_has_note  ""^^xsd:string .
+
+crminf:I2_Belief  a  owl:Class .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493/premise-belief/2>
+        crminf:J1_was_premise_for  <http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493/inference-making/2> .
+
+crm:E4_Period  a         owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises sets of coherent phenomena or cultural manifestations occurring in time and space.\n\nIt is the social or physical coherence of these phenomena that identify an E4 Period and not the associated spatiotemporal extent. This extent is only the “ground” or space in an abstract physical sense that the actual process of growth, spread and retreat has covered. Consequently, different periods can overlap and coexist in time and space, such as when a nomadic culture exists in the same area and time as a sedentary culture. This also means that overlapping land use rights, common among first nations, amounts to overlapping periods.\n\nOften, this class is used to describe prehistoric or historic periods such as the “Neolithic Period”, the “Ming Dynasty” or the “McCarthy Era”, but also geopolitical units and activities of settlements are regarded as special cases of E4 Period. However, there are no assumptions about the scale of the associated phenomena. In particular all events are seen as synthetic processes consisting of coherent phenomena. Therefore E4 Period is a superclass of E5 Event. For example, a modern clinical E67 Birth can be seen as both an atomic E5 Event and as an E4 Period that consists of multiple activities performed by multiple instances of E39 Actor.\n\nAs the actual extent of an E4 Period in spacetime we regard the trajectories of the participating physical things during their participation in an instance of E4 Period. This includes the open spaces via which these things have interacted and the spaces by which they had the potential to interact during that period or event in the way defined by the type of the respective period or event. Examples include the air in a meeting room transferring the voices of the participants. Since these phenomena are fuzzy, we assume the spatiotemporal extent to be contiguous, except for cases of phenomena spreading out over islands or other separated areas, including geopolitical units distributed over disconnected areas such as islands or colonies.\n\nWhether the trajectories necessary for participants to travel between these areas are regarded as part of the spatiotemporal extent or not has to be decided in each case based on a concrete analysis, taking use of the sea for other purposes than travel, such as fishing, into consideration. One may also argue that the activities to govern disconnected areas imply travelling through spaces connecting them and that these areas hence are spatially connected in a way, but it appears counterintuitive to consider for instance travel routes in international waters as extensions of geopolitical units.\n\nConsequently, an instance of E4 Period may occupy a number of disjoint spacetime volumes, however there must not be a discontinuity in the timespan covered by these spacetime volumes. This means that an instance of E4 Period must be contiguous in time. If it has ended in all areas, it has ended as a whole. However it may end in one area before another, such as in the Polynesian migration, and it continues as long as it is ongoing in at least one area.\n\nWe model E4 Period as a subclass of E2 Temporal Entity and of E92 Spacetime volume. The latter is intended as a phenomenal spacetime volume as defined in CRMgeo (Doerr and Hiebel 2013). By virtue of this multiple inheritance we can discuss the physical extent of an E4 Period without representing each instance of it together with an instance of its associated spacetime volume. This model combines two quite different kinds of substance: an instance of E4 Period is a phenomena while a spacetime volume is an aggregation of points in spacetime. However, the real spatiotemporal extent of an instance of E4 Period is regarded to be unique to it due to all its details and fuzziness; its identity and existence depends uniquely on the identity of the instance of E4 Period. Therefore this multiple inheritance is unambiguous and effective and furthermore corresponds to the intuitions of natural language.\n\nThere are two different conceptualisations of ‘artistic style’, defined either by physical features or by historical context. For example, “Impressionism” can be viewed as a period lasting from approximately 1870 to 1905 during which paintings with particular characteristics were produced by a group of artists that included (among others) Monet, Renoir, Pissarro, Sisley and Degas. Alternatively, it can be regarded as a style applicable to all paintings sharing the characteristics of the works produced by the Impressionist painters, regardless of historical context. The first interpretation is an instance of E4 Period, and the second defines morphological object types that fall under E55 Type.\n\nAnother specific case of an E4 Period is the set of activities and phenomena associated with a settlement, such as the populated period of Nineveh.\n\nExamples:\nJurassic\nEuropean Bronze Age\nItalian Renaissance\nThirty Years War\nSturm und Drang\nCubism\n\nIn First Order Logic: \nE4(x) ⊃ E2(x)\nE4(x) ⊃ E92(x)"@en ;
+        rdfs:label       "E4 Period"@en ;
+        rdfs:subClassOf  crm:E2_Temporal_Entity , crm:E92_Spacetime_Volume ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      crm:P7_took_place_at ;
+                           owl:someValuesFrom  crm:E53_Place
+                         ] ;
+        skos:notation    "E4"^^xsd:string .
+
+<http://narra.isti.cnr.it/resource/Q781219>
+        a                        crm:E19_Physical_Object ;
+        rdfs:comment             ""^^xsd:string ;
+        rdfs:label               ""^^xsd:string ;
+        crm:P1_is_identified_by  <http://narra.isti.cnr.it/resource/Q781219/appellation> ;
+        owl:sameAs               "https://wikidata.org/entity/Q781219" .
+
+crm:P2i_is_type_of  a  owl:ObjectProperty ;
+        rdfs:domain    crm:E55_Type ;
+        rdfs:label     "P2 is type of"@en ;
+        rdfs:range     crm:E1_CRM_Entity ;
+        owl:inverseOf  crm:P2_has_type ;
+        skos:notation  "P2i"^^xsd:string .
+
+crm:P107_has_current_or_former_member
+        a       owl:ObjectProperty .
+
+crm:E69_Death  a         owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises the deaths of human beings.\nIf a person is killed, their death should be instantiated as E69 Death and as E7 Activity. The death or perishing of other living beings should be documented using E64 End of Existence.\n\nExamples:\n- the murder of Julius Caesar (E69,E7)\n- the death of Senator Paul Wellstone\n\nIn First Order Logic:\nE69(x) ⊃ E64(x)"@en ;
+        rdfs:label       "E69 Death"@en ;
+        rdfs:subClassOf  crm:E64_End_of_Existence ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      crm:P100_was_death_of ;
+                           owl:someValuesFrom  crm:E21_Person
+                         ] ;
+        skos:notation    "E69"^^xsd:string .
+
+crminf:J1_was_premise_for
+        a            owl:ObjectProperty ;
+        rdfs:domain  crminf:I2_Belief ;
+        rdfs:label   "J1_was_premise_for" ;
+        rdfs:range   crminf:I5_Inference_Making .
+
+<http://narra.isti.cnr.it/resource/Q152717/appellation>
+        crm:P3_has_note  ""^^xsd:string .
+
+<http://narra.isti.cnr.it/resource/U37d680bb-62ab-4964-8ba6-72a22394504d/appellation>
+        crm:P3_has_note  "Wikipedia"^^xsd:string .
+
+crm:P92_brought_into_existence
+        a                   owl:ObjectProperty ;
+        rdfs:comment        "Scope note:\nThis property allows an E63 Beginning of Existence event to be linked to the E77 Persistent Item brought into existence by it.\n\nIt allows a \"start\" to be attached to any Persistent Item being documented i.e. E70 Thing, E72 Legal Object, E39 Actor, E41 Appellation, E51 Contact Point and E55 Type.\n\nExamples:\n- the birth of Mozart (E67) brought into existence Mozart (E21)\n\nIn First Order Logic:\nP92(x,y) ⊃ E63(x)\nP92(x,y) ⊃ E77(y)\nP92(x,y) ⊃ P12(x,y)"@en ;
+        rdfs:domain         crm:E63_Beginning_of_Existence ;
+        rdfs:label          "P92 brought into existence"@en ;
+        rdfs:range          crm:E77_Persistent_Item ;
+        rdfs:subPropertyOf  crm:P12_occurred_in_the_presence_of ;
+        owl:inverseOf       crm:P92i_was_brought_into_existence_by ;
+        skos:notation       "P92"^^xsd:string .
+
+<http://narra.isti.cnr.it/narrative/N1/creation>
+        crm:P14_carried_out_by  <http://narra.isti.cnr.it/narrator/eb629c15-b7e9-4f62-a36f-f6a2c7b177e1> ;
+        crm:P94_has_created     <http://narra.isti.cnr.it/narrative/N1> .
+
+<http://narra.isti.cnr.it/resource/Q134646>
+        a             crm:E39_Actor ;
+        rdfs:comment  ""^^xsd:string ;
+        rdfs:label    ""^^xsd:string ;
+        owl:sameAs    "https://wikidata.org/entity/Q134646" .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/conclusion-belief/5>
+        crminf:J4_that  <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/proposition-set/5> .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/proposition/2>
+        a                rdf:Statement ;
+        rdf:object       <http://narra.isti.cnr.it/resource/Q397> ;
+        rdf:predicate    crm:P12_occurred_in_the_presence_of ;
+        rdf:subject      <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748> ;
+        crm:P3_has_note  ""^^xsd:string .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/proposition-set/7>
+        crm:P106_is_composed_of  <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/proposition/7> .
+
+<http://narra.isti.cnr.it/resource/U14927839562704307121/appellation>
+        crm:P3_has_note  ""^^xsd:string .
+
+<http://narra.isti.cnr.it/resource/U12>
+        a                        crm:E89_Propositional_Object ;
+        rdfs:comment             ""^^xsd:string ;
+        rdfs:label               ""^^xsd:string ;
+        crm:P1_is_identified_by  <http://narra.isti.cnr.it/resource/U12/appellation> .
+
+crm:P146i_lost_member_by
+        a       owl:ObjectProperty .
+
+crm:P84_had_at_most_duration
+        a       owl:ObjectProperty .
+
+crm:E1_CRM_Entity  a     owl:Class ;
+        rdfs:comment     "Scope note:\t\nThis class comprises all things in the universe of discourse of the CIDOC Conceptual Reference Model. \n\nIt is an abstract concept providing for three general properties:\n1.Identification by name or appellation, and in particular by a preferred identifier\n2.Classification by type, allowing further refinement of the specific subclass an instance belongs to \n3.Attachment of free text for the expression of anything not captured by formal properties\n\nWith the exception of E59 Primitive Value, all other classes within the CRM are directly or indirectly specialisations of E1 CRM Entity. \n\nExamples:\nthe earthquake in Lisbon 1755 (E5)\n\nIn First Order Logic: \nE1(x)"@en ;
+        rdfs:label       "E1 CRM Entity"@en ;
+        rdfs:subClassOf  owl:Thing ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                           owl:onProperty      crm:P48_has_preferred_identifier
+                         ] ;
+        skos:notation    "E1"^^xsd:string .
+
+crm:P145_separated  a  owl:ObjectProperty .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486996647725/proposition/2>
+        a                rdf:Statement ;
+        rdf:object       <http://narra.isti.cnr.it/resource/Q91119> ;
+        rdf:predicate    crm:P7_took_place_at ;
+        rdf:subject      <http://narra.isti.cnr.it/narrative/N1/event/ev1486996647725> ;
+        crm:P3_has_note  ""^^xsd:string .
+
+crm:E20_Biological_Object
+        a                owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises individual items of a material nature, which live, have lived or are natural products of or from living organisms.\n\nArtificial objects that incorporate biological elements, such as Victorian butterfly frames, can be documented as both instances of E20 Biological Object and E22 Man-Made Object.\n\nExamples:\n- me\n- Tut-Ankh-Amun\n- Boukephalas [Horse of Alexander the Great]\n- petrified dinosaur excrement PA1906-344\n\nIn First Order Logic:\nE20(x) ⊃ E19(x)"@en ;
+        rdfs:label       "E20 Biological Object"@en ;
+        rdfs:subClassOf  crm:E19_Physical_Object ;
+        skos:notation    "E20"^^xsd:string .
+
+crm:P1_is_identified_by
+        a              owl:ObjectProperty ;
+        rdfs:comment   "Scope note:\nThis property describes the naming or identification of any real world item by a name or any other identifier.\n\nThis property is intended for identifiers in general use, which form part of the world the model intends to describe, and not merely for internal database identifiers which are specific to a technical system, unless these latter also have a more general use outside the technical context. This property includes in particular identification by mathematical expressions such as coordinate systems used for the identification of instances of E53 Place. The property does not reveal anything about when, where and by whom this identifier was used. A more detailed representation can be made using the fully developed (i.e. indirect) path through E15 Identifier Assignment.\n\nExamples:\n- the capital of Italy (E53) is identified by \"Rome\" (E48)\n- text 25014-32 (E33) is identified by \"The Decline and Fall of the Roman Empire\" (E35)\n\nIn First Order Logic:\nP1(x,y) ⊃ E1(x)\nP1(x,y) ⊃ E41(y)"@en ;
+        rdfs:domain    crm:E1_CRM_Entity ;
+        rdfs:label     "P1 is identified by"@en ;
+        rdfs:range     crm:E41_Appellation ;
+        owl:inverseOf  crm:P1i_identifies ;
+        skos:notation  "P1"^^xsd:string .
+
+<http://narra.isti.cnr.it/narrative/N1>
+        a           <http://narra.isti.cnr.it/ontology#Narrative> ;
+        rdfs:label  "Dante Alighieri" .
+
+<http://narra.isti.cnr.it/ontology#Biography>
+        a                owl:Class ;
+        rdfs:comment     "This class represents a biographical narrative."^^xsd:string ;
+        rdfs:subClassOf  <http://narra.isti.cnr.it/ontology#Narrative> .
+
+crm:E63_Beginning_of_Existence
+        a                owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises events that bring into existence any E77 Persistent Item.\n\nIt may be used for temporal reasoning about things (intellectual products, physical items, groups of people, living beings) beginning to exist; it serves as a hook for determination of a terminus post quem and ante quem.\n\nExamples:\n- the birth of my child\n- the birth of Snoopy, my dog\n- the calving of the iceberg that sank the Titanic\n- the construction of the Eiffel Tower\n\nIn First Order Logic:\nE63(x) ⊃ E5(x)"@en ;
+        rdfs:label       "E63 Beginning of Existence"@en ;
+        rdfs:subClassOf  crm:E5_Event ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      crm:P92_brought_into_existence ;
+                           owl:someValuesFrom  crm:E77_Persistent_Item
+                         ] ;
+        skos:notation    "E63"^^xsd:string .
+
+crm:P7_took_place_at  a  owl:ObjectProperty ;
+        rdfs:comment   "Scope note:\nThis property describes the spatial location of an instance of E4 Period.\n\nThe related E53 Place should be seen as an approximation of the geographical area within which the phenomena that characterise the period in question occurred. P7took place at (witnessed) does not convey any meaning other than spatial positioning (generally on the surface of the earth).  For example, the period \"Révolution française\" can be said to have taken place in \"France\", the \"Victorian\" period, may be said to have taken place in \"Britain\" and its colonies, as well as other parts of Europe and north America.\nA period can take place at multiple locations.\nIt is a shortcut of the more fully developed path from E4 Period through P161 has spatial projection, E53 Place, P89 falls within (contains) to E53 Place. Describe in words.\n\nExamples \n- the period \"Révolution française\" (E4) took place at France (E53)\n\nIn First Order Logic:\nP7(x,y) ⊃ E4(x)\nP7(x,y) ⊃ E53(y)"@en ;
+        rdfs:domain    crm:E4_Period ;
+        rdfs:label     "P7 took place at"@en ;
+        rdfs:range     crm:E53_Place ;
+        owl:inverseOf  crm:P7i_witnessed ;
+        skos:notation  "P7"^^xsd:string .
+
+crm:P45_consists_of  a  owl:ObjectProperty .
+
+crm:E89_Propositional_Object
+        a                owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises immaterial items, including but not limited to stories, plots, procedural prescriptions, algorithms, laws of physics or images that are, or represent in some sense, sets of propositions about real or imaginary things and that are documented as single units or serve as topic of discourse.\n\nThis class also comprises items that are \"about\" something in the sense of a subject. In the wider sense, this class includes expressions of psychological value such as non-figural art and musical themes. However, conceptual items such as types and classes are not instances of E89 Propositional Object. This should not be confused with the definition of a type, which is indeed an instance of E89 Propositional Object.\n\nExamples:\n- Maxwell's Equations\n- The ideational contents of Aristotle's book entitled 'Metaphysics' as rendered in the Greek texts translated in … Oxford edition…\n- The underlying prototype of any \"no-smoking\" sign (E36)\n- The common ideas of the plots of the movie \"The Seven Samurai\" by Akira Kurosawa and the movie \"The Magnificent Seven\" by John Sturges\n- The image content of the photo of the Allied Leaders at Yalta published by UPI, 1945 (E38)\n\nIn First Order Logic:\nE89(x) ⊃ E28(x)"@en ;
+        rdfs:label       "E89 Propositional Object"@en ;
+        rdfs:subClassOf  crm:E28_Conceptual_Object ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      crm:P148_has_component ;
+                           owl:someValuesFrom  crm:E89_Propositional_Object
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      crm:P129i_is_subject_of ;
+                           owl:someValuesFrom  crm:E1_CRM_Entity
+                         ] ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      crm:P67i_is_referred_to_by ;
+                           owl:someValuesFrom  crm:E1_CRM_Entity
+                         ] ;
+        skos:notation    "E89"^^xsd:string .
+
+crm:P115_finishes  a   owl:ObjectProperty , owl:TransitiveProperty ;
+        rdfs:comment   "Scope note:\nThis property allows the ending point for a E2 Temporal Entity to be situated by reference to the ending point of another temporal entity of longer duration.\n\nThis property is only necessary if the time span is unknown (otherwise the relationship can be calculated). This property is the same as the \"finishes / finished-by\" relationships of Allen’s temporal logic (Allen, 1983, pp. 832-843).\nThis property is transitive.\n\nExamples:\n- Late Bronze Age (E4) finishes Bronze Age (E4)\n\nIn First Order Logic:\nP115(x,y) ⊃ E2(x)\nP115(x,y) ⊃ E2(y)"@en ;
+        rdfs:domain    crm:E2_Temporal_Entity ;
+        rdfs:label     "P115 finishes"@en ;
+        rdfs:range     crm:E2_Temporal_Entity ;
+        owl:inverseOf  crm:P115i_is_finished_by ;
+        skos:notation  "P115"^^xsd:string .
+
+crm:P119_meets_in_time_with
+        a              owl:ObjectProperty ;
+        rdfs:comment   "Scope note:\nThis property indicates that one E2 Temporal Entity immediately follows another.\n\nIt implies a particular order between the two entities: if A meets in time with B, then A must precede B. This property is only necessary if the relevant time spans are unknown (otherwise the relationship can be calculated).\n\nThis property is the same as the \"meets / met-by\" relationships of Allen's temporal logic (Allen, 1983, pp. 832-843).\n\nExamples:\n- Early Saxon Period (E4) meets in time with Middle Saxon Period (E4)\n\nIn First Order Logic:\nP119(x,y) ⊃ E2(x)\nP119(x,y) ⊃ E2(y)"@en ;
+        rdfs:domain    crm:E2_Temporal_Entity ;
+        rdfs:label     "P119 meets in time with"@en ;
+        rdfs:range     crm:E2_Temporal_Entity ;
+        owl:inverseOf  crm:P119i_is_met_in_time_by ;
+        skos:notation  "P119"^^xsd:string .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/premise-belief/6>
+        crminf:J1_was_premise_for  <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/inference-making/6> .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/proposition-set/2>
+        crm:P106_is_composed_of  <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/proposition/2> .
+
+crm:E92_Spacetime_Volume
+        a       owl:Class .
+
+time:TemporalEntity  a  owl:Class ;
+        owl:unionOf  ( time:Instant time:Interval ) .
+
+crm:E24_Physical_Man-Made_Thing
+        a       owl:Class .
+
+crm:P120_occurs_before
+        a              owl:ObjectProperty , owl:TransitiveProperty ;
+        rdfs:comment   "Scope note:\nThis property identifies the relative chronological sequence of two temporal entities.\n\nIt implies that a temporal gap exists between the end of A and the start of B. This property is only necessary if the relevant time spans are unknown (otherwise the relationship can be calculated).\n\nThis property is the same as the \"before / after\" relationships of Allen’s temporal logic (Allen, 1983, pp. 832-843).\n\nExamples:\n- Early Bronze Age (E4) occurs before Late Bronze age (E4)\n\nIn First Order Logic:\nP120(x,y) ⊃ E2(x)\nP120(x,y) ⊃ E2(y)"@en ;
+        rdfs:domain    crm:E2_Temporal_Entity ;
+        rdfs:label     "P120 occurs before"@en ;
+        rdfs:range     crm:E2_Temporal_Entity ;
+        owl:inverseOf  crm:P120i_occurs_after ;
+        skos:notation  "P120"^^xsd:string .
+
+crm:P31_has_modified  a  owl:ObjectProperty .
+
+narr:1272-09-29  a     time:Instant ;
+        crm:inXSDDate  "1272-09-29"^^xsd:date .
+
+crm:P9_consists_of  a  owl:TransitiveProperty , owl:ObjectProperty ;
+        rdfs:comment   "Scope note:\nThis property associates an instance of E4 Period with another instance of E4 Period that is defined by a subset of the phenomena that define the former. Therefore the spacetime volume of the latter must fall\nwithin the spacetime volume of the former.\nThis property is transitive.\n\n\nExamples:\n- Cretan Bronze Age (E4) consists of Middle Minoan (E4)\n\nIn First Order Logic:\nP9(x,y) ⊃ E4(x)\nP9(x,y) ⊃ E4(y)\nP9(x,y) ⊃ P10(y,x)"@en ;
+        rdfs:domain    crm:E4_Period ;
+        rdfs:label     "P9 consists of"@en ;
+        rdfs:range     crm:E4_Period ;
+        owl:inverseOf  crm:P9i_forms_part_of ;
+        skos:notation  "P9"^^xsd:string .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/inference-making/3>
+        crminf:J2_concluded_that  <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/conclusion-belief/3> .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486996647725/proposition/1/observation/1>
+        crminf:O16_observed_value  <http://narra.isti.cnr.it/narrative/N1/event/ev1486996647725/proposition/1/observed-proposition-set/1> ;
+        crminf:O8_observed         <http://narra.isti.cnr.it/resource/U0c24b1c9-c99d-4763-8226-ed320586f865> .
+
+crm:P148i_is_component_of
+        a              owl:ObjectProperty , owl:TransitiveProperty ;
+        rdfs:domain    crm:E89_Propositional_Object ;
+        rdfs:label     "P148 is component of"@en ;
+        rdfs:range     crm:E89_Propositional_Object ;
+        owl:inverseOf  crm:P148_has_component ;
+        skos:notation  "P148i"^^xsd:string .
+
+narr:1313-08-24  a     time:Instant ;
+        crm:inXSDDate  "1313-08-24"^^xsd:date .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486996647725/conclusion-belief/2>
+        crminf:J4_that  <http://narra.isti.cnr.it/narrative/N1/event/ev1486996647725/proposition-set/2> .
+
+crm:P67_refers_to  a   owl:ObjectProperty ;
+        rdfs:comment   "Scope note:\nThis property documents that an E89 Propositional Object makes a statement about an instance of E1 CRM Entity. P67 refers to (is referred to by) has the P67.1 has type link to an instance of E55 Type. This is intended to allow a more detailed description of the type of reference. This differs from P129 is about (is subject of), which describes the primary subject or subjects of the E89 Propositional Object.\n\nExamples:\n- the eBay auction listing for 4 July 2002 (E73) refers to silver cup 232 (E22) has type item for sale (E55)\n\nIn First Order Logic:\nP67(x,y) ⊃ E89(x)\nP67(x,y) ⊃ E1(y)\nP67(x,y,z) ⊃ [P67(x,y) ∧ E55(z)]\n\nProperties: P67.1 has type: E55 Type"@en ;
+        rdfs:domain    crm:E89_Propositional_Object ;
+        rdfs:label     "P67 refers to"@en ;
+        rdfs:range     crm:E1_CRM_Entity ;
+        owl:inverseOf  crm:P67i_is_referred_to_by ;
+        skos:notation  "P67"^^xsd:string .
+
+narr:1313-08-24-1313-08-24
+        a       time:E52_Time-Span ;
+        <http://narra.isti.cnr.it/ontology#timeSpanFinishedBy>
+                narr:1313-08-24 ;
+        <http://narra.isti.cnr.it/ontology#timeSpanStartedBy>
+                narr:1313-08-24 .
+
+<http://narra.isti.cnr.it/resource/U11/appellation>
+        crm:P3_has_note  ""^^xsd:string .
+
+crm:P95i_was_formed_by
+        a       owl:ObjectProperty .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486996647725/proposition-set/1>
+        crm:P106_is_composed_of  <http://narra.isti.cnr.it/narrative/N1/event/ev1486996647725/proposition/1> .
+
+<http://narra.isti.cnr.it/ontology#instantEquals>
+        a             owl:ObjectProperty ;
+        rdfs:comment  "This property relates an instant with another instant that is equal to it.This is needed to match uncertain instants that are inferred to be the same by the reasoner."^^xsd:string ;
+        rdfs:domain   time:Instant ;
+        rdfs:label    "ontology#instantEquals" ;
+        rdfs:range    time:Instant .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493/premise-belief/3>
+        crminf:J1_was_premise_for  <http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493/inference-making/3> .
+
+crm:P94i_was_created_by
+        a                   owl:ObjectProperty ;
+        rdfs:domain         crm:E28_Conceptual_Object ;
+        rdfs:label          "P94 was created by"@en ;
+        rdfs:range          crm:E65_Creation ;
+        rdfs:subPropertyOf  crm:P92i_was_brought_into_existence_by ;
+        owl:inverseOf       crm:P94_has_created ;
+        skos:notation       "P94i"^^xsd:string .
+
+narr:1277-12-31  a     time:Instant ;
+        crm:inXSDDate  "1277-12-31"^^xsd:date .
+
+crm:P146_separated_from
+        a       owl:ObjectProperty .
+
+<http://narra.isti.cnr.it/Sde37627c-8cb2-4189-b960-795a9a4729de/creation>
+        crm:P14_carried_out_by  <http://narra.isti.cnr.it/narrator/eb629c15-b7e9-4f62-a36f-f6a2c7b177e1> ;
+        crm:P94_has_created     narr:Sde37627c-8cb2-4189-b960-795a9a4729de .
+
+crm:P48_has_preferred_identifier
+        a       owl:ObjectProperty .
+
+crm:P98i_was_born  a  owl:ObjectProperty .
+
+crm:P129i_is_subject_of
+        a                   owl:ObjectProperty ;
+        rdfs:domain         crm:E1_CRM_Entity ;
+        rdfs:label          "P129 is subject of"@en ;
+        rdfs:range          crm:E89_Propositional_Object ;
+        rdfs:subPropertyOf  crm:P67i_is_referred_to_by ;
+        owl:inverseOf       crm:P129_is_about ;
+        skos:notation       "P129i"^^xsd:string .
+
+crm:P12_occurred_in_the_presence_of
+        a              owl:ObjectProperty ;
+        rdfs:comment   "Scope note:\nThis property describes the active or passive presence of an E77 Persistent Item in an E5 Event without implying any specific role.\n\nIt connects the history of a thing with the E53 Place and E50 Date of an event. For example, an object may be the desk, now in a museum on which a treaty was signed. The presence of an immaterial thing implies the presence of at least one of its carriers.\n\nExamples:\n- Deckchair 42 (E19) was present at The sinking of the Titanic (E5)\n\nIn First Order Logic:\nP12(x,y) ⊃ E5(x)\nP12(x,y) ⊃ E77(y)"@en ;
+        rdfs:domain    crm:E5_Event ;
+        rdfs:label     "P12 occurred in the presence of"@en ;
+        rdfs:range     crm:E77_Persistent_Item ;
+        owl:inverseOf  crm:P12i_was_present_at ;
+        skos:notation  "P12"^^xsd:string .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493/conclusion-belief/1>
+        crminf:J4_that  <http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493/proposition-set/1> .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/premise-belief/1>
+        crminf:J1_was_premise_for  <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/inference-making/1> .
+
+crminf:I5_Inference_Making
+        a       owl:Class .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486996647725>
+        a                        crm:E69_Death ;
+        crm:P1_is_identified_by  narr:Death_of_Henry_VII ;
+        crm:P3_has_note          ""^^xsd:string ;
+        crm:P4_has_time-span     narr:1313-08-24-1313-08-24 ;
+        <http://narra.isti.cnr.it/ontology#partOfNarrative>
+                <http://narra.isti.cnr.it/narrative/N1> .
+
+<http://narra.isti.cnr.it/ontology#hasTextFragment>
+        a             owl:ObjectProperty ;
+        rdfs:comment  "This property relates a proposition with a text fragment."^^xsd:string ;
+        rdfs:domain   crm:E73_Information_Object ;
+        rdfs:label    "ontology#hasTextFragment" ;
+        rdfs:range    efrbroo:F23_Expression_Fragment .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/conclusion-belief/6>
+        crminf:J4_that  <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/proposition-set/6> .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/proposition/3>
+        a                rdf:Statement ;
+        rdf:object       <http://narra.isti.cnr.it/resource/U14927832423509773348> ;
+        rdf:predicate    crm:P12_occurred_in_the_presence_of ;
+        rdf:subject      <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748> ;
+        crm:P3_has_note  ""^^xsd:string .
+
+crm:E57_Material  a  owl:Class .
+
+<http://narra.isti.cnr.it/ontology#hasSource>
+        a             owl:ObjectProperty ;
+        rdfs:comment  "This property directly relates a proposition with an observable entity."^^xsd:string ;
+        rdfs:domain   crm:E73_Information_Object ;
+        rdfs:label    "ontology#hasSource" ;
+        rdfs:range    crminf:S15_Observable_Entity .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493/inference-making/1>
+        crminf:J2_concluded_that  <http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493/conclusion-belief/1> .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748>
+        a                        <http://wikidata.org/entity/Q8434> ;
+        crm:P1_is_identified_by  narr:Education_of_Dante ;
+        crm:P3_has_note          ""^^xsd:string ;
+        crm:P4_has_time-span     narr:1272-09-29-1277-12-31 ;
+        crm:P9_consists_of       <http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493> ;
+        <http://narra.isti.cnr.it/ontology#partOfNarrative>
+                <http://narra.isti.cnr.it/narrative/N1> .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493/proposition-set/1>
+        crm:P106_is_composed_of  <http://narra.isti.cnr.it/narrative/N1/event/ev1486996053493/proposition/1> .
+
+crm:P106i_forms_part_of
+        a              owl:ObjectProperty , owl:TransitiveProperty ;
+        rdfs:domain    crm:E90_Symbolic_Object ;
+        rdfs:label     "P106 forms part of"@en ;
+        rdfs:range     crm:E90_Symbolic_Object ;
+        owl:inverseOf  crm:P106_is_composed_of ;
+        skos:notation  "P106i"^^xsd:string .
+
+crminf:S4_Observation
+        a       owl:Class .
+
+<http://narra.isti.cnr.it/resource/Q397>
+        a                        crm:E89_Propositional_Object ;
+        rdfs:comment             ""^^xsd:string ;
+        rdfs:label               ""^^xsd:string ;
+        crm:P1_is_identified_by  <http://narra.isti.cnr.it/resource/Q397/appellation> ;
+        owl:sameAs               "https://wikidata.org/entity/Q397" .
+
+crm:P97_from_father  a  owl:ObjectProperty .
+
+crm:P105_right_held_by
+        a       owl:ObjectProperty .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/premise-belief/7>
+        crminf:J1_was_premise_for  <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/inference-making/7> .
+
+crm:E53_Place  a         owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises extents in space, in particular on the surface of the earth, in the pure sense of physics: independent from temporal phenomena and matter.\n\nThe instances of E53 Place are usually determined by reference to the position of \"immobile\" objects such as buildings, cities, mountains, rivers, or dedicated geodetic marks. A Place can be determined by combining a frame of reference and a location with respect to this frame. It may be identified by one or more instances of E44 Place Appellation.\n\nIt is sometimes argued that instances of E53 Place are best identified by global coordinates or absolute reference systems. However, relative references are often more relevant in the context of cultural documentation and tend to be more precise. In particular, we are often interested in position in relation to large, mobile objects, such as ships. For example, the Place at which Nelson died is known with reference to a large mobile object – H.M.S Victory. A resolution of this Place in terms of absolute coordinates would require knowledge of the movements of the vessel and the precise time of death, either of which may be revised, and the result would lack historical and cultural relevance.\n\nAny object can serve as a frame of reference for E53 Place determination. The model foresees the notion of a \"section\" of an E19 Physical Object as a valid E53 Place determination.\n\nExamples:\n- the extent of the UK in the year 2003\n- the position of the hallmark on the inside of my wedding ring\n- the place referred to in the phrase: \"Fish collected at three miles north of the confluence of the Arve and the Rhone\"\n- here -> <-\n\nIn First Order Logic:\nE53(x) ⊃ E1(x)"@en ;
+        rdfs:label       "E53 Place"@en ;
+        rdfs:subClassOf  crm:E1_CRM_Entity ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:maxCardinality  "1"^^xsd:nonNegativeInteger ;
+                           owl:onProperty      crm:P59i_is_located_on_or_within
+                         ] ;
+        skos:notation    "E53"^^xsd:string .
+
+crm:E6_Destruction  a    owl:Class ;
+        rdfs:comment     "Scope note:\nThis class comprises events that destroy one or more instances of E18 Physical Thing such that they lose their identity as the subjects of documentation.\n\nSome destruction events are intentional, while others are independent of human activity. Intentional destruction may be documented by classifying the event as both an E6 Destruction and E7 Activity.\n\nThe decision to document an object as destroyed, transformed or modified is context sensitive:\n1.  If the matter remaining from the destruction is not documented, the event is modelled solely as E6 Destruction.\n2. An event should also be documented using E81 Transformation if it results in the destruction of one or more objects and the simultaneous production of others using parts or material from the original. In this case, the new items have separate identities. Matter is preserved, but identity is not.\n3. When the initial identity of the changed instance of E18 Physical Thing is preserved, the event should be documented as E11 Modification.\n\nExamples:\n- the destruction of Herculaneum by volcanic eruption in 79 AD\n- the destruction of Nineveh (E6, E7)\n- the breaking of a champagne glass yesterday by my dog\n\nIn First Order Logic:\nE6(x) ⊃ E64(x)"@en ;
+        rdfs:label       "E6 Destruction"@en ;
+        rdfs:subClassOf  crm:E64_End_of_Existence ;
+        rdfs:subClassOf  [ a                   owl:Restriction ;
+                           owl:onProperty      crm:P13_destroyed ;
+                           owl:someValuesFrom  crm:E18_Physical_Thing
+                         ] ;
+        skos:notation    "E6"^^xsd:string .
+
+<http://narra.isti.cnr.it/ontology#hasSubject>
+        a             owl:ObjectProperty ;
+        rdfs:comment  "This property relates the class ActorWithRole with the class E39 Actor."^^xsd:string ;
+        rdfs:domain   <http://narra.isti.cnr.it/ontology#ActorWithRole> ;
+        rdfs:label    "ontology#hasSubject" ;
+        rdfs:range    crm:E39_Actor .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/conclusion-belief/1>
+        crminf:J4_that  <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/proposition-set/1> .
+
+<http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/proposition-set/3>
+        crm:P106_is_composed_of  <http://narra.isti.cnr.it/narrative/N1/event/ev1486999798748/proposition/3> .
+
+crm:P100_was_death_of
+        a       owl:ObjectProperty .
+
+crminf:J4_that  a    owl:ObjectProperty ;
+        rdfs:domain  crminf:I2_Belief ;
+        rdfs:label   "J4_that" ;
+        rdfs:range   crminf:I4_Proposition_Set .
+
+crm:P112_diminished  a  owl:ObjectProperty .

@@ -33,6 +33,13 @@ $.ajax({
 	 
 			for(var i in result.slides){
 				if(result.slides[i].hasOwnProperty('start') &&  result.slides[i].start != "" ){
+					
+					// transform media array in string (1st element)
+					if(result.slides[i].hasOwnProperty("media") && result.slides[i].media.hasOwnProperty("url") && Array.isArray(result.slides[i].media.url)){
+						result.slides[i].media.url = result.slides[i].media.url[0]
+						result.slides[i].media.caption = result.slides[i].media.caption[0]
+					}
+					
 					eventsWithDates.push(result.slides[i]);
 					numberOfEventsNotDates ++
 					
@@ -69,6 +76,13 @@ $.ajax({
 		
 				if(result.slides[i].hasOwnProperty('latitud') &&  result.slides[i].hasOwnProperty('longitud')  &&  result.slides[i].latitud != "" && result.slides[i].longitud != ""){
 					console.log(result.slides[i])
+					
+					// transform media array in string (1st element)
+					if(result.slides[i].hasOwnProperty("media") && result.slides[i].media.hasOwnProperty("url") && Array.isArray(result.slides[i].media.url)){
+						result.slides[i].media.url = result.slides[i].media.url[0]
+						result.slides[i].media.caption = result.slides[i].media.caption[0]
+					}
+					
 					eventsWithCoordinates.push(result.slides[i]);
 					numberEvents ++	
 					

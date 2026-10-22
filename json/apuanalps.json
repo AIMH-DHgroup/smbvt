@@ -1,0 +1,2130 @@
+{
+   "A1":{
+      "id":"",
+      "_id":"A1",
+      "name":"Italy: Northern Apennines Chestnut Flour",
+      "author":"",
+      "idNarra":"",
+	  "subj":"q622309"
+   },
+
+      "ev1635260846251":{
+         "_id":"ev1635260846251",
+         "end":"",
+         "type":"value chain",
+         "notes":"",
+         "props":{
+            "Q3662049":{
+               "class":"object",
+               "notes":"",
+               "primary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ],
+               "secondary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ]
+            },
+            "Q3855544":{
+               "class":"object",
+               "notes":"",
+               "primary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ],
+               "secondary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ]
+            },
+            "Q3874120":{
+               "class":"object",
+               "notes":"",
+               "primary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ],
+               "secondary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ]
+            }
+         },
+         "start":"",
+         "title":"Apuan Alps Chestnut Flour",
+         "objurl":"",
+         "latitud":"44.1242",
+         "longitud":"10.3603",
+         "position":7,
+         "eventMedia":"https://www.youtube.com/watch?v=9iOM4X9MInY",
+         "description":"Walking between the century-old trunks, people can come across the remains of an old “metato”, a small building used to dry chestnuts. Today, six “metati” are still active and the number has been increasing in recent years. Local people make delicious recipes based on the chestnuts flour: the “castagnaccio” (a chestnut cake scented with orange and rosemary), the “ciacci” (or “necci”) (a chestnut piadina filled with ricotta), and the “ballotti” (sweet chestnuts boiled with fennel seeds).<br/>\n\nVideo: <a href=\"https://www.youtube.com/watch?v=9iOM4X9MInY\" target=\"_blank\">Garfagnana Dream</a>",
+         "mapMarkerColor":"#ff9900",
+         "eventMediaCaption":""
+      },
+      "ev1636489713034":{
+         "_id":"ev1636489713034",
+         "end":"",
+         "type":"value chain",
+         "notes":"",
+         "props":{
+            "Q622309":{
+               "class":"concept",
+               "notes":"",
+               "primary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ],
+               "secondary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ]
+            }
+         },
+         "start":"",
+         "title":"Valorisation and Preservation",
+         "objurl":[
+            "http://www.unionedicomunialtaversilia.lu.it/servizi-on-line/info-sentieri/s.a.v",
+            "http://www.sentieroaltaversilia.it/#/?map=12/43.9915/10.2787"
+         ],
+         "latitud":"43.99112",
+         "longitud":"10.32101",
+         "position":10,
+         "eventMedia":"https://www.youtube.com/watch?v=Cl5ftClgazc",
+         "description":"The main outcomes of the chestnut flour value chain are the valorisation and preservation of a local economy but also the maintenance of the local forest management. This value chain contributes to reduce negative trends, e.g. the state of abandon and the loss of historical and cultural heritage.",
+         "mapMarkerColor":"#ff9900",
+         "eventMediaCaption":""
+      },
+      "ev1635247009242":{
+         "_id":"ev1635247009242",
+         "end":"-44",
+         "type":"history",
+         "notes":"",
+         "props":{
+            "Q1048":{
+               "role":"participant",
+               "class":"person",
+               "notes":"",
+               "primary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ],
+               "secondary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ]
+            },
+            "Q99309":{
+               "class":"object",
+               "notes":"",
+               "primary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ],
+               "secondary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ]
+            },
+            "Q622309":{
+               "class":"concept",
+               "notes":"",
+               "primary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ],
+               "secondary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ]
+            },
+            "Q1236860":{
+               "class":"object",
+               "notes":"",
+               "primary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ],
+               "secondary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ]
+            }
+         },
+         "start":"-48",
+         "title":"Apuan Alps in the Roman Age",
+         "objurl":"",
+         "latitud":"44.0646",
+         "longitud":"9.9911",
+         "position":2,
+         "eventMedia":"https://upload.wikimedia.org/wikipedia/commons/0/03/Anfiteatro_dell%27antica_citt%C3%A0_di_Luni.jpg",
+         "description":"Raw material extraction was active in the Roman age, and had the greatest development under Julius Caesar.<br/> Export took place through the port of Luni, which is why archaeologists call the Apuan Alps marble “Lunense marble”. The export volume was sufficient to supply the construction of the major public buildings in Rome and the empire, as well as numerous patrician residences. Some of the most important monuments built with the Lunense marble were the Pantheon and Temple of Apollo Palatinus.",
+         "mapMarkerColor":"#e6e600",
+         "eventMediaCaption":""
+      },
+      "ev1635990929081":{
+         "_id":"ev1635990929081",
+         "end":"2016",
+         "type":"nature",
+         "notes":"",
+         "props":{
+            "Q22699":{
+               "class":"concept",
+               "notes":"",
+               "primary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ],
+               "secondary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ]
+            },
+            "Q129324":{
+               "class":"concept",
+               "notes":"",
+               "primary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ],
+               "secondary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ]
+            },
+            "Q622309":{
+               "class":"concept",
+               "notes":"",
+               "primary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ],
+               "secondary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ]
+            }
+         },
+         "start":"2016",
+         "title":"Chestnut Trees",
+         "objurl":"",
+         "latitud":"44.10648",
+         "longitud":"10.53765",
+         "position":6,
+         "eventMedia":"",
+         "description":"In the recent years, natural extraordinary events have increased in frequency up to become ordinary. Fortunately, the damages have always been lower than in 1996. <br/> The Apuan Alps are always beautiful, but especially in May when meadows are covered in a white scented blanket due to thousands of daffodils waving in the wind. <br/>During summer, many tourists visit the Apuan valley for the fresh mountain air close to the seaside. In autumn, the Apuans Alps are covered in golden leaves that fall from the impressive chestnut trees.",
+         "mapMarkerColor":"#2eb82e",
+         "eventMediaCaption":""
+      },
+      "ev1635248976084":{
+         "_id":"ev1635248976084",
+         "end":"1985",
+         "type":"value chain",
+         "notes":"",
+         "props":{
+            "Q622309":{
+               "class":"concept",
+               "notes":"",
+               "primary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ],
+               "secondary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ]
+            },
+            "Q3893275":{
+               "class":"place",
+               "notes":"",
+               "primary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ],
+               "secondary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ]
+            },
+            "Q3895677":{
+               "class":"object",
+               "notes":"",
+               "primary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ],
+               "secondary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ]
+            }
+         },
+         "start":"1985",
+         "title":"Creation of Apuan Alps Regional Park",
+         "objurl":"",
+         "latitud":"44.0760",
+         "longitud":"10.2743",
+         "position":3,
+         "eventMedia":"https://upload.wikimedia.org/wikipedia/commons/9/90/Pania_della_Croce.JPG",
+         "description":"In 1985, the Apuan Alps Regional Park was created to protect the area.",
+         "mapMarkerColor":"#ff9900",
+         "eventMediaCaption":""
+      },
+      "ev1635252161443":{
+         "_id":"ev1635252161443",
+         "end":"2015",
+         "type":"value chain",
+         "notes":"",
+         "props":{
+            "Q7809":{
+               "class":"organization",
+               "notes":"",
+               "primary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ],
+               "secondary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ]
+            },
+            "Q622309":{
+               "class":"concept",
+               "notes":"",
+               "primary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ],
+               "secondary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ]
+            },
+            "Q6063204":{
+               "class":"other",
+               "notes":"",
+               "primary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ],
+               "secondary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ]
+            }
+         },
+         "start":"2015",
+         "title":"Regional Park Obtains UNESCO Status",
+         "objurl":[
+            "https://en.unesco.org/global-geoparks/alpi-apuane"
+         ],
+         "latitud":"44.01412",
+         "longitud":"10.33528",
+         "position":5,
+         "eventMedia":"https://www.youtube.com/watch?v=I5_Urmt6dNU&list=UUZ_MWpkXuMbG7ZPuCSkEt_w&t=14s",
+         "description":"In 2015, the Apuan Alps Regional Park obtained the status of \"UNESCO Global Geopark\".",
+         "mapMarkerColor":"#ff9900",
+         "eventMediaCaption":""
+      },
+      "ev1635244689699":{
+         "_id":"ev1635244689699",
+         "end":"",
+         "type":"nature",
+         "notes":"",
+         "props":{
+            "Q622309":{
+               "class":"concept",
+               "notes":"",
+               "primary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ],
+               "secondary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ]
+            },
+            "Q1069571":{
+               "class":"concept",
+               "notes":"",
+               "primary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ],
+               "secondary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ]
+            }
+         },
+         "start":"",
+         "title":"Natural Description of Apuan Alps",
+         "objurl":"",
+         "latitud":"43.993056",
+         "longitud":"10.310556",
+         "position":1,
+         "eventMedia":"",
+         "description":"The Apuan Alps are a highly suggestive orographic complex, with deep valleys abounding with water. There are very few places in Italy and Europe like the Apuan Alps, which can boast such a natural heritage and richness of landscapes, environment, and naturalistic elements.<br/> Apart from the richness of endemic flora and fauna species, also rocks, minerals, fossils, tectonic structures, superficial and hypogeum morphologies provide unusual, varied, and widespread elements of high environmental value.",
+         "mapMarkerColor":"#2eb82e",
+         "eventMediaCaption":""
+      },
+      "ev1635250262309":{
+         "_id":"ev1635250262309",
+         "end":"1996",
+         "type":"history",
+         "notes":"",
+         "props":{
+            "Q426213":{
+               "class":"concept",
+               "notes":"",
+               "primary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ],
+               "secondary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ]
+            },
+            "Q18416818":{
+               "class":"place",
+               "notes":"",
+               "primary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ],
+               "secondary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ]
+            }
+         },
+         "start":"1996",
+         "title":"1996 - Natural Catastrophe",
+         "objurl":"",
+         "latitud":"44.00694",
+         "longitud":"10.31493",
+         "position":4,
+         "eventMedia":"https://www.youtube.com/watch?v=lsuKUqmtpA4",
+         "description":"In High Versilia, in 1996, there was a natural catastrophe which caused about 300 debris flows and overflows of watercourse within few square kilometres. An extraordinary rainfall - amounting to more than 500 mm throughout the day, with peaks of 176 mm/per hour - destroyed many buildings and killed residents, especially in the village of “Cardoso di Stazzema”.",
+         "mapMarkerColor":"#e6e600",
+         "eventMediaCaption":""
+      },
+      "ev1636463298100":{
+         "_id":"ev1636463298100",
+         "end":"",
+         "type":"value chain",
+         "notes":"",
+         "props":{
+            "Q1538548":{
+               "class":"place",
+               "notes":"",
+               "primary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ],
+               "secondary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ]
+            },
+            "Q15522330":{
+               "class":"object",
+               "notes":"",
+               "primary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ],
+               "secondary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ]
+            }
+         },
+         "start":"",
+         "title":"Chestnut Flour Value Chain",
+         "objurl":"",
+         "latitud":"43.99662",
+         "longitud":"10.42451",
+         "position":8,
+         "eventMedia":"http://comune.fabbrichedivergemoli.lu.it/wp-content/uploads/2019/03/mulino-bio.jpg",
+         "description":"The chestnut flour value chain performs various functions: productive, protective, naturalistic, landscape, recreational, and didactic.<br/>\nThis value chain is an example of how traditional productions can contribute to increase the revenue of local population, reducing abandonment, and promoting a balanced relationship between nature and human communities.<br/>\nPhoto: <a href='http://comune.fabbrichedivergemoli.lu.it/turismo-a-fabbriche-di-vergemoli/mulini/' target='_blank'>Comune di Fabbriche di Vergemoli</a>",
+         "mapMarkerColor":"#ff9900",
+         "eventMediaCaption":""
+      },
+      "ev1636464702912":{
+         "_id":"ev1636464702912",
+         "end":"",
+         "type":"value chain",
+         "notes":"",
+         "props":{
+            "Q622309":{
+               "class":"concept",
+               "notes":"",
+               "primary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ],
+               "secondary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ]
+            },
+            "Q3739596":{
+               "class":"other",
+               "notes":"",
+               "primary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ],
+               "secondary":[
+                  {
+                     "text":"",
+                     "title":"",
+                     "author":"",
+                     "reference":""
+                  }
+               ]
+            }
+         },
+         "start":"",
+         "title":"Local Traditional Food",
+         "objurl":"",
+         "latitud":"44.11098",
+         "longitud":"10.41328",
+         "position":9,
+         "eventMedia":"https://upload.wikimedia.org/wikipedia/commons/f/fd/Farina_di_castagne_-_Toscana.jpg",
+         "description":"Local traditional food is often perceived by consumers having high quality and it is a useful perception to increase touristic appeal, especially if it is supported by recognized high quality standards. For these reasons, chestnut flour value chain can improve the development of resilience initiatives to contemporary challenges.",
+         "mapMarkerColor":"#ff9900",
+         "eventMediaCaption":""
+      },
+
+
+      "Q622309":{
+         "_id":"Q622309",
+         "role":[
+            
+         ],
+         "type":[
+            "Q488383",
+            "Q35120"
+         ],
+         "image":"http://commons.wikimedia.org/wiki/Special:FilePath/ALPI%20APUANE.jpg",
+         "enDesc":"mountain range",
+         "enName":"Apuan Alps",
+         "itDesc":"catena montuosa del Subappennino toscano",
+         "itName":"Alpi Apuane"
+      },
+      "Q38":{
+         "_id":"Q38",
+         "role":[
+            
+         ],
+         "type":[
+            "Q7184903",
+            "Q35120",
+            "Q43229",
+            "Q488383"
+         ],
+         "image":"",
+         "enDesc":"country in Southern Europe",
+         "enName":"Italy",
+         "itDesc":"stato dell'Europa centro-meridionale, membro e cofondatore dell'Unione europea",
+         "itName":"Italia",
+         "foundation":"1946-06-18"
+      },
+      "Q43521":{
+         "_id":"Q43521",
+         "role":[
+            
+         ],
+         "type":[
+            "Q7184903",
+            "Q1190554",
+            "Q35120",
+            "Q488383",
+            "Q386724",
+            "Q8205328"
+         ],
+         "image":"",
+         "enDesc":"system of chronological dating that relates geological structures to time",
+         "enName":"geologic time scale",
+         "itDesc":"scala geocronologica",
+         "itName":"scala dei tempi geologici"
+      },
+      "Q652":{
+         "_id":"Q652",
+         "role":[
+            
+         ],
+         "type":[
+            "Q7184903",
+            "Q35120",
+            "Q488383"
+         ],
+         "image":"",
+         "enDesc":"Romance language originating in central Italy",
+         "enName":"Italian",
+         "itDesc":"lingua neolatina",
+         "itName":"italiano"
+      },
+      "Q33057":{
+         "_id":"Q33057",
+         "role":[
+            
+         ],
+         "type":[
+            "Q488383",
+            "Q488383",
+            "Q8205328",
+            "Q8205328",
+            "Q7184903",
+            "Q7184903",
+            "Q386724",
+            "Q386724",
+            "Q234460",
+            "Q234460",
+            "Q35120",
+            "Q35120",
+            "Q1190554",
+            "Q1190554"
+         ],
+         "image":"http://commons.wikimedia.org/wiki/Special:FilePath/EAN-13-ISBN-13.svg",
+         "enDesc":"unique numeric book identifier",
+         "enName":"International Standard Book Number",
+         "itDesc":"sequenza numerica usata internazionalmente per la classificazione dei libri",
+         "itName":"ISBN"
+      },
+      "Q13372":{
+         "_id":"Q13372",
+         "role":[
+            
+         ],
+         "type":[
+            "Q488383",
+            "Q1190554",
+            "Q8205328",
+            "Q7184903",
+            "Q17334923",
+            "Q35120",
+            "Q43229",
+            "Q1190554",
+            "Q488383",
+            "Q17334923",
+            "Q35120",
+            "Q8205328",
+            "Q43229",
+            "Q7184903"
+         ],
+         "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Carrara-panorama%20dalla%20strada%20per%20Colonnata1.jpg",
+         "enDesc":"city of Tuscany",
+         "enName":"Carrara",
+         "itDesc":"comune italiano",
+         "itName":"Carrara"
+      },
+      "Q47158":{
+         "_id":"Q47158",
+         "role":[
+            
+         ],
+         "type":[
+            "Q186081",
+            "Q35120",
+            "Q488383"
+         ],
+         "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Sketch%20plateosaurus%20bulky.jpg",
+         "enDesc":"first period of the Mesozoic era",
+         "enName":"Triassic",
+         "itDesc":"primo periodo geologico del Mesozoico",
+         "itName":"Triassico",
+         "foundation2":"-251902000"
+      },
+      "Q176925":{
+         "_id":"Q176925",
+         "role":[
+            
+         ],
+         "type":[
+            "Q35120"
+         ],
+         "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Lago%20di%20Vagli.JPG",
+         "enDesc":"historical and geographical region in Tuscany, Italy",
+         "enName":"Garfagnana",
+         "itDesc":"area storico-geografica della provincia di Lucca, in Toscana",
+         "itName":"Garfagnana"
+      },
+      "Q207023":{
+         "_id":"Q207023",
+         "role":[
+            
+         ],
+         "type":[
+            "Q35120"
+         ],
+         "image":"",
+         "enDesc":"ethnic group",
+         "enName":"Ligures",
+         "itDesc":"antico popolo italico",
+         "itName":"Liguri"
+      },
+      "Q1285":{
+         "_id":"Q1285",
+         "role":[
+            
+         ],
+         "type":[
+            "Q35120",
+            "Q488383"
+         ],
+         "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Pietra%20bismantova.jpg",
+         "enDesc":"mountain range stretching 1200 km from the north to the south of Italy, traversing the entire peninsula, and forming the backbone of the country",
+         "enName":"Apennine Mountains",
+         "itDesc":"catena montuosa che si estende per 1200 km dal nord al sud della Penisola italiana",
+         "itName":"Appennini"
+      },
+      "Q657832":{
+         "_id":"Q657832",
+         "role":[
+            
+         ],
+         "type":[
+            "Q7184903",
+            "Q35120",
+            "Q488383"
+         ],
+         "image":"",
+         "enDesc":"historical territory of Italy, which today falls within the provinces of La Spezia and Massa Carrara.",
+         "enName":"Lunigiana",
+         "itDesc":"regione storica italiana, divisa tra Toscana e Liguria",
+         "itName":"Lunigiana"
+      },
+      "Q247494":{
+         "_id":"Q247494",
+         "role":[
+            
+         ],
+         "type":[
+            "Q488383",
+            "Q35120"
+         ],
+         "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Ponte%20della%20Maddalena.jpg",
+         "enDesc":"river in Italy",
+         "enName":"Serchio",
+         "itDesc":"fiume italiano",
+         "itName":"Serchio"
+      },
+      "Q3893275":{
+         "_id":"Q3893275",
+         "role":[
+            
+         ],
+         "type":[
+            "Q17334923",
+            "Q35120",
+            "Q488383"
+         ],
+         "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Pania%20della%20Croce.JPG",
+         "enDesc":"mountain in Italy",
+         "enName":"Pania della Croce",
+         "itDesc":"montagna delle Alpi Apuane",
+         "itName":"Pania della Croce"
+      },
+      "Q3322572":{
+         "_id":"Q3322572",
+         "role":[
+            
+         ],
+         "type":[
+            "Q17334923",
+            "Q35120",
+            "Q488383"
+         ],
+         "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Sagro.JPG",
+         "enDesc":"mountain in Italy",
+         "enName":"Monte Sagro",
+         "itDesc":"montagna delle Alpi Apuane",
+         "itName":"monte Sagro"
+      },
+      "Q219330":{
+         "_id":"Q219330",
+         "role":[
+            
+         ],
+         "type":[
+            "Q35120",
+            "Q35120",
+            "Q43229",
+            "Q43229",
+            "Q488383",
+            "Q488383",
+            "Q8205328",
+            "Q8205328",
+            "Q7184903",
+            "Q7184903",
+            "Q1190554",
+            "Q1190554"
+         ],
+         "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Pietrasanta-piazza%20del%20teatro2.jpg",
+         "enDesc":"Italian comune",
+         "enName":"Pietrasanta",
+         "itDesc":"comune italiano",
+         "itName":"Pietrasanta"
+      },
+      "Q692549":{
+         "_id":"Q692549",
+         "role":[
+            
+         ],
+         "type":[
+            "Q35120",
+            "Q488383"
+         ],
+         "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Bocca%20di%20Magra.JPG",
+         "enDesc":"river in Italy",
+         "enName":"Magra",
+         "itDesc":"fiume in Italia",
+         "itName":"Magra"
+      },
+      "Q1945906":{
+         "_id":"Q1945906",
+         "role":[
+            
+         ],
+         "type":[
+            "Q488383",
+            "Q17334923",
+            "Q35120"
+         ],
+         "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Monte%20Pisanino.jpg",
+         "enDesc":"mountain in Italy",
+         "enName":"Monte Pisanino",
+         "itDesc":"montagna in Italia facente parte delle Alpi Apuane",
+         "itName":"Monte Pisanino"
+      },
+      "Q3862057":{
+         "_id":"Q3862057",
+         "role":[
+            
+         ],
+         "type":[
+            "Q35120",
+            "Q488383",
+            "Q17334923"
+         ],
+         "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Tambura1.jpg",
+         "enDesc":"mountain in Italy",
+         "enName":"Monte Tambura",
+         "itDesc":"",
+         "itName":"Monte Tambura"
+      },
+      "Q54919":{
+         "_id":"Q54919",
+         "role":[
+            
+         ],
+         "type":[
+            "Q234460",
+            "Q35120",
+            "Q7184903",
+            "Q488383",
+            "Q386724",
+            "Q17334923",
+            "Q1190554",
+            "Q8205328"
+         ],
+         "image":"http://commons.wikimedia.org/wiki/Special:FilePath/VIAF%20Screenshot%202012.png",
+         "enDesc":"OCLC dataset and service that virtually combines multiple name authority files into a single name authority service",
+         "enName":"Virtual International Authority File",
+         "itDesc":"base dati bibliografica internazionale",
+         "itName":"Virtual International Authority File",
+         "foundation":"2003"
+      },
+      "Q1273":{
+         "_id":"Q1273",
+         "role":[
+            
+         ],
+         "type":[
+            "Q35120",
+            "Q43229",
+            "Q488383"
+         ],
+         "image":"http://commons.wikimedia.org/wiki/Special:FilePath/View%20from%20Villa%20Vignamaggio%20%285771965060%29.jpg",
+         "enDesc":"region in central Italy with an area of about 23,000 square kilometres (8,900 square miles). The regional capital is Florence",
+         "enName":"Tuscany",
+         "itDesc":"regione italiana a statuto ordinario",
+         "itName":"Toscana"
+      },
+      "Q8922203":{
+         "_id":"Q8922203",
+         "role":[
+            
+         ],
+         "type":[
+            "Q8205328",
+            "Q234460",
+            "Q7184903",
+            "Q1190554",
+            "Q35120",
+            "Q488383",
+            "Q386724",
+            "Q4167836",
+            "Q15474042"
+         ],
+         "image":"",
+         "enDesc":"Wikimedia category page",
+         "enName":"Category:Articles with VIAF identifiers",
+         "itDesc":"categoria di un progetto Wikimedia",
+         "itName":"Categoria:Voci con codice VIAF"
+      },
+      "Q8614281":{
+         "_id":"Q8614281",
+         "role":[
+            
+         ],
+         "type":[
+            "Q35120",
+            "Q234460",
+            "Q386724",
+            "Q7184903",
+            "Q8205328",
+            "Q1190554",
+            "Q15474042",
+            "Q488383"
+         ],
+         "image":"",
+         "enDesc":"authority control",
+         "enName":"Help:Authority control",
+         "itDesc":"",
+         "itName":"Aiuto:Controllo di autorità"
+      },
+      "Q8922197":{
+         "_id":"Q8922197",
+         "role":[
+            
+         ],
+         "type":[
+            "Q386724",
+            "Q4167836",
+            "Q15474042",
+            "Q8205328",
+            "Q234460",
+            "Q7184903",
+            "Q1190554",
+            "Q35120",
+            "Q488383"
+         ],
+         "image":"",
+         "enDesc":"Wikimedia category",
+         "enName":"Category:Articles with LCCN identifiers",
+         "itDesc":"categoria di un progetto Wikimedia",
+         "itName":"Categoria:Voci con codice LCCN"
+      },
+      "Q7809":{
+         "_id":"Q7809",
+         "role":[
+            
+         ],
+         "type":[
+            "Q43229",
+            "Q35120"
+         ],
+         "image":"http://commons.wikimedia.org/wiki/Special:FilePath/April%202010%2C%20UNESCO%20Headquarters%20in%20Paris%20-%20The%20Garden%20of%20Peace%20%28or%20Japanese%20Garden%29%20in%20Spring.jpg",
+         "enDesc":"specialized agency of the UN that promotes education, science and culture",
+         "enName":"UNESCO",
+         "itDesc":"organizzazione per incoraggiare la collaborazione tra le nazioni nelle aree dell'istruzione, scienza, cultura e comunicazione",
+         "itName":"UNESCO",
+         "foundation":"1945-11-16"
+      },
+      "Q1048":{
+         "_id":"Q1048",
+         "role":[
+            "Q97667506",
+            "Q40779",
+            "Q98103687",
+            "Q40779",
+            "Q99899510",
+            "Q40779",
+            "Q49757",
+            "Q40779",
+            "Q82955",
+            "Q172907",
+            "Q82955",
+            "Q189430",
+            "Q82955",
+            "Q212943",
+            "Q82955",
+            "Q236885",
+            "Q1097498",
+            "Q172907",
+            "Q1097498",
+            "Q189430",
+            "Q1097498",
+            "Q212943",
+            "Q1097498",
+            "Q236885",
+            "Q1402561",
+            "Q172907",
+            "Q1402561",
+            "Q189430",
+            "Q1402561",
+            "Q212943",
+            "Q1402561",
+            "Q236885",
+            "Q3409374",
+            "Q172907",
+            "Q3409374",
+            "Q189430",
+            "Q3409374",
+            "Q212943",
+            "Q3409374",
+            "Q236885",
+            "Q11774156",
+            "Q172907",
+            "Q11774156",
+            "Q189430",
+            "Q11774156",
+            "Q212943",
+            "Q11774156",
+            "Q236885",
+            "Q12859263",
+            "Q172907",
+            "Q12859263",
+            "Q189430",
+            "Q12859263",
+            "Q212943",
+            "Q12859263",
+            "Q236885",
+            "Q97667506",
+            "Q40779",
+            "Q98103687",
+            "Q40779",
+            "Q99899510",
+            "Q40779",
+            "Q49757",
+            "Q172907",
+            "Q49757",
+            "Q189430",
+            "Q49757",
+            "Q212943",
+            "Q49757",
+            "Q236885",
+            "Q82955",
+            "Q40779",
+            "Q1097498",
+            "Q40779",
+            "Q1402561",
+            "Q40779",
+            "Q3409374",
+            "Q40779",
+            "Q11774156",
+            "Q40779",
+            "Q12859263",
+            "Q40779",
+            "Q97667506",
+            "Q172907",
+            "Q97667506",
+            "Q189430",
+            "Q97667506",
+            "Q212943",
+            "Q97667506",
+            "Q236885",
+            "Q98103687",
+            "Q172907",
+            "Q98103687",
+            "Q189430",
+            "Q98103687",
+            "Q212943",
+            "Q98103687",
+            "Q236885",
+            "Q99899510",
+            "Q172907",
+            "Q99899510",
+            "Q189430",
+            "Q99899510",
+            "Q212943",
+            "Q99899510",
+            "Q236885",
+            "Q49757",
+            "Q172907",
+            "Q49757",
+            "Q189430",
+            "Q49757",
+            "Q212943",
+            "Q49757",
+            "Q236885",
+            "Q82955",
+            "Q40779",
+            "Q1097498",
+            "Q40779",
+            "Q1402561",
+            "Q40779",
+            "Q3409374",
+            "Q40779",
+            "Q11774156",
+            "Q40779",
+            "Q12859263",
+            "Q40779",
+            "Q97667506",
+            "Q172907",
+            "Q97667506",
+            "Q189430",
+            "Q97667506",
+            "Q212943",
+            "Q97667506",
+            "Q236885",
+            "Q98103687",
+            "Q172907",
+            "Q98103687",
+            "Q189430",
+            "Q98103687",
+            "Q212943",
+            "Q98103687",
+            "Q236885",
+            "Q99899510",
+            "Q172907",
+            "Q99899510",
+            "Q189430",
+            "Q99899510",
+            "Q212943",
+            "Q99899510",
+            "Q236885",
+            "Q49757",
+            "Q40779",
+            "Q82955",
+            "Q172907",
+            "Q82955",
+            "Q189430",
+            "Q82955",
+            "Q212943",
+            "Q82955",
+            "Q236885",
+            "Q1097498",
+            "Q172907",
+            "Q1097498",
+            "Q189430",
+            "Q1097498",
+            "Q212943",
+            "Q1097498",
+            "Q236885",
+            "Q1402561",
+            "Q172907",
+            "Q1402561",
+            "Q189430",
+            "Q1402561",
+            "Q212943",
+            "Q1402561",
+            "Q236885",
+            "Q3409374",
+            "Q172907",
+            "Q3409374",
+            "Q189430",
+            "Q3409374",
+            "Q212943",
+            "Q3409374",
+            "Q236885",
+            "Q11774156",
+            "Q172907",
+            "Q11774156",
+            "Q189430",
+            "Q11774156",
+            "Q212943",
+            "Q11774156",
+            "Q236885",
+            "Q12859263",
+            "Q172907",
+            "Q12859263",
+            "Q189430",
+            "Q12859263",
+            "Q212943",
+            "Q12859263",
+            "Q236885",
+            "Q82955",
+            "Q952844",
+            "Q82955",
+            "Q1190123",
+            "Q82955",
+            "Q1426927",
+            "Q82955",
+            "Q5413489",
+            "Q82955",
+            "Q20056508",
+            "Q1097498",
+            "Q952844",
+            "Q1097498",
+            "Q1190123",
+            "Q1097498",
+            "Q1426927",
+            "Q1097498",
+            "Q5413489",
+            "Q1402561",
+            "Q952844",
+            "Q1402561",
+            "Q1190123",
+            "Q1402561",
+            "Q1426927",
+            "Q1402561",
+            "Q5413489",
+            "Q1097498",
+            "Q20056508",
+            "Q1402561",
+            "Q20056508",
+            "Q3409374",
+            "Q952844",
+            "Q3409374",
+            "Q1190123",
+            "Q3409374",
+            "Q1426927",
+            "Q3409374",
+            "Q5413489",
+            "Q3409374",
+            "Q20056508",
+            "Q11774156",
+            "Q952844",
+            "Q11774156",
+            "Q1190123",
+            "Q11774156",
+            "Q1426927",
+            "Q11774156",
+            "Q5413489",
+            "Q11774156",
+            "Q20056508",
+            "Q12859263",
+            "Q952844",
+            "Q12859263",
+            "Q1190123",
+            "Q12859263",
+            "Q1426927",
+            "Q12859263",
+            "Q5413489",
+            "Q12859263",
+            "Q20056508",
+            "Q49757",
+            "Q952844",
+            "Q49757",
+            "Q1190123",
+            "Q49757",
+            "Q1426927",
+            "Q49757",
+            "Q5413489",
+            "Q49757",
+            "Q20056508",
+            "Q97667506",
+            "Q952844",
+            "Q97667506",
+            "Q1190123",
+            "Q97667506",
+            "Q1426927",
+            "Q97667506",
+            "Q5413489",
+            "Q98103687",
+            "Q952844",
+            "Q98103687",
+            "Q1190123",
+            "Q98103687",
+            "Q1426927",
+            "Q98103687",
+            "Q5413489",
+            "Q97667506",
+            "Q20056508",
+            "Q98103687",
+            "Q20056508",
+            "Q99899510",
+            "Q952844",
+            "Q99899510",
+            "Q1190123",
+            "Q99899510",
+            "Q1426927",
+            "Q99899510",
+            "Q5413489",
+            "Q99899510",
+            "Q20056508",
+            "Q49757",
+            "Q952844",
+            "Q49757",
+            "Q1190123",
+            "Q49757",
+            "Q1426927",
+            "Q49757",
+            "Q5413489",
+            "Q49757",
+            "Q20056508",
+            "Q97667506",
+            "Q952844",
+            "Q97667506",
+            "Q1190123",
+            "Q97667506",
+            "Q1426927",
+            "Q97667506",
+            "Q5413489",
+            "Q98103687",
+            "Q952844",
+            "Q98103687",
+            "Q1190123",
+            "Q98103687",
+            "Q1426927",
+            "Q98103687",
+            "Q5413489",
+            "Q97667506",
+            "Q20056508",
+            "Q98103687",
+            "Q20056508",
+            "Q99899510",
+            "Q952844",
+            "Q99899510",
+            "Q1190123",
+            "Q99899510",
+            "Q1426927",
+            "Q99899510",
+            "Q5413489",
+            "Q99899510",
+            "Q20056508",
+            "Q82955",
+            "Q952844",
+            "Q82955",
+            "Q1190123",
+            "Q82955",
+            "Q1426927",
+            "Q82955",
+            "Q5413489",
+            "Q82955",
+            "Q20056508",
+            "Q1097498",
+            "Q952844",
+            "Q1097498",
+            "Q1190123",
+            "Q1097498",
+            "Q1426927",
+            "Q1097498",
+            "Q5413489",
+            "Q1402561",
+            "Q952844",
+            "Q1402561",
+            "Q1190123",
+            "Q1402561",
+            "Q1426927",
+            "Q1402561",
+            "Q5413489",
+            "Q1097498",
+            "Q20056508",
+            "Q1402561",
+            "Q20056508",
+            "Q3409374",
+            "Q952844",
+            "Q3409374",
+            "Q1190123",
+            "Q3409374",
+            "Q1426927",
+            "Q3409374",
+            "Q5413489",
+            "Q3409374",
+            "Q20056508",
+            "Q11774156",
+            "Q952844",
+            "Q11774156",
+            "Q1190123",
+            "Q11774156",
+            "Q1426927",
+            "Q11774156",
+            "Q5413489",
+            "Q11774156",
+            "Q20056508",
+            "Q12859263",
+            "Q952844",
+            "Q12859263",
+            "Q1190123",
+            "Q12859263",
+            "Q1426927",
+            "Q12859263",
+            "Q5413489",
+            "Q12859263",
+            "Q20056508"
+         ],
+         "type":[
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q5",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120"
+         ],
+         "birth":"-0099-07-01",
+         "death":"-0043-03-13",
+         "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Gaius%20Iulius%20Caesar%20%28Vatican%20Museum%29.jpg",
+         "enDesc":"Roman general, statesman and final Dictator",
+         "enName":"Julius Caesar",
+         "itDesc":"console e dittatore della Repubblica romana, nonché oratore, scrittore e storico",
+         "itName":"Gaio Giulio Cesare"
+      },
+      "Q99309":{
+         "_id":"Q99309",
+         "role":[
+            
+         ],
+         "type":[
+            "Q35120",
+            "Q7184903",
+            "Q488383",
+            "Q386724",
+            "Q41176",
+            "Q17334923",
+            "Q1190554",
+            "Q8205328"
+         ],
+         "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Rome%20Pantheon%20front.jpg",
+         "enDesc":"Roman temple in Rome",
+         "enName":"Pantheon",
+         "itDesc":"tempio della Roma antica e basilica minore cattolica",
+         "itName":"Pantheon",
+         "foundation":"0128"
+      },
+      "Q1236860":{
+         "_id":"Q1236860",
+         "role":[
+            
+         ],
+         "type":[
+            "Q386724",
+            "Q17334923",
+            "Q35120",
+            "Q488383",
+            "Q41176",
+            "Q8205328"
+         ],
+         "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Remains%20of%20Temple%20Apollo%20Palatinus.jpg",
+         "enDesc":"ancient Roman temple on the Palatine Hill, Rome",
+         "enName":"Temple of Apollo Palatinus",
+         "itDesc":"Tempio della Roma antica",
+         "itName":"Tempio di Apollo Palatino"
+      },
+      "Q426213":{
+         "_id":"Q426213",
+         "role":[
+            
+         ],
+         "type":[
+            "Q35120"
+         ],
+         "image":"",
+         "enDesc":"Part of Tuscany in the north-western province of Lucca, and is named after the Versilia river.",
+         "enName":"Versilia",
+         "itDesc":"parte della Toscana nord-occidentale, all'interno della provincia di Lucca, delimitata a nord dal fiume di Seravezza e a sud dall'antico forte del Motrone",
+         "itName":"Versilia"
+      },
+      "Q129324":{
+         "_id":"Q129324",
+         "role":[
+            
+         ],
+         "type":[
+            "Q35120"
+         ],
+         "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Ch%C3%A2taignier%20120807%201.jpg",
+         "enDesc":"genus of plants",
+         "enName":"Castanea",
+         "itDesc":"genere di pianta della famiglia Fagaceae",
+         "itName":"Castanea"
+      },
+      "Q3895677":{
+         "_id":"Q3895677",
+         "role":[
+            
+         ],
+         "type":[
+            "Q35120",
+            "Q7184903",
+            "Q488383",
+            "Q386724",
+            "Q1190554",
+            "Q8205328",
+            "Q43229"
+         ],
+         "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Vagli%20Sotto-panorama6.jpg",
+         "enDesc":"protected area in Italy (EUAP0229)",
+         "enName":"Regional Natural Park of the Apuan Alps",
+         "itDesc":"parco regionale della Toscana",
+         "itName":"parco naturale regionale delle Alpi Apuane",
+         "foundation":"1985"
+      },
+      "Q22699":{
+         "_id":"Q22699",
+         "role":[
+            
+         ],
+         "type":[
+            "Q35120",
+            "Q35120",
+            "Q35120",
+            "Q35120"
+         ],
+         "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Casta%C3%B1o%20centenario%20%28Castanea%20sativa%29%20%2845032673662%29.jpg",
+         "enDesc":"species of plant",
+         "enName":"Castanea sativa",
+         "itDesc":"specie di pianta della famiglia Fagaceae",
+         "itName":"Castanea sativa"
+      },
+      "Q3739596":{
+         "_id":"Q3739596",
+         "role":[
+            
+         ],
+         "type":[
+            "other"
+         ],
+         "image":"",
+         "enDesc":"chestnut flour from Garfagnana",
+         "enName":"farina di Neccio della Garfagnana",
+         "itDesc":"",
+         "itName":"Farina di Neccio della Garfagnana"
+      },
+      "Q21283118":{
+         "_id":"Q21283118",
+         "role":[
+            
+         ],
+         "type":[
+            "Q488383",
+            "Q1190554",
+            "Q7184903",
+            "Q35120"
+         ],
+         "image":"",
+         "enDesc":"",
+         "enName":"Apuan Alps Geopark",
+         "itDesc":"",
+         "itName":""
+      },
+      "Q18416818":{
+         "_id":"Q18416818",
+         "role":[
+            
+         ],
+         "type":[
+            "Q7184903",
+            "Q35120",
+            "Q488383",
+            "Q8205328",
+            "Q17334923"
+         ],
+         "image":"https://dlnarratives.eu/images/adminNarra-q622309-image-4355403.png",
+         "enDesc":"human settlement in Gallicano, Province of Lucca, Tuscany, Italy",
+         "enName":"Cardoso",
+         "itDesc":"frazione del comune italiano di Gallicano",
+         "itName":"Cardoso"
+      },
+      "U16352435117043663940":{
+         "_id":"U16352435117043663940",
+         "type":[
+            "Q17334923"
+         ],
+         "enDesc":"area of land preserved on account of its natural beauty, historic interest, recreational use or other reason, and under the administration of a form of local government",
+         "enName":"Regional Park",
+         "itDesc":"area of land preserved on account of its natural beauty, historic interest, recreational use or other reason, and under the administration of a form of local government",
+         "itName":"Regional Park"
+      },
+      "Q28870512":{
+         "_id":"Q28870512",
+         "role":[
+            
+         ],
+         "type":[
+            "Q35120",
+            "Q488383"
+         ],
+         "image":"",
+         "enDesc":"type of wood",
+         "enName":"chestnut wood",
+         "itDesc":"tipo di legno ricavato dalle piante del genere Castanea",
+         "itName":"legno di castagno"
+      },
+      "Q3855544":{
+         "_id":"Q3855544",
+         "role":[
+            
+         ],
+         "type":[
+            "Q35120",
+            "Q488383",
+            "Q41176",
+            "Q8205328",
+            "Q386724"
+         ],
+         "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Metato%20Orsigna%201.JPG",
+         "enDesc":"a small building used to dry chestnuts",
+         "enName":"metato",
+         "itDesc":"tipologia di edificio rurale",
+         "itName":"metato"
+      },
+      "Q15522330":{
+         "_id":"Q15522330",
+         "role":[
+            
+         ],
+         "type":[
+            "Q7184903",
+            "Q488383",
+            "Q1190554",
+            "Q8205328",
+            "Q43229",
+            "Q35120"
+         ],
+         "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Vergemoli-panorama.jpg",
+         "enDesc":"municipality in Tuscany, Province of Lucca",
+         "enName":"Fabbriche di Vergemoli",
+         "itDesc":"comune italiano",
+         "itName":"Fabbriche di Vergemoli",
+         "foundation":"2014"
+      },
+      "Q1069571":{
+         "_id":"Q1069571",
+         "role":[
+            
+         ],
+         "type":[
+            "Q35120",
+            "Q488383"
+         ],
+         "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Italia%20fisica%20appennini.png",
+         "enDesc":"mountains",
+         "enName":"Northern Apennines",
+         "itDesc":"appennino",
+         "itName":"Appennino settentrionale"
+      },
+      "Q3662049":{
+         "_id":"Q3662049",
+         "role":[
+            
+         ],
+         "type":[
+            "Q488383",
+            "Q8205328",
+            "Q1190554",
+            "Q35120"
+         ],
+         "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Castagnaccio%20ligure.jpg",
+         "enDesc":"italian chestnut flour cake",
+         "enName":"Castagnaccio",
+         "itDesc":"dolce italiano di farina di castagne",
+         "itName":"Castagnaccio"
+      },
+      "Q3861554":{
+         "_id":"Q3861554",
+         "role":[
+            
+         ],
+         "type":[
+            "Q35120",
+            "Q488383",
+            "Q17334923"
+         ],
+         "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Apuane%2C%20monte%20forato%2002.JPG",
+         "enDesc":"mountain in Italy",
+         "enName":"Monte Forato",
+         "itDesc":"",
+         "itName":"Monte Forato"
+      },
+      "Q3874120":{
+         "_id":"Q3874120",
+         "role":[
+            
+         ],
+         "type":[
+            "Q35120",
+            "Q488383",
+            "Q8205328",
+            "Q1190554"
+         ],
+         "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Neccio.jpg",
+         "enDesc":"Chestnut Flour Cake",
+         "enName":"Neccio",
+         "itDesc":"Prodotto Gastronomico Tradizionale",
+         "itName":"Neccio"
+      },
+      "Q18489024":{
+         "_id":"Q18489024",
+         "role":[
+            
+         ],
+         "type":[
+            "Q7184903",
+            "Q35120",
+            "Q488383",
+            "Q8205328",
+            "Q17334923"
+         ],
+         "image":"",
+         "enDesc":"human settlement in Italy",
+         "enName":"Renaio",
+         "itDesc":"frazione del comune italiano di Barga, provincia di Lucca",
+         "itName":"Renaio"
+      },
+      "Q3612682":{
+         "_id":"Q3612682",
+         "role":[
+            
+         ],
+         "type":[
+            "Q35120",
+            "Q488383",
+            "Q1190554",
+            "Q7184903"
+         ],
+         "image":"",
+         "enDesc":"",
+         "enName":"",
+         "itDesc":"",
+         "itName":"Alluvione della Versilia del 19 giugno 1996"
+      },
+      "Q1538548":{
+         "_id":"Q1538548",
+         "role":[
+            
+         ],
+         "type":[
+            "Q17334923",
+            "Q35120",
+            "Q488383",
+            "Q8205328",
+            "Q7184903"
+         ],
+         "image":"http://commons.wikimedia.org/wiki/Special:FilePath/PRUNO%20%28Panorama%29.JPG",
+         "enDesc":"frazione of Italy",
+         "enName":"Pruno",
+         "itDesc":"frazione del comune italiano di Valle dell'Angelo",
+         "itName":"Pruno"
+      },
+      "Q36465":{
+         "_id":"Q36465",
+         "role":[
+            
+         ],
+         "type":[
+            "Q35120",
+            "Q488383"
+         ],
+         "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Flours.jpg",
+         "enDesc":"powder which is made by grinding cereal grains",
+         "enName":"flour",
+         "itDesc":"prodotto ottenuto dalla macinazione di cereali o di altri prodotti",
+         "itName":"farina"
+      },
+      "Q728904":{
+         "_id":"Q728904",
+         "role":[
+            
+         ],
+         "type":[
+            "other"
+         ],
+         "image":"http://commons.wikimedia.org/wiki/Special:FilePath/Riacho%20no%20Parque%20Natural%20Municipal%20do%20Trabiju%201.jpg",
+         "enDesc":"type of protected area in some countries, common in Europe",
+         "enName":"nature park",
+         "itDesc":"area protetta dalle leggi di uno Stato",
+         "itName":"parco naturale"
+      },
+      "Q6063204":{
+         "_id":"Q6063204",
+         "role":[
+            
+         ],
+         "type":[
+            "other"
+         ],
+         "image":"",
+         "enDesc":"area of land preserved on account of its natural beauty, historic interest, recreational use or other reason, and under the administration of a form of local government",
+         "enName":"regional park",
+         "itDesc":"parchi naturali regionali ai sensi dell'EUAP",
+         "itName":"parco regionale"
+      }
+
+}

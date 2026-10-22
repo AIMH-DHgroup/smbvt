@@ -1,68 +1,26 @@
-
 <?php
 
+require('api_helpers.php');
+ensure_session_started();
+destroy_demo_session_if_needed();
 
-//session_start();
-
-
-//delete sessiondemo to be able to "IN PRODUCTION" to real database
-if(isset($_SESSION['Demon_on'])){
-	session_destroy ();
-}
-
-//DB POSTGRES
 require('PgConn.php');
 
+$loginUser = login_user_value();
+$usernameToDisplayInMenu = display_user_value();
+$normalizedUser = '';
 
-// variable for username (used for build tables)
-$user_check="";
-
-// variable for username (used to be displayed in menu)
-$usernameToDisplayInMenu= "";
-
-if(isset($_SESSION['login_user'])){
-	
-	// get username to display in menu (i'ts equals to usernames for our users; is different for vre users)
-	$usernameToDisplayInMenu= $_SESSION['username_to_display'];
-
-	// Storing Session
-	//$user_check=$_SESSION['login_user']; 
-	$user_check= str_replace("-","",$_SESSION['login_user']);
-	// SQL Query To Fetch Complete Information Of User
-	$sql= "SELECT username FROM users where username= '".$user_check."'" ;
-	$result = pg_query($sql) or die('Error message: ' . pg_last_error());
-
-
-	while ($row=pg_fetch_assoc($result)) {
-		$login_session = $row['username'];
-	}
-	pg_free_result($result);
+if ($loginUser !== '') {
+	$normalizedUser = normalize_login_user($loginUser);
 }
 
-
-$arr=[];
-if($user_check != ""){
-	
-
-	// get all narrations of this user
-	$query = "select id, title, subject, copied_from from narrations where \"user\"= '".$_SESSION['id_user']."' order by id desc";
-	$result = pg_query($query) or die('Error message: ' . pg_last_error());
-			
-	while ($row = pg_fetch_row($result)) {
-		array_push($arr,$row);
-	}
-	pg_free_result($result);
-	
-	
-	
+$narratives = array();
+if ($normalizedUser !== '') {
+	$narratives = fetch_narrations_for_user(current_user_id());
 }
 
-
-
- 
-
-		// array json
-		$arrayJson= array( "username" => $user_check, "usernameToDisplayInMenu"=>$usernameToDisplayInMenu, "jsonData" => $arr);		
-		$data= json_encode($arrayJson);
-		echo $data;
-?>
+json_response(array(
+	'username' => $normalizedUser,
+	'usernameToDisplayInMenu' => $usernameToDisplayInMenu,
+	'jsonData' => $narratives,
+));

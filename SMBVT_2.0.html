@@ -5,12 +5,12 @@
     
 	<meta charset="UTF-8">
     <title>Narrative Tool</title>
-    <link rel="stylesheet" type="text/css" href="/lib/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="/lib/narraintro.css" />
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="lib/narraintro.css" />
     <link rel="icon" href="data:;base64,iVBORwOKGO=" />
-    <script src="/lib/jquery-3.2.0.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/lib/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/lib/typeahead.bundle.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="lib/jquery-3.2.0.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="lib/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="lib/typeahead.bundle.min.js" type="text/javascript" charset="utf-8"></script>
 	
 <script src="https://cdn.datatables.net/1.13.0/js/jquery.dataTables.min.js"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.0/css/jquery.dataTables.min.css">
@@ -158,6 +158,18 @@
             </input>
         </div>
     </div>
+	<!-- Import a narrative export. The subject is requested later only when it is absent from the JSON. -->
+	<div id="jsonImport">
+		<i><h2 class="subjectName">or...</h2></i>
+		<form id="json-import-form">
+			<span class="json-import-title">Create a narrative from JSON:</span>
+			<label for="json-narrative-file" class="btn btn-default json-file-label">Choose JSON</label>
+			<input id="json-narrative-file" name="jsonFile" type="file" accept=".json,application/json" required>
+			<button id="json-import-button" class="btn btn-primary" type="submit">Create narrative</button>
+			<span id="json-import-status" aria-live="polite"></span>
+		</form>
+		<div class="json-import-help">If the JSON has no subject, you will be asked to select one from Wikidata.</div>
+	</div>
     
     <div id="userDBs"><table id="dataTable"></table></div>
 </div>

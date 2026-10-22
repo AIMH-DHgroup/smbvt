@@ -1,0 +1,614 @@
+.vertical-storymap {
+	--mobile-top-offset: calc(56px + env(safe-area-inset-top, 0px));
+	--mobile-bottom-offset: calc(72px + env(safe-area-inset-bottom, 0px));
+	--mobile-split-height: 50vh;
+	--mobile-full-height: 100vh;
+}
+
+.sectionSlide {height: 100vh !important; overflow-y:auto !important}
+
+body{overflow: hidden !important}
+
+.sectionTitle{margin-bottom:8%;text-align:center; color: #1c1c1c}
+.sectionTitle{font-size:2.1rem !important}
+.sectionImage{max-width:90%; margin-bottom:1%}
+.sectionImageCaption{width:100%; text-align:center; display:inline-block}
+
+.sectionDescription{font-size:16px !important}
+
+.eventSlide .tl-entities a,
+.eventSlide .digObjList a,
+.contentSlideFullscreen .tl-entities a,
+.contentSlideFullscreen .digObjList a {
+	background-color: white !important;
+	font-size: 90% !important;
+}
+
+.imgContent{text-align:center; width:100%; display: block;}
+
+.storymap-legend{background: rgba(255, 255, 255, 1);}
+.viewing{opacity:1}
+
+.storymap-legend{width:12vw !important}
+
+.zoomIn {
+width: 8%;
+    margin-left: auto;
+    margin-right: auto;
+    color: black !important;
+    border: 3px solid black;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 25px;
+}
+
+.storymap-scroll-top{cursor: pointer;
+    z-index: 1001;
+    font-size: 4vw !important;
+    text-shadow: 0 1px 1px rgba(197, 197, 197, 0.95);}
+
+.zoomIn:hover{background-color: rgba(0, 0, 0, 0.4);}
+
+.zindexTop{z-index: 1000 !important}
+
+.dropbtn {
+  background-color: rgb(240, 240, 240);
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  width: 100%;
+}
+
+.otherVisual {
+  position: absolute;
+  display: inline-block;
+  right: 0px;
+  top: 0px;
+  font-size: 1.5em;
+  border: 1px solid black;
+  min-width:15%
+}
+
+.otherNarratives{
+  position: absolute;
+  display: inline-block;
+  left: 0px;
+  top: 0px;
+  width:15%;
+  border: 1px solid black
+}
+
+.otherVisual-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 20;
+}
+
+.otherVisual-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.otherVisual-content a:hover {background-color: #ddd;}
+
+.otherVisual:hover .otherVisual-content {display: block;}
+
+.otherVisual:hover .dropbtn {background-color: #ddd;}	
+
+.api-frame {position: fixed;
+z-index:3;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 0;
+    min-height: 100%;
+    min-width: 100%;
+    display: block; }
+
+.sketchfab-embed-wrapper{position:relative; display:none; z-index:901}
+
+.threeDModel{
+    position: relative;
+	top: 50px;
+	max-height: 85vh;
+    overflow-y: auto;
+	background: rgba(0, 0, 0, 0.5);
+	padding-left: 15px;
+    padding-right: 15px;
+	}
+
+.threeDModel iframe{width:100% !important}
+
+.threeDModelSection{
+	background: transparent ;
+	box-shadow: none ;
+	width: 100%;
+}
+
+.threeDModel h2{
+	color: rgba(255, 255, 255, 0.95);
+	font-size:2.1rem !important
+}
+
+.threeDModel p{color: rgba(255, 255, 255, 0.95);}
+
+.geoMapSlide .sectionTitle {
+	color: rgba(255, 255, 255, 0.95);
+}
+
+.geoMapSlide .sectionDescription {
+	color: rgba(255, 255, 255, 0.95);
+}
+
+.contentSlideFullscreen{ 
+height: 80vh;
+    width: 50vw;
+    overflow-x: auto;
+	color: rgba(255, 255, 255, 0.95) !important;
+}
+.contentSlideFullscreen h1 {margin-top: 0px !important; font-size: 2.1rem !important;}
+.contentSlideFullscreen p {font-size: 16px !important}
+
+.backgroundSlide {
+	background-color: rgba(0, 0, 0, 0.7);
+}
+
+.backgroundSlideLayout {
+	display: flex;
+	align-items: center;
+}
+
+.backgroundSlideLayout--start {
+	justify-content: flex-start !important;
+}
+
+.backgroundSlideLayout--center {
+	justify-content: center !important;
+}
+
+.backgroundSlideContent {
+	color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.backgroundSlideContent--overlay {
+	max-height: 80vh !important;
+	position: absolute !important;
+	background: rgba(0, 0, 0, 0.5) !important;
+	top: 50px !important;
+	padding-top: 20px !important;
+	height: auto !important;
+}
+
+.backgroundSlideTitle {
+	white-space: normal !important;
+	color: rgba(255, 255, 255, 0.95) !important;
+	text-shadow: 0 0 black;
+}
+
+.backgroundSlideText {
+	color: rgba(255, 255, 255, 0.95) !important;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+.geoMapSlide iframe{width:100%}
+
+.credits3d {
+	border-radius: 15px;
+	display: none;
+	position: absolute;
+	min-width: 180px;
+	height: 32px;
+	margin: 0;
+	border: 1px solid black;
+	padding: 0 8px;
+	background: rgba(225, 225, 225, 1);
+	pointer-events: auto;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+}
+
+.credits3d a {
+	color: #111;
+	text-decoration: none;
+}
+
+.controlsDown {
+    display: flex;
+    justify-content: space-between;
+    min-width: 0;
+    padding: 10px;
+    pointer-events: none;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1002;
+    height: 52px;
+}
+
+.controlsUp {
+    display: none;
+    justify-content: space-between;
+    min-width: 0;
+    padding: 10px;
+    pointer-events: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+    left: 0;
+    z-index: 1002;
+    height: 52px;
+}
+
+.hotspot-controls {
+	display: flex;
+	border:2px solid black;
+    position: relative;
+    flex: 0 1 auto;
+    width: 281px;
+    height: 32px;
+    margin-left: auto;
+    pointer-events: all;
+    font-size: 13px;
+    color: #fff;
+    color: var(--color-neutral-0, #fff);
+    background: rgba(225, 225, 225, 1);
+    border-radius: 16px;
+}
+
+.storymap-scroll-down1-container{
+	display: flex;
+	border:0px;
+    position: relative;
+	margin:0px;
+	padding:0px;
+    flex: 0 1 auto;
+    width: 281px;
+    height: 32px;
+    margin-left: auto;
+    pointer-events: all;
+    font-size: 13px;
+    color: #fff;
+    color: var(--color-neutral-0, #fff);
+    background: rgba(225, 225, 225, 1);
+    border-radius: 16px;
+}
+
+.general-controls {
+    display: flex !important;
+    flex-flow: row nowrap !important;
+    justify-content: flex-end;
+    flex: 0 0 auto;
+    font-size: 13px;
+    pointer-events: none;
+    align-items: center;
+    margin-left: auto;
+    -moz-column-gap: 4px;
+    column-gap: 4px;
+}
+
+.hotspot-name {
+    padding: 0 10px;
+    overflow: hidden;
+    line-height: 30px;
+    text-align: center;
+    text-overflow: ellipsis;
+    text-shadow: 0 0 10px #000;
+    white-space: nowrap;
+    cursor: pointer;
+    flex: 1;
+	color:black;
+	font-size:20px
+}
+
+.hotspot-controls:hover{  box-shadow: inset 0 0 10px 0 rgba(0,0,0,0.7);}
+
+.control {
+	position:absolute;
+    width: 32px;
+    height: 32px;
+    margin: 0;
+	border: 0;
+	padding: 0;
+	}
+
+#arrowUp,
+#arrowDown{display:none !important}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.4);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0,0,0,0.6);
+}
+
+#hideAll {
+   position: fixed;
+   left: 0px; 
+   right: 0px; 
+   top: 0px; 
+   bottom: 0px; 
+   background-color: white;
+   z-index: 99999;
+ }
+
+#hideAll img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width:100%;
+  width:8%
+ }
+
+#storymap {
+	visibility: hidden;
+}
+
+#titleSlide {
+	white-space: normal !important;
+	color: rgba(255, 255, 255, 0.95) !important;
+	text-shadow: 0 0 BLACK;
+}
+
+#subTitleSlide,
+.fullscreen small {
+	color: rgba(255, 255, 255, 0.95);
+	font-size:100% !important;
+}
+
+@media only screen and (max-width: 575px) {
+	.vertical-storymap {
+		--mobile-split-height: 50svh;
+		--mobile-full-height: 100svh;
+	}
+
+	.storymap-legend,
+	.leaflet-control-minimap,
+	.leaflet-control-zoom,
+	.credits3d,
+	.storymap-attribution {
+		display:none !important;
+	}
+
+	.sectionSlide img {opacity:0.7 !important;}
+	.geoMapSlide p,
+	.geoMapSlide h2,
+	.geoMapSlide h5,
+	.threeDModel h2,
+	.threeDModel p {
+		color:black !important;
+	}
+
+	.sectionSlide {
+		height: var(--mobile-split-height) !important;
+		min-height: var(--mobile-split-height) !important;
+		margin: 0 !important;
+		padding-bottom: var(--mobile-bottom-offset);
+		background-color: white !important;
+	}
+
+	#scene1.sectionSlide,
+	.eventSlide--background {
+		height: var(--mobile-full-height) !important;
+		min-height: var(--mobile-full-height) !important;
+		padding-bottom: 0 !important;
+		overflow: hidden !important;
+	}
+
+	#scene1 .fullscreen,
+	.eventSlide--background .fullscreen2 {
+		min-height: var(--mobile-full-height);
+		height: var(--mobile-full-height);
+	}
+
+	#storymap,
+	.row,
+	.storymap-story,
+	.storymap-map {
+		padding-right: 0 !important;
+		padding-left: 0 !important;
+		margin: 0 !important;
+	}
+
+	.storymap-story {
+		padding-right: 0 !important;
+		padding-left: 0 !important;
+	}
+
+	.storymap-map,
+	.api-frame {
+		top: auto !important;
+		height: var(--mobile-split-height) !important;
+		min-height: var(--mobile-split-height) !important;
+	}
+
+	.geoMapSlide,
+	.threeDModelSection {
+		height: var(--mobile-split-height) !important;
+		min-height: var(--mobile-split-height) !important;
+		margin-bottom: 0 !important;
+		padding-top: var(--mobile-top-offset) !important;
+		padding-bottom: var(--mobile-bottom-offset) !important;
+		padding-left: 16px !important;
+		padding-right: 16px !important;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+		overflow-y: auto !important;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	.geoMapSlide .sectionTitle,
+	.threeDModel h2 {
+		font-size: 1.35rem !important;
+		line-height: 1.2;
+		margin-top: 0;
+		margin-bottom: 16px;
+	}
+
+	.geoMapSlide .sectionDescription,
+	.threeDModel p {
+		font-size: 0.95rem !important;
+		line-height: 1.45;
+		margin-bottom: 0;
+	}
+
+	.sectionImage {
+		max-width: 100%;
+		max-height: 22vh;
+		object-fit: contain;
+	}
+
+	.iframeStoryMap,
+	.geoMapSlide iframe,
+	.threeDModel iframe {
+		max-width: 100%;
+	}
+
+	.threeDModel {
+		background-color: white !important;
+		color: #111111 !important;
+		overflow-y: visible !important;
+		max-height: max-content !important;
+		position: relative;
+		top: 0 !important;
+		padding-top: 0 !important;
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		padding-bottom: 24px !important;
+	}
+
+	.threeDModelSection {
+		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2) !important;
+	}
+
+	.backgroundSlideContent,
+	.backgroundSlideTitle,
+	.backgroundSlideText {
+		color: rgba(255, 255, 255, 0.95) !important;
+		text-shadow: 0 0 black !important;
+	}
+
+	.backgroundSlideContent {
+		display: block !important;
+		width: 100vw !important;
+		max-height: calc(var(--mobile-full-height) - var(--mobile-top-offset) - var(--mobile-bottom-offset)) !important;
+		min-height: 0 !important;
+		overflow-y: auto !important;
+		-webkit-overflow-scrolling: touch;
+		padding-top: 24px !important;
+		padding-bottom: 24px !important;
+		padding-left: 20px !important;
+		padding-right: 20px !important;
+		margin-top: var(--mobile-top-offset);
+		margin-bottom: var(--mobile-bottom-offset);
+	}
+
+	.backgroundSlideTitle {
+		font-size: 1.85rem !important;
+		line-height: 1.15;
+		margin-top: 0 !important;
+		margin-bottom: 16px;
+		display: block !important;
+		position: relative;
+		z-index: 1;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+
+	.backgroundSlideText {
+		font-size: 1rem !important;
+		line-height: 1.5;
+		display: block !important;
+		padding-left: 0;
+		padding-right: 0;
+		margin-top: 0;
+	}
+
+	.backgroundSlideContent--overlay {
+		position: relative !important;
+		top: 0 !important;
+		height: auto !important;
+		min-height: auto !important;
+		background: rgba(0, 0, 0, 0.35) !important;
+		border-radius: 12px;
+		padding-top: 24px !important;
+	}
+
+
+	#scene1 .fullscreen,
+	.eventSlide--background .fullscreen2 {
+		display: flex;
+		align-items: stretch;
+		justify-content: center;
+	}
+
+	.geoMapSlide .sectionTitle,
+	.geoMapSlide .sectionDescription,
+	.threeDModel h2,
+	.threeDModel p {
+		color: #111111 !important;
+	}
+
+	.controlsUp,
+	.controlsDown {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	.controlsUp {
+		padding-top: calc(8px + env(safe-area-inset-top, 0px));
+		height: auto;
+	}
+
+	.controlsDown {
+		padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+		height: auto;
+	}
+
+	.hotspot-controls,
+	.storymap-scroll-down1-container {
+		width: min(240px, calc(100vw - 20px));
+	}
+
+	.hotspot-name {
+		font-size: 18px;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.geoMapSlide,
+	.threeDModelSection {
+		padding-top: var(--mobile-top-offset) !important;
+	}
+
+	.contentSlideFullscreen,
+	.backgroundSlideContent {
+		width:100vw !important;
+	}
+}
+
+@supports (height: 100dvh) {
+	@media only screen and (max-width: 575px) {
+		.vertical-storymap {
+			--mobile-split-height: 50dvh;
+			--mobile-full-height: 100dvh;
+		}
+	}
+}

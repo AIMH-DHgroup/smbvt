@@ -1,31 +1,22 @@
-
 <?php
-//DB POSTGRES
+
+require('api_helpers.php');
+ensure_session_started();
 require('PgConn.php');
 
-	
-	$dbname= $_POST['subject'];
-	$dbuser= $_POST['user'];
-	$dbIdNarra = $_POST['id'];
-	$msg="deleted narration: " . $dbIdNarra . $dbuser . $dbname;
+$context = resolve_narrative_context_from_request(array(
+	'method' => 'POST',
+	'id_keys' => array('id', 'idNarra', 'dbIdNarra'),
+	'subject_keys' => array('subject', 'subjectId'),
+));
+$dbIdNarra = $context['idNarration'];
+$tableName = $context['tableName'];
+$message = 'deleted narration: ' . $tableName;
 
+$result = pg_query_or_fail("DROP TABLE IF EXISTS \"$tableName\"");
+pg_free_result($result);
 
+$result = pg_query_or_fail('DELETE FROM narrations WHERE id = ' . (int) $dbIdNarra);
+pg_free_result($result);
 
-
-
-	$sql= "DROP TABLE \"".$dbIdNarra.$dbuser."-".$dbname."\"";
-	$result = pg_query($sql) or die('Error message: ' . pg_last_error());
-	$rows = pg_num_rows($result);
-	
-	$sql= "DELETE FROM narrations WHERE id = " . $dbIdNarra;
-	$result = pg_query($sql) or die('Error message: ' . pg_last_error());
-	$rows = pg_num_rows($result);
-
-
-	
-
-		// array json
-		$arrayJson= array( "msg" => $msg);	
-		$data= json_encode($arrayJson);
-		echo $data;
-?>
+json_response(array('msg' => $message));

@@ -1,76 +1,61 @@
-
 <?php
-//DB POSTGRES
+
+require('api_helpers.php');
+ensure_session_started();
 require('PgConn.php');
 
+if (get_param('dbusername') !== null) {
+	$context = resolve_narrative_context_from_request(array(
+		'method' => 'GET',
+		'id_keys' => array('idNarra'),
+		'subject_keys' => array('subjectId', 'subject'),
+	));
+	$idNarra = $context['idNarration'];
+	$firstTitle = get_param('firstTitle', '');
+	$tableName = $context['tableName'];
 
-if(isset($_GET['dbusername'])){
-	
-	// GET TITLE NARRATION IN "A1 -> name"
-	
-	$dbName= $_GET['dbusername'];
-	$idNarra= $_GET['idNarra'];
-	$firstTitleSubjNarration= $_GET['firstTitle'];
-
-	$sql= "SELECT value::jsonb->>'name' as titlejs FROM \"".$idNarra.$dbName."\" where id = 'A1'";
-	$result = pg_query($sql) or die('Error message: ' . pg_last_error());
-
-
-	while ($row=pg_fetch_assoc($result)) {
+	$result = pg_query_or_fail("SELECT value::jsonb->>'name' as titlejs FROM \"$tableName\" where id = 'A1'");
+	$title = '';
+	while ($row = pg_fetch_assoc($result)) {
 		$title = $row['titlejs'];
 	}
 	pg_free_result($result);
 
-	
-	//Update title in narrations table (first time is ""; so it will be title of sibject narration)
-	
-	if($title == ""){
-		$sql="UPDATE \"".$idNarra.$dbName."\" SET value= jsonb_set(value, '{name}', '\"$firstTitleSubjNarration\"') where id='A1'"; //update A1.info in db
-		$result = pg_query($sql) or die('Error message: ' . pg_last_error());
+	if ($title === '') {
+		$escapedFirstTitle = pg_escape_string($firstTitle);
+		$updateA1 = "UPDATE \"$tableName\" SET value= jsonb_set(value, '{name}', '\"$escapedFirstTitle\"') where id='A1'";
+		$result = pg_query_or_fail($updateA1);
 		pg_free_result($result);
-		
-		$sql= "UPDATE narrations SET title='$firstTitleSubjNarration' where id= $idNarra"; //update title in narrations table
-	
-	} else {$sql= "UPDATE narrations SET title='".pg_escape_string($title)."' where id= $idNarra";}
-	
-	$result = pg_query($sql) or die('Error message: ' . pg_last_error());
-	pg_free_result($result);
-	
-	
-	// array json
-	$arrayJson= array( "title" => $title);		
-	$data= json_encode($arrayJson);
-	echo $data;
 
-} else if (isset($_POST['dbusername'])){
+		$updateNarration = "UPDATE narrations SET title='" . $escapedFirstTitle . "' where id= " . (int) $idNarra;
+		$result = pg_query_or_fail($updateNarration);
+		pg_free_result($result);
+	} else {
+		$updateNarration = "UPDATE narrations SET title='" . pg_escape_string($title) . "' where id= " . (int) $idNarra;
+		$result = pg_query_or_fail($updateNarration);
+		pg_free_result($result);
+	}
 
-	//UPDATE TITLE NARRATION IN "A1 -> name"
-	
-	$idNarra= $_POST['idNarra'];
-	$dbName= $_POST['dbusername'];
-	$newTitle= json_encode(pg_escape_string($_POST['newtitle']));
-	
-	$sql= "UPDATE \"".$idNarra.$dbName."\" SET value= jsonb_set(value, '{name}', '$newTitle') WHERE id = 'A1'";
-	$result = pg_query($sql) or die('Error message: ' . pg_last_error());
-	pg_free_result($result);
-
-	//Update title in narrations table
-	$sql= "UPDATE narrations SET title='$newTitle' where id= $idNarra";
-	$result = pg_query($sql) or die('Error message: ' . pg_last_error());
-
-	pg_free_result($result);
-	
-	
-	
-	
-	
-	// array json
-	$arrayJson= array( "msg" => "ok");		
-	$data= json_encode($arrayJson);
-	echo $data;
-
+	json_response(array('title' => $title));
 }
 
+if (post_param('dbusername') !== null) {
+	$context = resolve_narrative_context_from_request(array(
+		'method' => 'POST',
+		'id_keys' => array('idNarra'),
+		'subject_keys' => array('subjectId', 'subject'),
+	));
+	$idNarra = $context['idNarration'];
+	$newTitle = post_param('newtitle', '');
+	$tableName = $context['tableName'];
+	$encodedTitle = json_encode(pg_escape_string($newTitle));
+	$plainTitle = pg_escape_string($newTitle);
 
+	$result = pg_query_or_fail("UPDATE \"$tableName\" SET value= jsonb_set(value, '{name}', '$encodedTitle') WHERE id = 'A1'");
+	pg_free_result($result);
 
-?>
+	$result = pg_query_or_fail("UPDATE narrations SET title='$plainTitle' where id= " . (int) $idNarra);
+	pg_free_result($result);
+
+	json_response(array('msg' => 'ok'));
+}
