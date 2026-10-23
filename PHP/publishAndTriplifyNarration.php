@@ -18,7 +18,7 @@ $baseUrl = post_param('baseURL', '');
 
 $tableName = $context['tableName'];
 $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
-$triplifyRoot = realpath(__DIR__ . '/../Triplify');
+$triplifyRoot = realpath('/opt/smbvt');
 
 $events = fetch_narrative_events_map($tableName);
 $entities = fetch_narrative_entities_map($tableName);
@@ -33,7 +33,7 @@ if (isset($_SESSION['Demon_on'])) {
 	$datasetName = 'moving';
 	$storageSubdir = 'moving';
 } else {
-	$datasetFs = 'https://tool.dlnarratives.eu/fuseki/narratives';
+	$datasetFs = 'http://127.0.0.1:3030/narratives';
 	$datasetName = 'narratives';
 	$storageSubdir = 'narratives';
 }
@@ -55,17 +55,21 @@ chmod($jsonPath, 0777);
 $output = array();
 $retval = null;
 if ($triplifyRoot !== false) {
-	$command = 'java -jar ' . escapeshellarg($triplifyRoot . DIRECTORY_SEPARATOR . 'triplify.jar') . ' ' .
-		escapeshellarg($jsonPath) . ' ' .
-		escapeshellarg($owlPath) . ' ' .
-		escapeshellarg($datasetFs) . ' 2>&1';
-	exec($command, $output, $retval);
-	if (file_exists($owlPath)) {
-		chmod($owlPath, 0777);
-	}
+    $command = 'cd ' . escapeshellarg($triplifyRoot) . ' && ' .
+            'java -Xmx512m -cp ' .
+            escapeshellarg($triplifyRoot . ':' . $triplifyRoot . '/triplify.jar') .
+            ' narra.triplifier.Triplify ' .
+            escapeshellarg($jsonPath) . ' ' .
+            escapeshellarg($owlPath) . ' ' .
+            escapeshellarg($datasetFs) . ' 2>&1';
+
+    exec($command, $output, $retval);
+    if (file_exists($owlPath)) {
+        chmod($owlPath, 0777);
+    }
 } else {
-	$output[] = 'Triplify directory not found';
-	$retval = 1;
+    $output[] = 'Triplify directory not found';
+    $retval = 1;
 }
 
 $storyBaseDir = ensure_directory(app_root_path() . DIRECTORY_SEPARATOR . 'storymaps' . DIRECTORY_SEPARATOR . $user);
